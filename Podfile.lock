@@ -20,6 +20,7 @@ PODS:
   - AFNetworking/UIKit (2.6.3):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
+  - Aspects (1.4.1)
   - CYLTabBarController (1.6.0)
   - JSONModel (1.0.2)
   - JSPatch (1.1):
@@ -46,6 +47,7 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking (~> 2.6.0)
+  - Aspects
   - CYLTabBarController
   - JSONModel (~> 1.0.1)
   - JSPatch
@@ -57,6 +59,7 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
+  Aspects: 7595ba96a6727a58ebcbfc954497fc5d2fdde546
   CYLTabBarController: efbdd574772be17f17965acd7ee993f5972ff02f
   JSONModel: 6ffcb4ffa3659c9e9a2e5d45d6c7705bab187c03
   JSPatch: ade285ad1d8f06146ed6054a39cef87509453299

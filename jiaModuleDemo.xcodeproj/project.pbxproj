@@ -25,6 +25,7 @@
 		347BB0071D87EBB700D12F0B /* ProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 347BB0061D87EBB700D12F0B /* ProjectViewController.m */; };
 		347BB00A1D87EBD800D12F0B /* UserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 347BB0091D87EBD800D12F0B /* UserViewController.m */; };
 		347BB00D1D87EBEF00D12F0B /* DesignerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 347BB00C1D87EBEF00D12F0B /* DesignerViewController.m */; };
+		34F1A3841D88E9C400931645 /* jiaBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34F1A3831D88E9C400931645 /* jiaBaseViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,8 @@
 		347BB00B1D87EBEF00D12F0B /* DesignerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesignerViewController.h; sourceTree = "<group>"; };
 		347BB00C1D87EBEF00D12F0B /* DesignerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesignerViewController.m; sourceTree = "<group>"; };
 		34F1A3811D88E00100931645 /* HeaderDesignerConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HeaderDesignerConfig.h; sourceTree = "<group>"; };
+		34F1A3821D88E9C400931645 /* jiaBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = jiaBaseViewController.h; sourceTree = "<group>"; };
+		34F1A3831D88E9C400931645 /* jiaBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = jiaBaseViewController.m; sourceTree = "<group>"; };
 		6109480D64D9F6F4E2BC07CB /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		824044CE8FBFAABF378217B6 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		CB0B006C172C1CEDD518B1F6 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -241,6 +244,8 @@
 		347BAFDA1D87E6DB00D12F0B /* JiaCore */ = {
 			isa = PBXGroup;
 			children = (
+				34F1A3821D88E9C400931645 /* jiaBaseViewController.h */,
+				34F1A3831D88E9C400931645 /* jiaBaseViewController.m */,
 			);
 			path = JiaCore;
 			sourceTree = "<group>";
@@ -642,6 +647,7 @@
 				347BAFFE1D87EB4900D12F0B /* Target_Designer.m in Sources */,
 				347BAFFB1D87EB1C00D12F0B /* JiaMediator+ProjectModuleActions.m in Sources */,
 				347BAFA51D87E30200D12F0B /* AppDelegate.m in Sources */,
+				34F1A3841D88E9C400931645 /* jiaBaseViewController.m in Sources */,
 				347BAFF81D87EB0500D12F0B /* JiaMediator+UserModuleActions.m in Sources */,
 				347BB0011D87EB5D00D12F0B /* Target_User.m in Sources */,
 				347BB00A1D87EBD800D12F0B /* UserViewController.m in Sources */,
