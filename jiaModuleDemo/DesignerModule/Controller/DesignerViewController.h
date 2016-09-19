@@ -7,13 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "jiaBaseViewController.h"
+#import "HeaderDesignerConfig.h"
 
-@interface DesignerViewController : UIViewController
-
-@property(nonatomic,strong)UILabel *myDesignerLabel;
-
-@property(nonatomic,strong)UILabel *myDesignIDLabel;
-
-@property(nonatomic,strong)UIImageView *myDesignImageView;
+@interface DesignerViewController : jiaBaseViewController
 
 @end

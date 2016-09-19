@@ -15,32 +15,8 @@ typedef void (^JiaUrlRouterCallbackBlock)(NSDictionary *info);
 
 - (UIViewController *)Action_nativeFetchDetailViewController:(NSDictionary *)params
 {
-    DesignerViewController *viewController=[[DesignerViewController alloc]init];
-    viewController.myDesignerLabel.text=params[@"name"];
-    viewController.myDesignIDLabel.text=params[@"ID"];
-    viewController.myDesignImageView.image=params[@"image"];
+    DesignerViewController *viewController=[[DesignerViewController alloc]initWithRouterParams:params];
     return viewController;
-}
-
-- (id)Action_nativePresentImage:(NSDictionary *)params
-{
-    DesignerViewController *viewController=[[DesignerViewController alloc]init];
-    viewController.myDesignerLabel.text=params[@"name"];
-    viewController.myDesignIDLabel.text=params[@"ID"];
-    viewController.myDesignImageView.image=params[@"image"];
-    [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:viewController animated:YES completion:nil];
-    return nil;
-}
-
-
-- (id)Action_nativeNoImage:(NSDictionary *)params
-{
-    DesignerViewController *viewController=[[DesignerViewController alloc]init];
-    viewController.myDesignerLabel.text=@"当前没有图标";
-    viewController.myDesignIDLabel.text=params[@"ID"];
-    viewController.myDesignImageView.image=params[@"image"];
-    [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:viewController animated:YES completion:nil];
-    return nil;
 }
 
 @end

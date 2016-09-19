@@ -11,8 +11,6 @@
 //模块的常量
 NSString * const kJiaMediatorTargetA = @"Designer";
 NSString * const kJiaMediatorActionNativFetchDetailViewController = @"nativeFetchDetailViewController";
-NSString * const kJiaMediatorActionNativePresentImage = @"nativePresentImage";
-NSString * const kJiaMediatorActionNativeNoImage = @"nativeNoImage";
 
 
 @implementation JiaMediator (DesignerModuleActions)
@@ -36,18 +34,5 @@ NSString * const kJiaMediatorActionNativeNoImage = @"nativeNoImage";
     }
 }
 
-- (void)JiaMediator_Designer_presentImage:(UIImage *)image
-{
-    if (image) {
-        [self performTarget:kJiaMediatorTargetA
-                     action:kJiaMediatorActionNativePresentImage
-                     params:@{kDesignerModuleActionsDictionaryKeyImage:image}];
-    } else {
-        // 这里处理image为nil的场景
-        [self performTarget:kJiaMediatorTargetA
-                     action:kJiaMediatorActionNativeNoImage
-                     params:@{kDesignerModuleActionsDictionaryKeyImage:[UIImage imageNamed:@"noImage"]}];
-    }
-}
 
 @end

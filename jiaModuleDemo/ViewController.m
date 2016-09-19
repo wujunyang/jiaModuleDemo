@@ -90,7 +90,7 @@
 didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    NSDictionary *curParams=@{kDesignerModuleActionsDictionaryKeyName:@"wujunyang",kDesignerModuleActionsDictionaryKeyID:@"1001",kDesignerModuleActionsDictionaryKeyImage:[UIImage imageNamed:@"designerImage"]};
+    NSDictionary *curParams=@{kDesignerModuleActionsDictionaryKeyName:@"wujunyang",kDesignerModuleActionsDictionaryKeyID:@"1001",kDesignerModuleActionsDictionaryKeyImage:@"designerImage"};
     switch (indexPath.row) {
         case 0:
         {
@@ -106,12 +106,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
         }
         case 2:
         {
-            [[JiaMediator sharedInstance] JiaMediator_Designer_presentImage:[UIImage imageNamed:@"designerImage"]];
-            break;
-        }
-        case 3:
-        {
-            NSString *curRoue=@"jiaScheme://Designer/nativeFetchDetailViewController?name=wujunyang&ID=1001";
+            NSString *curRoue=@"jiaScheme://Designer/nativeFetchDetailViewController?name=wujunyang&ID=1001&image=designerImage";
             UIViewController *viewController=[[JiaMediator sharedInstance]performActionWithUrl:[NSURL URLWithString:curRoue] completion:^(NSDictionary *info) {
                 
             }];
@@ -146,7 +141,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 -(NSArray *)myDataList
 {
     if (_myDataList==nil) {
-        _myDataList=@[@"模态方式弹出",@"导栏方式",@"图片方式",@"路由方式"];
+        _myDataList=@[@"模态方式弹出",@"导栏方式",@"路由方式"];
     }
     return _myDataList;
 }

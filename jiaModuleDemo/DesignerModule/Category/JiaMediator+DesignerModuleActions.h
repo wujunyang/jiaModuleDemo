@@ -17,6 +17,4 @@
 
 - (UIViewController *)JiaMediator_Designer_viewControllerForDetail:(NSDictionary *)params;
 
-- (void)JiaMediator_Designer_presentImage:(UIImage *)image;
-
 @end

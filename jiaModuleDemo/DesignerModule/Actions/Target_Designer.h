@@ -14,8 +14,4 @@
 
 - (UIViewController *)Action_nativeFetchDetailViewController:(NSDictionary *)params;
 
-- (id)Action_nativePresentImage:(NSDictionary *)params;
-
-- (id)Action_nativeNoImage:(NSDictionary *)params;
-
 @end

@@ -11,7 +11,9 @@
 @interface DesignerViewController()
 
 @property (nonatomic, strong) UIButton *returnButton;
-
+@property(nonatomic,strong)UILabel *myDesignerLabel;
+@property(nonatomic,strong)UILabel *myDesignIDLabel;
+@property(nonatomic,strong)UIImageView *myDesignImageView;
 @end
 
 
@@ -23,6 +25,8 @@
     [super viewDidLoad];
     self.view.backgroundColor=[UIColor blueColor];
     [self layoutPageSubviews];
+    
+    NSLog(@"当前参数：%@",self.parameterDictionary);
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -88,6 +92,7 @@
         _myDesignerLabel=[[UILabel alloc]init];
         _myDesignerLabel.font=[UIFont systemFontOfSize:13];
         _myDesignerLabel.textColor=[UIColor redColor];
+        _myDesignerLabel.text=self.parameterDictionary[kDesignerModuleActionsDictionaryKeyName];
     }
     return _myDesignerLabel;
 }
@@ -98,6 +103,7 @@
         _myDesignIDLabel=[[UILabel alloc]init];
         _myDesignIDLabel.font=[UIFont systemFontOfSize:14];
         _myDesignIDLabel.textColor=[UIColor whiteColor];
+        _myDesignIDLabel.text=self.parameterDictionary[kDesignerModuleActionsDictionaryKeyID];
     }
     return _myDesignIDLabel;
 }
@@ -106,6 +112,7 @@
 {
     if (_myDesignImageView==nil) {
         _myDesignImageView=[[UIImageView alloc]init];
+        _myDesignImageView.image=[UIImage imageNamed:self.parameterDictionary[kDesignerModuleActionsDictionaryKeyImage]];
     }
     
     return _myDesignImageView;
