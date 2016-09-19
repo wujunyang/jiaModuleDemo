@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0DC796C047BBA513A78E857B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6109480D64D9F6F4E2BC07CB /* libPods.a */; };
+		340C3D781D8FDD8D00E3BACD /* jiaAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 340C3D771D8FDD8D00E3BACD /* jiaAppDelegate.m */; };
 		3471536B1D8F952400BDB632 /* MBProgressHUD+MP.m in Sources */ = {isa = PBXBuildFile; fileRef = 347153691D8F952400BDB632 /* MBProgressHUD+MP.m */; };
 		347153701D8F9E7A00BDB632 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 3471536F1D8F9E7A00BDB632 /* MBProgressHUD.m */; };
 		347153931D8FD24E00BDB632 /* LocalConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 347153781D8FD24E00BDB632 /* LocalConnection.m */; };
@@ -61,6 +62,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		340C3D761D8FDD8D00E3BACD /* jiaAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = jiaAppDelegate.h; sourceTree = "<group>"; };
+		340C3D771D8FDD8D00E3BACD /* jiaAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = jiaAppDelegate.m; sourceTree = "<group>"; };
 		347153681D8F952400BDB632 /* MBProgressHUD+MP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+MP.h"; sourceTree = "<group>"; };
 		347153691D8F952400BDB632 /* MBProgressHUD+MP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+MP.m"; sourceTree = "<group>"; };
 		3471536C1D8F9E4700BDB632 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -161,6 +164,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		340C3D791D8FE48700E3BACD /* JiaGT */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = JiaGT;
+			sourceTree = "<group>";
+		};
 		347153651D8F947100BDB632 /* MBProgressHUD */ = {
 			isa = PBXGroup;
 			children = (
@@ -299,6 +309,7 @@
 		347BAFD31D87E55E00D12F0B /* BaseModule */ = {
 			isa = PBXGroup;
 			children = (
+				340C3D791D8FE48700E3BACD /* JiaGT */,
 				347BAFDA1D87E6DB00D12F0B /* JiaCore */,
 				347BAFD91D87E6BC00D12F0B /* JiaTool */,
 				347BAFD81D87E65A00D12F0B /* JiaConst */,
@@ -362,6 +373,8 @@
 			children = (
 				34F1A3821D88E9C400931645 /* jiaBaseViewController.h */,
 				34F1A3831D88E9C400931645 /* jiaBaseViewController.m */,
+				340C3D761D8FDD8D00E3BACD /* jiaAppDelegate.h */,
+				340C3D771D8FDD8D00E3BACD /* jiaAppDelegate.m */,
 			);
 			path = JiaCore;
 			sourceTree = "<group>";
@@ -765,6 +778,7 @@
 				347BAFFE1D87EB4900D12F0B /* Target_Designer.m in Sources */,
 				347BAFFB1D87EB1C00D12F0B /* JiaMediator+ProjectModuleActions.m in Sources */,
 				3471539F1D8FD24E00BDB632 /* RealReachability.m in Sources */,
+				340C3D781D8FDD8D00E3BACD /* jiaAppDelegate.m in Sources */,
 				347BAFA51D87E30200D12F0B /* AppDelegate.m in Sources */,
 				34F1A3841D88E9C400931645 /* jiaBaseViewController.m in Sources */,
 				3471539A1D8FD24E00BDB632 /* ReachStateWIFI.m in Sources */,
