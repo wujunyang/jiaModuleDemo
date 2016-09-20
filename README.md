@@ -69,7 +69,7 @@ NSDictionary *curParams=@{kDesignerModuleActionsDictionaryKeyName:@"wujunyang",k
 }
 ```
 
-<img src="https://github.com/wujunyang/jiaModuleDemo/blob/master/jiaModuleDemo/ProjectImage/2.png" width=300px height=400px></img>
+<img src="https://github.com/wujunyang/jiaModuleDemo/blob/master/jiaModuleDemo/ProjectImage/2.png" width=500px height=400px></img>
 
 4：当响应某一个模块目标后，将会把相应的viewController进行返回，而对于具体如何操作则是在获得当前控制器自行处理，比如是跳转还是弹出展现；
 
