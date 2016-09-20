@@ -80,6 +80,9 @@
 		346800031D91561200A69723 /* YTKNetworkPrivate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTKNetworkPrivate.m; sourceTree = "<group>"; };
 		346800041D91561200A69723 /* YTKRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTKRequest.h; sourceTree = "<group>"; };
 		346800051D91561200A69723 /* YTKRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTKRequest.m; sourceTree = "<group>"; };
+		346800101D915AA500A69723 /* designerModulePrefixHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = designerModulePrefixHeader.h; sourceTree = "<group>"; };
+		346800111D915B8B00A69723 /* designerModuleMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = designerModuleMacros.h; sourceTree = "<group>"; };
+		346800121D915C4D00A69723 /* jiaMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = jiaMacros.h; sourceTree = "<group>"; };
 		3468FFB21D90CA1A00A69723 /* MBProgressHUD+MP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+MP.h"; sourceTree = "<group>"; };
 		3468FFB31D90CA1A00A69723 /* MBProgressHUD+MP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+MP.m"; sourceTree = "<group>"; };
 		3468FFB41D90CA1A00A69723 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
@@ -456,6 +459,7 @@
 		347BAFD71D87E61200D12F0B /* JiaMacros */ = {
 			isa = PBXGroup;
 			children = (
+				346800121D915C4D00A69723 /* jiaMacros.h */,
 			);
 			path = JiaMacros;
 			sourceTree = "<group>";
@@ -683,6 +687,8 @@
 				34F1A3811D88E00100931645 /* headerDesignerConfig.h */,
 				3468FFEC1D91541A00A69723 /* jiaDesignerConfigManager.h */,
 				3468FFED1D91541A00A69723 /* jiaDesignerConfigManager.m */,
+				346800101D915AA500A69723 /* designerModulePrefixHeader.h */,
+				346800111D915B8B00A69723 /* designerModuleMacros.h */,
 			);
 			path = Other;
 			sourceTree = "<group>";
