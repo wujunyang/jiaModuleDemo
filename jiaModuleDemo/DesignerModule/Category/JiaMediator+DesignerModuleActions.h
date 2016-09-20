@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "JiaMediator.h"
-#import "HeaderDesignerConfig.h"
+#import "headerDesignerConfig.h"
 
 
 @interface JiaMediator (DesignerModuleActions)
