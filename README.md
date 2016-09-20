@@ -5,6 +5,10 @@ jiaModuleDemo项目是为了解决关于项目中如何进行模块化开发而�
 #整体实现效果图
 <img src="https://github.com/wujunyang/jiaModuleDemo/blob/master/jiaModuleDemo/ProjectImage/1.png" width=500px height=400px></img>
 
+```obj-c
+
+```
+
 实现调用代码：
 
 ```obj-c
@@ -43,9 +47,7 @@ NSDictionary *curParams=@{kDesignerModuleActionsDictionaryKeyName:@"wujunyang",k
 
 2：JiaMediator是每个模块都要用到的内容，可以把它放在公共的模块中，因为关于各个模块的JiaMediator由每个模块自个负责，开放给要调用的模块使用；
 
-```obj-c
 
-```
 
 3：为了解耦对于页面间的传参都采用字典形式，项目中所有的页面都继承于一个基页面jiaBaseViewController，里面已经有对初始化对于字典参数的接收并赋值，每个模块的子页面只要调用parameterDictionary属性，就可以获取关于参数的内容；同样jiaBaseViewController也是每个模块都要使用，所以也被提取在公共里面，其还包括一些导栏条的封装及关于网络状态变化的提示等；
 
