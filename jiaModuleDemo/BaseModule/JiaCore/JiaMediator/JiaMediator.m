@@ -29,7 +29,7 @@
 - (id)performActionWithUrl:(NSURL *)url
                 completion:(void (^)(NSDictionary *))completion {
   if (![url.scheme isEqualToString:@"jiaScheme"]) {
-    // 这里就是针对远程app调用404的简单处理了，根据不同app的产品经理要求不同，你们可以在这里自己做需要的逻辑
+    // 这里就是针对远程app调用404的简单处理了
     return @(NO);
   }
 
