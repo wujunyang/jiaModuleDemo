@@ -182,3 +182,8 @@ static NSString * const kDesignerModuleActionsDictionaryKeyImage=@"image";
 上面能够对个推进行完全的解耦不得不提一个第三方的插件XAspect，如果想对它进行了解可以在github进行查找；它的主要作用如下图，可以用它进行其它第三方SDK的抽离
 
 <img src="https://github.com/wujunyang/jiaModuleDemo/blob/master/jiaModuleDemo/ProjectImage/6.png" width=500px height=400px></img>
+
+#模块化结合私有Pods方案
+上面实例中只是把相关模块化的提取都在一个工程进行体现，最后还是要落实结合Pods进行管理，把每个模块分开管理，不同的APP可以简单通过Pods指令就可以达到引入模块的效果，对于一些相同模块可以在不同的APP重复引用，减小重复开发成功；
+
+<img src="https://github.com/wujunyang/jiaModuleDemo/blob/master/jiaModuleDemo/ProjectImage/8.png" width=700px height=500px></img>
