@@ -13,6 +13,6 @@
 + (jiaDesignerConfigManager *)sharedInstance;
 
 //网络请求前缀
-@property (strong, nonatomic) NSString *jiaDesignerNetWorkUrl;
+@property (strong, nonatomic) NSString *prefixNetWorkUrl;
 
 @end

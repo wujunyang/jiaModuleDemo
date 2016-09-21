@@ -22,7 +22,7 @@
     
     //设置模块jiaDesigner相关配置
     jiaDesignerConfigManager *jiaDesignerConfig=[jiaDesignerConfigManager sharedInstance];
-    jiaDesignerConfig.jiaDesignerNetWorkUrl=@"http://private-eda65-blossom.apiary-mock.com/";
+    jiaDesignerConfig.prefixNetWorkUrl=@"http://private.com/";
     
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
