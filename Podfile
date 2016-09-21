@@ -1,6 +1,5 @@
 source 'https://github.com/CocoaPods/Specs.git'
 
-
 platform :ios, "7.0"
 
 pod 'AFNetworking', '~>2.6.0'
@@ -12,3 +11,4 @@ pod 'JSPatch'
 pod 'XAspect'
 pod 'CYLTabBarController'
 pod 'Aspects'
+pod 'GTSDK'

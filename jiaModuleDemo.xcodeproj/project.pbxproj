@@ -233,6 +233,15 @@
 		343EB6A01D922C2C00110CE5 /* UIWebVIew+SwipeGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = 343EB5BD1D922C2B00110CE5 /* UIWebVIew+SwipeGesture.m */; };
 		343EB6A11D922C2C00110CE5 /* WebView+Debug.m in Sources */ = {isa = PBXBuildFile; fileRef = 343EB5BF1D922C2B00110CE5 /* WebView+Debug.m */; };
 		343EB6A21D922C2C00110CE5 /* UIWindow+Hierarchy.m in Sources */ = {isa = PBXBuildFile; fileRef = 343EB5C21D922C2B00110CE5 /* UIWindow+Hierarchy.m */; };
+		343EB6B21D92550300110CE5 /* NSData+APNSToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 343EB6A51D92550300110CE5 /* NSData+APNSToken.m */; };
+		343EB6B31D92550300110CE5 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 343EB6A71D92550300110CE5 /* NSData+Base64.m */; };
+		343EB6B41D92550300110CE5 /* NSData+Encrypt.m in Sources */ = {isa = PBXBuildFile; fileRef = 343EB6A91D92550300110CE5 /* NSData+Encrypt.m */; };
+		343EB6B61D92550300110CE5 /* NSData+Hash.m in Sources */ = {isa = PBXBuildFile; fileRef = 343EB6AD1D92550300110CE5 /* NSData+Hash.m */; };
+		343EB6B71D92550300110CE5 /* NSData+SDDataCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 343EB6AF1D92550300110CE5 /* NSData+SDDataCache.m */; };
+		343EB6B81D92550300110CE5 /* NSData+zlib.m in Sources */ = {isa = PBXBuildFile; fileRef = 343EB6B11D92550300110CE5 /* NSData+zlib.m */; };
+		343EB6BE1D92568700110CE5 /* jiaAppDelegate+myGt.m in Sources */ = {isa = PBXBuildFile; fileRef = 343EB6BA1D92568700110CE5 /* jiaAppDelegate+myGt.m */; };
+		343EB6BF1D92568700110CE5 /* jiaGTConfigManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 343EB6BC1D92568700110CE5 /* jiaGTConfigManager.m */; };
+		343EB6C01D92568700110CE5 /* XAspect-GeTuiAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 343EB6BD1D92568700110CE5 /* XAspect-GeTuiAppDelegate.m */; };
 		3468FFD41D90CA1A00A69723 /* MBProgressHUD+MP.m in Sources */ = {isa = PBXBuildFile; fileRef = 3468FFB31D90CA1A00A69723 /* MBProgressHUD+MP.m */; };
 		3468FFD51D90CA1A00A69723 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 3468FFB51D90CA1A00A69723 /* MBProgressHUD.m */; };
 		3468FFD61D90CA1A00A69723 /* LocalConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 3468FFB91D90CA1A00A69723 /* LocalConnection.m */; };
@@ -736,6 +745,23 @@
 		343EB5BF1D922C2B00110CE5 /* WebView+Debug.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "WebView+Debug.m"; sourceTree = "<group>"; };
 		343EB5C11D922C2B00110CE5 /* UIWindow+Hierarchy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+Hierarchy.h"; sourceTree = "<group>"; };
 		343EB5C21D922C2B00110CE5 /* UIWindow+Hierarchy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+Hierarchy.m"; sourceTree = "<group>"; };
+		343EB6A41D92550300110CE5 /* NSData+APNSToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+APNSToken.h"; sourceTree = "<group>"; };
+		343EB6A51D92550300110CE5 /* NSData+APNSToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+APNSToken.m"; sourceTree = "<group>"; };
+		343EB6A61D92550300110CE5 /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
+		343EB6A71D92550300110CE5 /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64.m"; sourceTree = "<group>"; };
+		343EB6A81D92550300110CE5 /* NSData+Encrypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Encrypt.h"; sourceTree = "<group>"; };
+		343EB6A91D92550300110CE5 /* NSData+Encrypt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Encrypt.m"; sourceTree = "<group>"; };
+		343EB6AC1D92550300110CE5 /* NSData+Hash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Hash.h"; sourceTree = "<group>"; };
+		343EB6AD1D92550300110CE5 /* NSData+Hash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Hash.m"; sourceTree = "<group>"; };
+		343EB6AE1D92550300110CE5 /* NSData+SDDataCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+SDDataCache.h"; sourceTree = "<group>"; };
+		343EB6AF1D92550300110CE5 /* NSData+SDDataCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+SDDataCache.m"; sourceTree = "<group>"; };
+		343EB6B01D92550300110CE5 /* NSData+zlib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+zlib.h"; sourceTree = "<group>"; };
+		343EB6B11D92550300110CE5 /* NSData+zlib.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+zlib.m"; sourceTree = "<group>"; };
+		343EB6B91D92568700110CE5 /* jiaAppDelegate+myGt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "jiaAppDelegate+myGt.h"; sourceTree = "<group>"; };
+		343EB6BA1D92568700110CE5 /* jiaAppDelegate+myGt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "jiaAppDelegate+myGt.m"; sourceTree = "<group>"; };
+		343EB6BB1D92568700110CE5 /* jiaGTConfigManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = jiaGTConfigManager.h; sourceTree = "<group>"; };
+		343EB6BC1D92568700110CE5 /* jiaGTConfigManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = jiaGTConfigManager.m; sourceTree = "<group>"; };
+		343EB6BD1D92568700110CE5 /* XAspect-GeTuiAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "XAspect-GeTuiAppDelegate.m"; sourceTree = "<group>"; };
 		346800101D915AA500A69723 /* designerModulePrefixHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = designerModulePrefixHeader.h; sourceTree = "<group>"; };
 		346800111D915B8B00A69723 /* designerModuleMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = designerModuleMacros.h; sourceTree = "<group>"; };
 		346800121D915C4D00A69723 /* jiaMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = jiaMacros.h; sourceTree = "<group>"; };
@@ -840,6 +866,11 @@
 		340C3D791D8FE48700E3BACD /* JiaGT */ = {
 			isa = PBXGroup;
 			children = (
+				343EB6B91D92568700110CE5 /* jiaAppDelegate+myGt.h */,
+				343EB6BA1D92568700110CE5 /* jiaAppDelegate+myGt.m */,
+				343EB6BB1D92568700110CE5 /* jiaGTConfigManager.h */,
+				343EB6BC1D92568700110CE5 /* jiaGTConfigManager.m */,
+				343EB6BD1D92568700110CE5 /* XAspect-GeTuiAppDelegate.m */,
 			);
 			path = JiaGT;
 			sourceTree = "<group>";
@@ -897,6 +928,7 @@
 		343EB3D91D922C2B00110CE5 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
+				343EB6A31D92550300110CE5 /* NSData */,
 				343EB3DA1D922C2B00110CE5 /* NSArray */,
 				343EB3DF1D922C2B00110CE5 /* NSBundle */,
 				343EB3F11D922C2B00110CE5 /* NSDate */,
@@ -1799,6 +1831,25 @@
 			path = UIWindow;
 			sourceTree = "<group>";
 		};
+		343EB6A31D92550300110CE5 /* NSData */ = {
+			isa = PBXGroup;
+			children = (
+				343EB6A41D92550300110CE5 /* NSData+APNSToken.h */,
+				343EB6A51D92550300110CE5 /* NSData+APNSToken.m */,
+				343EB6A61D92550300110CE5 /* NSData+Base64.h */,
+				343EB6A71D92550300110CE5 /* NSData+Base64.m */,
+				343EB6A81D92550300110CE5 /* NSData+Encrypt.h */,
+				343EB6A91D92550300110CE5 /* NSData+Encrypt.m */,
+				343EB6AC1D92550300110CE5 /* NSData+Hash.h */,
+				343EB6AD1D92550300110CE5 /* NSData+Hash.m */,
+				343EB6AE1D92550300110CE5 /* NSData+SDDataCache.h */,
+				343EB6AF1D92550300110CE5 /* NSData+SDDataCache.m */,
+				343EB6B01D92550300110CE5 /* NSData+zlib.h */,
+				343EB6B11D92550300110CE5 /* NSData+zlib.m */,
+			);
+			path = NSData;
+			sourceTree = "<group>";
+		};
 		3468FFAF1D90C5D700A69723 /* JiaCoreHelper */ = {
 			isa = PBXGroup;
 			children = (
@@ -2502,11 +2553,13 @@
 				343EB66C1D922C2C00110CE5 /* UIScrollView+APParallaxHeader.m in Sources */,
 				343EB68E1D922C2C00110CE5 /* UIView+ViewController.m in Sources */,
 				343EB6271D922C2C00110CE5 /* UIApplication+KeyboardFrame.m in Sources */,
+				343EB6B21D92550300110CE5 /* NSData+APNSToken.m in Sources */,
 				3468FFD91D90CA1A00A69723 /* ReachState.m in Sources */,
 				343EB6921D922C2C00110CE5 /* UIViewController+BackButtonTouched.m in Sources */,
 				343EB6851D922C2C00110CE5 /* UIView+FDCollapsibleConstraints.m in Sources */,
 				343EB6371D922C2C00110CE5 /* UIColor+Gradient.m in Sources */,
 				343EB5D81D922C2B00110CE5 /* NSDate+Extension.m in Sources */,
+				343EB6B41D92550300110CE5 /* NSData+Encrypt.m in Sources */,
 				343EB6551D922C2C00110CE5 /* UIImageView+FaceAwareFill.m in Sources */,
 				343EB6051D922C2B00110CE5 /* NSString+Encrypt.m in Sources */,
 				343EB6071D922C2B00110CE5 /* NSString+Matcher.m in Sources */,
@@ -2530,6 +2583,8 @@
 				347BB00D1D87EBEF00D12F0B /* DesignerViewController.m in Sources */,
 				347BAFF51D87EAE100D12F0B /* JiaMediator+DesignerModuleActions.m in Sources */,
 				343EB64B1D922C2C00110CE5 /* UIImage+GIF.m in Sources */,
+				343EB6B71D92550300110CE5 /* NSData+SDDataCache.m in Sources */,
+				343EB6B61D92550300110CE5 /* NSData+Hash.m in Sources */,
 				343EB5EA1D922C2B00110CE5 /* NSIndexPath+Offset.m in Sources */,
 				347BAFFE1D87EB4900D12F0B /* Target_Designer.m in Sources */,
 				347BAFFB1D87EB1C00D12F0B /* JiaMediator+ProjectModuleActions.m in Sources */,
@@ -2541,6 +2596,7 @@
 				343EB39C1D92178C00110CE5 /* YTKBaseRequest.m in Sources */,
 				343EB6081D922C2B00110CE5 /* NSString+MIME.m in Sources */,
 				343EB6511D922C2C00110CE5 /* UIImage+RoundedCorner.m in Sources */,
+				343EB6BF1D92568700110CE5 /* jiaGTConfigManager.m in Sources */,
 				343EB39E1D92178C00110CE5 /* YTKBatchRequestAgent.m in Sources */,
 				343EB6471D922C2C00110CE5 /* UIImage+Capture.m in Sources */,
 				343EB5E71D922C2B00110CE5 /* NSFileHandle+readLine.m in Sources */,
@@ -2574,6 +2630,7 @@
 				343EB5EF1D922C2B00110CE5 /* NSDecimalNumber+Extensions.m in Sources */,
 				343EB39F1D92178C00110CE5 /* YTKChainRequest.m in Sources */,
 				343EB64D1D922C2C00110CE5 /* UIImage+Orientation.m in Sources */,
+				343EB6B31D92550300110CE5 /* NSData+Base64.m in Sources */,
 				343EB6681D922C2C00110CE5 /* UIResponder+FirstResponder.m in Sources */,
 				343EB5E91D922C2B00110CE5 /* NSHTTPCookieStorage+FreezeDry.m in Sources */,
 				340C3D781D8FDD8D00E3BACD /* jiaAppDelegate.m in Sources */,
@@ -2595,6 +2652,7 @@
 				343EB6721D922C2C00110CE5 /* UITableView+FDIndexPathHeightCache.m in Sources */,
 				343EB6331D922C2C00110CE5 /* UIButton+Indicator.m in Sources */,
 				343EB66B1D922C2C00110CE5 /* UIScrollView+Addition.m in Sources */,
+				343EB6C01D92568700110CE5 /* XAspect-GeTuiAppDelegate.m in Sources */,
 				343EB5F31D922C2B00110CE5 /* NSObject+AddProperty.m in Sources */,
 				343EB6931D922C2C00110CE5 /* UIViewController+BlockSegue.m in Sources */,
 				343EB62F1D922C2C00110CE5 /* UIBezierPath+Symbol.m in Sources */,
@@ -2649,6 +2707,7 @@
 				343EB62D1D922C2C00110CE5 /* UIBezierPath+LxThroughPointsBezier.m in Sources */,
 				343EB3BB1D922BC900110CE5 /* AppDelegate.m in Sources */,
 				343EB5DB1D922C2B00110CE5 /* NSDate+Reporting.m in Sources */,
+				343EB6B81D92550300110CE5 /* NSData+zlib.m in Sources */,
 				343EB6141D922C2B00110CE5 /* NSTimer+Blocks.m in Sources */,
 				343EB67E1D922C2C00110CE5 /* UITextView+Select.m in Sources */,
 				343EB61F1D922C2C00110CE5 /* CAAnimation+Blocks.m in Sources */,
@@ -2698,6 +2757,7 @@
 				343EB6011D922C2B00110CE5 /* NSString+Base64.m in Sources */,
 				343EB3A01D92178C00110CE5 /* YTKChainRequestAgent.m in Sources */,
 				343EB6881D922C2C00110CE5 /* UIView+GestureCallback.m in Sources */,
+				343EB6BE1D92568700110CE5 /* jiaAppDelegate+myGt.m in Sources */,
 				343EB6191D922C2B00110CE5 /* NSURLRequest+ParamsFromDictionary.m in Sources */,
 				343EB5E51D922C2B00110CE5 /* NSDictionary+XML.m in Sources */,
 				3468FFDE1D90CA1A00A69723 /* ReachStateWWAN.m in Sources */,

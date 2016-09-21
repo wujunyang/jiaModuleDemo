@@ -22,6 +22,7 @@ PODS:
     - AFNetworking/NSURLSession
   - Aspects (1.4.1)
   - CYLTabBarController (1.6.0)
+  - GTSDK (1.5.0)
   - JSONModel (1.0.2)
   - JSPatch (1.1):
     - JSPatch/Core (= 1.1)
@@ -48,6 +49,7 @@ DEPENDENCIES:
   - AFNetworking (~> 2.6.0)
   - Aspects
   - CYLTabBarController
+  - GTSDK
   - JSONModel (~> 1.0.1)
   - JSPatch
   - Masonry (~> 0.6.1)
@@ -59,6 +61,7 @@ SPEC CHECKSUMS:
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
   Aspects: 7595ba96a6727a58ebcbfc954497fc5d2fdde546
   CYLTabBarController: efbdd574772be17f17965acd7ee993f5972ff02f
+  GTSDK: 4380de452178d8ba2a67189f10c6743d0f9536b9
   JSONModel: 6ffcb4ffa3659c9e9a2e5d45d6c7705bab187c03
   JSPatch: ade285ad1d8f06146ed6054a39cef87509453299
   Masonry: 281802d04d787ea2973179ee8bcb50500579ede2
