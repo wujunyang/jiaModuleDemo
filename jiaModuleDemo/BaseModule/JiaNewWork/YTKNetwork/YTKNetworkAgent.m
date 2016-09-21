@@ -1,7 +1,7 @@
 //
 //  YTKNetworkAgent.m
 //
-//  Copyright (c) 2012-2016 YTKNetwork https://github.com/yuantiku
+//  Copyright (c) 2012-2014 YTKNetwork https://github.com/yuantiku
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -24,32 +24,17 @@
 #import "YTKNetworkAgent.h"
 #import "YTKNetworkConfig.h"
 #import "YTKNetworkPrivate.h"
-#import <pthread/pthread.h>
-
-#if __has_include(<AFNetworking/AFNetworking.h>)
-#import <AFNetworking/AFNetworking.h>
-#else
+#import "AFDownloadRequestOperation.h"
 #import "AFNetworking.h"
-#endif
-
-#define Lock() pthread_mutex_lock(&_lock)
-#define Unlock() pthread_mutex_unlock(&_lock)
-
-#define kYTKNetworkIncompleteDownloadFolderName @"Incomplete"
 
 @implementation YTKNetworkAgent {
-    AFHTTPSessionManager *_manager;
+    AFHTTPRequestOperationManager *_manager;
     YTKNetworkConfig *_config;
-    AFJSONResponseSerializer *_jsonResponseSerializer;
-    AFXMLParserResponseSerializer *_xmlParserResponseSerialzier;
-    NSMutableDictionary<NSNumber *, YTKBaseRequest *> *_requestsRecord;
-
-    dispatch_queue_t _processingQueue;
-    pthread_mutex_t _lock;
-    NSIndexSet *_allStatusCodes;
+    NSMutableDictionary<NSString *, YTKBaseRequest *> *_requestsRecord;
+    dispatch_queue_t _requestProcessingQueue;
 }
 
-+ (YTKNetworkAgent *)sharedAgent {
++ (YTKNetworkAgent *)sharedInstance {
     static id sharedInstance = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -61,49 +46,21 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        _config = [YTKNetworkConfig sharedConfig];
-        _manager = [AFHTTPSessionManager manager];
+        _config = [YTKNetworkConfig sharedInstance];
+        _manager = [AFHTTPRequestOperationManager manager];
         _requestsRecord = [NSMutableDictionary dictionary];
-        _processingQueue = dispatch_queue_create("com.yuantiku.networkagent.processing", DISPATCH_QUEUE_CONCURRENT);
-        _allStatusCodes = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(100, 500)];
-        pthread_mutex_init(&_lock, NULL);
-
+        _manager.operationQueue.maxConcurrentOperationCount = 4;
         _manager.securityPolicy = _config.securityPolicy;
-        _manager.responseSerializer = [AFHTTPResponseSerializer serializer];
-        // Take over the status code validation
-        _manager.responseSerializer.acceptableStatusCodes = _allStatusCodes;
-        _manager.completionQueue = _processingQueue;
     }
     return self;
 }
 
-- (AFJSONResponseSerializer *)jsonResponseSerializer {
-    if (!_jsonResponseSerializer) {
-        _jsonResponseSerializer = [AFJSONResponseSerializer serializer];
-        _jsonResponseSerializer.acceptableStatusCodes = _allStatusCodes;
-
-    }
-    return _jsonResponseSerializer;
-}
-
-- (AFXMLParserResponseSerializer *)xmlParserResponseSerialzier {
-    if (!_xmlParserResponseSerialzier) {
-        _xmlParserResponseSerialzier = [AFXMLParserResponseSerializer serializer];
-        _xmlParserResponseSerialzier.acceptableStatusCodes = _allStatusCodes;
-    }
-    return _xmlParserResponseSerialzier;
-}
-
-#pragma mark -
-
 - (NSString *)buildRequestUrl:(YTKBaseRequest *)request {
     NSString *detailUrl = [request requestUrl];
-    NSURL *temp = [NSURL URLWithString:detailUrl];
-    // If detailUrl is valid URL
-    if (temp && temp.host && temp.scheme) {
+    if ([detailUrl hasPrefix:@"http"]) {
         return detailUrl;
     }
-    // Filter URL if needed
+    // filter url
     NSArray *filters = [_config urlFilters];
     for (id<YTKUrlFilterProtocol> f in filters) {
         detailUrl = [f filterUrl:detailUrl withRequest:request];
@@ -123,17 +80,20 @@
             baseUrl = [_config baseUrl];
         }
     }
-    // URL slash compability
-    NSURL *url = [NSURL URLWithString:baseUrl];
-
-    if (baseUrl.length > 0 && ![baseUrl hasSuffix:@"/"]) {
-        url = [url URLByAppendingPathComponent:@""];
-    }
-
-    return [NSURL URLWithString:detailUrl relativeToURL:url].absoluteString;
+    return [NSString stringWithFormat:@"%@%@", baseUrl, detailUrl];
 }
 
-- (AFHTTPRequestSerializer *)requestSerializerForRequest:(YTKBaseRequest *)request {
+- (void)addRequest:(YTKBaseRequest *)request {
+    YTKRequestMethod method = [request requestMethod];
+    NSString *url = [self buildRequestUrl:request];
+    id param = request.requestArgument;
+    
+    NSLog(@"网络请求URL:[%@]",url);
+    NSLog(@"网络请求方式:[%@]", [self showRequtestMethod:method]);
+    NSLog(@"网络请求参数:%@",param);
+    
+    AFConstructingBlock constructingBlock = [request constructingBodyBlock];
+
     AFHTTPRequestSerializer *requestSerializer = nil;
     if (request.requestSerializerType == YTKRequestSerializerTypeHTTP) {
         requestSerializer = [AFHTTPRequestSerializer serializer];
@@ -142,390 +102,271 @@
     }
 
     requestSerializer.timeoutInterval = [request requestTimeoutInterval];
-    requestSerializer.allowsCellularAccess = [request allowsCellularAccess];
 
-    // If api needs server username and password
-    NSArray<NSString *> *authorizationHeaderFieldArray = [request requestAuthorizationHeaderFieldArray];
+    // if api need server username and password
+    NSArray *authorizationHeaderFieldArray = [request requestAuthorizationHeaderFieldArray];
     if (authorizationHeaderFieldArray != nil) {
-        [requestSerializer setAuthorizationHeaderFieldWithUsername:authorizationHeaderFieldArray.firstObject
-                                                          password:authorizationHeaderFieldArray.lastObject];
+        [requestSerializer setAuthorizationHeaderFieldWithUsername:(NSString *)authorizationHeaderFieldArray.firstObject
+                                                          password:(NSString *)authorizationHeaderFieldArray.lastObject];
     }
 
-    // If api needs to add custom value to HTTPHeaderField
-    NSDictionary<NSString *, NSString *> *headerFieldValueDictionary = [request requestHeaderFieldValueDictionary];
+    // if api need add custom value to HTTPHeaderField
+    NSDictionary *headerFieldValueDictionary = [request requestHeaderFieldValueDictionary];
     if (headerFieldValueDictionary != nil) {
-        for (NSString *httpHeaderField in headerFieldValueDictionary.allKeys) {
-            NSString *value = headerFieldValueDictionary[httpHeaderField];
-            [requestSerializer setValue:value forHTTPHeaderField:httpHeaderField];
+        for (id httpHeaderField in headerFieldValueDictionary.allKeys) {
+            id value = headerFieldValueDictionary[httpHeaderField];
+            if ([httpHeaderField isKindOfClass:[NSString class]] && [value isKindOfClass:[NSString class]]) {
+                [requestSerializer setValue:(NSString *)value forHTTPHeaderField:(NSString *)httpHeaderField];
+            } else {
+                YTKLog(@"Error, class of key/value in headerFieldValueDictionary should be NSString.");
+            }
         }
     }
-    return requestSerializer;
-}
-
-- (NSURLSessionTask *)sessionTaskForRequest:(YTKBaseRequest *)request error:(NSError * _Nullable __autoreleasing *)error {
-    YTKRequestMethod method = [request requestMethod];
-    NSString *url = [self buildRequestUrl:request];
-    id param = request.requestArgument;
-    AFConstructingBlock constructingBlock = [request constructingBodyBlock];
-    AFHTTPRequestSerializer *requestSerializer = [self requestSerializerForRequest:request];
-
-    switch (method) {
-        case YTKRequestMethodGET:
-            if (request.resumableDownloadPath) {
-                return [self downloadTaskWithDownloadPath:request.resumableDownloadPath requestSerializer:requestSerializer URLString:url parameters:param progress:request.resumableDownloadProgressBlock error:error];
-            } else {
-                return [self dataTaskWithHTTPMethod:@"GET" requestSerializer:requestSerializer URLString:url parameters:param error:error];
-            }
-        case YTKRequestMethodPOST:
-            return [self dataTaskWithHTTPMethod:@"POST" requestSerializer:requestSerializer URLString:url parameters:param constructingBodyWithBlock:constructingBlock error:error];
-        case YTKRequestMethodHEAD:
-            return [self dataTaskWithHTTPMethod:@"HEAD" requestSerializer:requestSerializer URLString:url parameters:param error:error];
-        case YTKRequestMethodPUT:
-            return [self dataTaskWithHTTPMethod:@"PUT" requestSerializer:requestSerializer URLString:url parameters:param error:error];
-        case YTKRequestMethodDELETE:
-            return [self dataTaskWithHTTPMethod:@"DELETE" requestSerializer:requestSerializer URLString:url parameters:param error:error];
-        case YTKRequestMethodPATCH:
-            return [self dataTaskWithHTTPMethod:@"PATCH" requestSerializer:requestSerializer URLString:url parameters:param error:error];
-    }
-}
-
-- (void)addRequest:(YTKBaseRequest *)request {
-    NSError * __autoreleasing requestSerializationError = nil;
-
+    NSLog(@"当前头部信息：[%@]",requestSerializer.HTTPRequestHeaders);
+    // if api build custom url request
     NSURLRequest *customUrlRequest= [request buildCustomUrlRequest];
     if (customUrlRequest) {
-        __block NSURLSessionDataTask *dataTask = nil;
-        dataTask = [_manager dataTaskWithRequest:customUrlRequest completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
-            [self handleRequestResult:dataTask responseObject:responseObject error:error];
+        AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:customUrlRequest];
+        [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+            NSLog(@"请求回应：%@",responseObject);
+            [self handleRequestResult:operation];
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            [self handleRequestResult:operation];
         }];
-        request.requestTask = dataTask;
+        request.requestOperation = operation;
+        operation.responseSerializer = _manager.responseSerializer;
+        [_manager.operationQueue addOperation:operation];
     } else {
-        request.requestTask = [self sessionTaskForRequest:request error:&requestSerializationError];
-    }
+        if (method == YTKRequestMethodGet) {
+            if (request.resumableDownloadPath) {
+                // add parameters to URL;
+                NSString *filteredUrl = [YTKNetworkPrivate urlStringWithOriginUrlString:url appendParameters:param];
 
-    if (requestSerializationError) {
-        [self requestDidFailWithRequest:request error:requestSerializationError];
-        return;
-    }
-
-    // Set request task priority
-    // !!Available on iOS 8 +
-    if ([request.requestTask respondsToSelector:@selector(priority)]) {
-        switch (request.requestPriority) {
-            case YTKRequestPriorityHigh:
-                request.requestTask.priority = NSURLSessionTaskPriorityHigh;
-                break;
-            case YTKRequestPriorityLow:
-                request.requestTask.priority = NSURLSessionTaskPriorityLow;
-                break;
-            case YTKRequestPriorityDefault:
-                /*!!fall through*/
-            default:
-                request.requestTask.priority = NSURLSessionTaskPriorityDefault;
-                break;
+                NSURLRequest *requestUrl = [NSURLRequest requestWithURL:[NSURL URLWithString:filteredUrl]];
+                AFDownloadRequestOperation *operation = [[AFDownloadRequestOperation alloc] initWithRequest:requestUrl
+                                                                                                 targetPath:request.resumableDownloadPath shouldResume:YES];
+                [operation setProgressiveDownloadProgressBlock:request.resumableDownloadProgressBlock];
+                [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+                    NSLog(@"请求回应：%@",responseObject);
+                    [self handleRequestResult:operation];
+                }                                failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                    [self handleRequestResult:operation];
+                }];
+                request.requestOperation = operation;
+                [_manager.operationQueue addOperation:operation];
+            } else {
+                request.requestOperation = [self requestOperationWithHTTPMethod:@"GET" requestSerializer:requestSerializer URLString:url parameters:param];
+            }
+        } else if (method == YTKRequestMethodPost) {
+            if (constructingBlock != nil) {
+                NSError *serializationError = nil;
+                NSMutableURLRequest *urlRequest = [requestSerializer multipartFormRequestWithMethod:@"POST" URLString:url parameters:param constructingBodyWithBlock:constructingBlock error:&serializationError];
+                if (serializationError) {
+                    dispatch_async(_manager.completionQueue ?: dispatch_get_main_queue(), ^{
+                        [self handleRequestResult:nil];
+                    });
+                } else {
+                    AFHTTPRequestOperation *operation = [self requestOperationWithRequest:urlRequest success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                        NSLog(@"请求回应：%@",responseObject);
+                        [self handleRequestResult:operation];
+                    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                        [self handleRequestResult:operation];
+                    }];
+                    request.requestOperation = operation;
+                    [_manager.operationQueue addOperation:operation];
+                }
+            } else {
+                request.requestOperation = [self requestOperationWithHTTPMethod:@"POST" requestSerializer:requestSerializer URLString:url parameters:param];
+            }
+        } else if (method == YTKRequestMethodHead) {
+            request.requestOperation = [self requestOperationWithHTTPMethod:@"HEAD" requestSerializer:requestSerializer URLString:url parameters:param];
+        } else if (method == YTKRequestMethodPut) {
+            request.requestOperation = [self requestOperationWithHTTPMethod:@"PUT" requestSerializer:requestSerializer URLString:url parameters:param];
+        } else if (method == YTKRequestMethodDelete) {
+            request.requestOperation = [self requestOperationWithHTTPMethod:@"DELETE" requestSerializer:requestSerializer URLString:url parameters:param];
+        } else if (method == YTKRequestMethodPatch) {
+            request.requestOperation = [self requestOperationWithHTTPMethod:@"PATCH" requestSerializer:requestSerializer URLString:url parameters:param];
+        } else {
+            YTKLog(@"Error, unsupport method type");
+            return;
         }
     }
 
-    // Retain request
+    // Set request operation priority
+    switch (request.requestPriority) {
+        case YTKRequestPriorityHigh:
+            request.requestOperation.queuePriority = NSOperationQueuePriorityHigh;
+            break;
+        case YTKRequestPriorityLow:
+            request.requestOperation.queuePriority = NSOperationQueuePriorityLow;
+            break;
+        case YTKRequestPriorityDefault:
+        default:
+            request.requestOperation.queuePriority = NSOperationQueuePriorityNormal;
+            break;
+    }
+
+    // retain operation
     YTKLog(@"Add request: %@", NSStringFromClass([request class]));
-    [self addRequestToRecord:request];
-    [request.requestTask resume];
+    [self addOperation:request];
 }
 
 - (void)cancelRequest:(YTKBaseRequest *)request {
-    [request.requestTask cancel];
-    [self removeRequestFromRecord:request];
+    [request.requestOperation cancel];
+    [self removeOperation:request.requestOperation];
     [request clearCompletionBlock];
 }
 
 - (void)cancelAllRequests {
-    Lock();
-    NSArray *allKeys = [_requestsRecord allKeys];
-    Unlock();
-    if (allKeys && allKeys.count > 0) {
-        NSArray *copiedKeys = [allKeys copy];
-        for (NSNumber *key in copiedKeys) {
-            Lock();
-            YTKBaseRequest *request = _requestsRecord[key];
-            Unlock();
-            // We are using non-recursive lock.
-            // Do not lock `stop`, otherwise deadlock may occur.
-            [request stop];
-        }
+    NSDictionary *copyRecord = [_requestsRecord copy];
+    for (NSString *key in copyRecord) {
+        YTKBaseRequest *request = copyRecord[key];
+        [request stop];
     }
 }
 
-- (BOOL)validateResult:(YTKBaseRequest *)request error:(NSError * _Nullable __autoreleasing *)error {
+- (BOOL)checkResult:(YTKBaseRequest *)request {
     BOOL result = [request statusCodeValidator];
     if (!result) {
-        if (error) {
-            *error = [NSError errorWithDomain:YTKRequestValidationErrorDomain code:YTKRequestValidationErrorInvalidStatusCode userInfo:@{NSLocalizedDescriptionKey:@"Invalid status code"}];
-        }
         return result;
     }
     id validator = [request jsonValidator];
-    if (validator) {
+    if (validator != nil) {
         id json = [request responseJSONObject];
-        if (json) {
-            result = [YTKNetworkUtils validateJSON:json withValidator:validator];
-            if (!result) {
-                if (error) {
-                    *error = [NSError errorWithDomain:YTKRequestValidationErrorDomain code:YTKRequestValidationErrorInvalidJSONFormat userInfo:@{NSLocalizedDescriptionKey:@"Invalid JSON format"}];
-                }
-                return result;
-            }
-        }
+        result = [YTKNetworkPrivate checkJson:json withValidator:validator];
     }
-    return YES;
+    return result;
 }
 
-- (void)handleRequestResult:(NSURLSessionTask *)task responseObject:(id)responseObject error:(NSError *)error {
-    Lock();
-    YTKBaseRequest *request = _requestsRecord[@(task.taskIdentifier)];
-    Unlock();
-
-    if (!request) {
-        return;
-    }
-
+- (void)handleRequestResult:(AFHTTPRequestOperation *)operation {
+    NSLog(@"Request内容：%@",operation.response);
+    NSString *key = [self requestHashKey:operation];
+    YTKBaseRequest *request = _requestsRecord[key];
     YTKLog(@"Finished Request: %@", NSStringFromClass([request class]));
-
-    NSError * __autoreleasing serializationError = nil;
-    NSError * __autoreleasing validationError = nil;
-
-    NSError *requestError = nil;
-    BOOL succeed = NO;
-
-    request.responseObject = responseObject;
-    if ([request.responseObject isKindOfClass:[NSData class]]) {
-        request.responseData = responseObject;
-        request.responseString = [[NSString alloc] initWithData:responseObject encoding:[YTKNetworkUtils stringEncodingWithRequest:request]];
-
-        switch (request.responseSerializerType) {
-            case YTKResponseSerializerTypeHTTP:
-                // Default serializer. Do nothing.
-                break;
-            case YTKResponseSerializerTypeJSON:
-                request.responseObject = [self.jsonResponseSerializer responseObjectForResponse:task.response data:request.responseData error:&serializationError];
-                request.responseJSONObject = request.responseObject;
-                break;
-            case YTKResponseSerializerTypeXMLParser:
-                request.responseObject = [self.xmlParserResponseSerialzier responseObjectForResponse:task.response data:request.responseData error:&serializationError];
-                break;
+    if (request) {
+        BOOL succeed = [self checkResult:request];
+        if (succeed) {
+            [request toggleAccessoriesWillStopCallBack];
+            [request requestCompleteFilter];
+            if (request.delegate != nil) {
+                [request.delegate requestFinished:request];
+            }
+            if (request.successCompletionBlock) {
+                request.successCompletionBlock(request);
+            }
+            [request toggleAccessoriesDidStopCallBack];
+        } else {
+            YTKLog(@"Request %@ failed, status code = %ld",
+                     NSStringFromClass([request class]), (long)request.responseStatusCode);
+            [request toggleAccessoriesWillStopCallBack];
+            [request requestFailedFilter];
+            if (request.delegate != nil) {
+                [request.delegate requestFailed:request];
+            }
+            if (request.failureCompletionBlock) {
+                request.failureCompletionBlock(request);
+            }
+            [request toggleAccessoriesDidStopCallBack];
         }
     }
-    if (error) {
-        succeed = NO;
-        requestError = error;
-    } else if (serializationError) {
-        succeed = NO;
-        requestError = serializationError;
-    } else {
-        succeed = [self validateResult:request error:&validationError];
-        requestError = validationError;
-    }
-
-
-    if (succeed) {
-        [self requestDidSucceedWithRequest:request];
-    } else {
-        [self requestDidFailWithRequest:request error:requestError];
-    }
-
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [self removeRequestFromRecord:request];
-        [request clearCompletionBlock];
-    });
+    [self removeOperation:operation];
+    [request clearCompletionBlock];
 }
 
-- (void)requestDidSucceedWithRequest:(YTKBaseRequest *)request {
-    @autoreleasepool {
-        [request requestCompletePreprocessor];
-    }
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [request toggleAccessoriesWillStopCallBack];
-        [request requestCompleteFilter];
+- (NSString *)requestHashKey:(AFHTTPRequestOperation *)operation {
+    NSString *key = [NSString stringWithFormat:@"%lu", (unsigned long)[operation hash]];
+    return key;
+}
 
-        if (request.delegate != nil) {
-            [request.delegate requestFinished:request];
+- (void)addOperation:(YTKBaseRequest *)request {
+    if (request.requestOperation != nil) {
+        NSString *key = [self requestHashKey:request.requestOperation];
+        @synchronized(self) {
+            _requestsRecord[key] = request;
         }
-        if (request.successCompletionBlock) {
-            request.successCompletionBlock(request);
-        }
-        [request toggleAccessoriesDidStopCallBack];
-    });
-}
-
-- (void)requestDidFailWithRequest:(YTKBaseRequest *)request error:(NSError *)error {
-    request.error = error;
-    YTKLog(@"Request %@ failed, status code = %ld, error = %@",
-           NSStringFromClass([request class]), (long)request.responseStatusCode, error.localizedDescription);
-
-    NSData *incompleteDownloadData = error.userInfo[NSURLSessionDownloadTaskResumeData];
-    if (incompleteDownloadData) {
-        [incompleteDownloadData writeToURL:[self incompleteDownloadTempPathForDownloadPath:request.resumableDownloadPath] atomically:YES];
-    }
-
-    @autoreleasepool {
-        [request requestFailedPreprocessor];
-    }
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [request toggleAccessoriesWillStopCallBack];
-        [request requestFailedFilter];
-
-        if (request.delegate != nil) {
-            [request.delegate requestFailed:request];
-        }
-        if (request.failureCompletionBlock) {
-            request.failureCompletionBlock(request);
-        }
-        [request toggleAccessoriesDidStopCallBack];
-    });
-}
-
-- (void)addRequestToRecord:(YTKBaseRequest *)request {
-    if (request.requestTask != nil) {
-        Lock();
-        _requestsRecord[@(request.requestTask.taskIdentifier)] = request;
-        Unlock();
     }
 }
 
-- (void)removeRequestFromRecord:(YTKBaseRequest *)request {
-    Lock();
-    [_requestsRecord removeObjectForKey:@(request.requestTask.taskIdentifier)];
-    YTKLog(@"Request queue size = %zd", [_requestsRecord count]);
-    Unlock();
-}
-
-#pragma mark -
-
-- (NSURLSessionDataTask *)dataTaskWithHTTPMethod:(NSString *)method
-                               requestSerializer:(AFHTTPRequestSerializer *)requestSerializer
-                                       URLString:(NSString *)URLString
-                                      parameters:(id)parameters
-                                           error:(NSError * _Nullable __autoreleasing *)error {
-    return [self dataTaskWithHTTPMethod:method requestSerializer:requestSerializer URLString:URLString parameters:parameters constructingBodyWithBlock:nil error:error];
-}
-
-- (NSURLSessionDataTask *)dataTaskWithHTTPMethod:(NSString *)method
-                               requestSerializer:(AFHTTPRequestSerializer *)requestSerializer
-                                       URLString:(NSString *)URLString
-                                      parameters:(id)parameters
-                       constructingBodyWithBlock:(nullable void (^)(id <AFMultipartFormData> formData))block
-                                           error:(NSError * _Nullable __autoreleasing *)error {
-    NSMutableURLRequest *request = nil;
-
-    if (block) {
-        request = [requestSerializer multipartFormRequestWithMethod:method URLString:URLString parameters:parameters constructingBodyWithBlock:block error:error];
-    } else {
-        request = [requestSerializer requestWithMethod:method URLString:URLString parameters:parameters error:error];
+- (void)removeOperation:(AFHTTPRequestOperation *)operation {
+    NSString *key = [self requestHashKey:operation];
+    @synchronized(self) {
+        [_requestsRecord removeObjectForKey:key];
     }
-
-    __block NSURLSessionDataTask *dataTask = nil;
-    dataTask = [_manager dataTaskWithRequest:request
-                           completionHandler:^(NSURLResponse * __unused response, id responseObject, NSError *_error) {
-                               [self handleRequestResult:dataTask responseObject:responseObject error:_error];
-                           }];
-
-    return dataTask;
+    YTKLog(@"Request queue size = %lu", (unsigned long)[_requestsRecord count]);
 }
 
-- (NSURLSessionDownloadTask *)downloadTaskWithDownloadPath:(NSString *)downloadPath
+- (AFHTTPRequestOperation *)requestOperationWithHTTPMethod:(NSString *)method
                                          requestSerializer:(AFHTTPRequestSerializer *)requestSerializer
                                                  URLString:(NSString *)URLString
-                                                parameters:(id)parameters
-                                                  progress:(nullable void (^)(NSProgress *downloadProgress))downloadProgressBlock
-                                                     error:(NSError * _Nullable __autoreleasing *)error {
-    // add parameters to URL;
-    NSMutableURLRequest *urlRequest = [requestSerializer requestWithMethod:@"GET" URLString:URLString parameters:parameters error:error];
-
-    NSString *downloadTargetPath;
-    BOOL isDirectory;
-    if(![[NSFileManager defaultManager] fileExistsAtPath:downloadPath isDirectory:&isDirectory]) {
-        isDirectory = NO;
-    }
-    // If targetPath is a directory, use the file name we got from the urlRequest.
-    // Make sure downloadTargetPath is always a file, not directory.
-    if (isDirectory) {
-        NSString *fileName = [urlRequest.URL lastPathComponent];
-        downloadTargetPath = [NSString pathWithComponents:@[downloadPath, fileName]];
-    } else {
-        downloadTargetPath = downloadPath;
+                                                parameters:(id)parameters {
+    NSError *serializationError = nil;
+    NSMutableURLRequest *request = [requestSerializer requestWithMethod:method URLString:URLString parameters:parameters error:&serializationError];
+    if (serializationError) {
+        dispatch_async(_manager.completionQueue ?: dispatch_get_main_queue(), ^{
+            [self handleRequestResult:nil];
+        });
+        return nil;
     }
 
-    BOOL resumeDataFileExists = [[NSFileManager defaultManager] fileExistsAtPath:[self incompleteDownloadTempPathForDownloadPath:downloadPath].path];
-    NSData *data = [NSData dataWithContentsOfURL:[self incompleteDownloadTempPathForDownloadPath:downloadPath]];
-    BOOL resumeDataIsValid = [YTKNetworkUtils validateResumeData:data];
+    AFHTTPRequestOperation *operation = [self requestOperationWithRequest:request success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"请求回应：%@",responseObject);
+        [self handleRequestResult:operation];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [self handleRequestResult:operation];
+    }];
 
-    BOOL canBeResumed = resumeDataFileExists && resumeDataIsValid;
-    BOOL resumeSucceeded = NO;
-    __block NSURLSessionDownloadTask *downloadTask = nil;
-    // Try to resume with resumeData.
-    // Even though we try to validate the resumeData, this may still fail and raise excecption.
-    if (canBeResumed) {
-        @try {
-            downloadTask = [_manager downloadTaskWithResumeData:data progress:downloadProgressBlock destination:^NSURL * _Nonnull(NSURL * _Nonnull targetPath, NSURLResponse * _Nonnull response) {
-                return [NSURL fileURLWithPath:downloadTargetPath isDirectory:NO];
-            } completionHandler:
-                            ^(NSURLResponse * _Nonnull response, NSURL * _Nullable filePath, NSError * _Nullable error) {
-                                [self handleRequestResult:downloadTask responseObject:filePath error:error];
-                            }];
-            resumeSucceeded = YES;
-        } @catch (NSException *exception) {
-            YTKLog(@"Resume download failed, reason = %@", exception.reason);
-            resumeSucceeded = NO;
+    [_manager.operationQueue addOperation:operation];
+
+    return operation;
+}
+
+- (AFHTTPRequestOperation *)requestOperationWithRequest:(NSURLRequest *)request
+                                                success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
+                                                failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure {
+    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    operation.responseSerializer = _manager.responseSerializer;
+    operation.shouldUseCredentialStorage = _manager.shouldUseCredentialStorage;
+    operation.credential = _manager.credential;
+    operation.securityPolicy = _manager.securityPolicy;
+
+    [operation setCompletionBlockWithSuccess:success failure:failure];
+    operation.completionQueue = _manager.completionQueue;
+    operation.completionGroup = _manager.completionGroup;
+
+    return operation;
+}
+
+
+-(NSString *)showRequtestMethod:(YTKRequestMethod)method
+{
+    NSString *result=@"";
+    switch (method) {
+        case YTKRequestMethodGet: {
+            result=@"GET";
+            break;
+        }
+        case YTKRequestMethodPost: {
+            result=@"Post";
+            break;
+        }
+        case YTKRequestMethodHead: {
+            result=@"Head";
+            break;
+        }
+        case YTKRequestMethodPut: {
+            result=@"Put";
+            break;
+        }
+        case YTKRequestMethodDelete: {
+            result=@"Delete";
+            break;
+        }
+        case YTKRequestMethodPatch: {
+            result=@"Patch";
+            break;
         }
     }
-    if (!resumeSucceeded) {
-        downloadTask = [_manager downloadTaskWithRequest:urlRequest progress:downloadProgressBlock destination:^NSURL * _Nonnull(NSURL * _Nonnull targetPath, NSURLResponse * _Nonnull response) {
-            return [NSURL fileURLWithPath:downloadTargetPath isDirectory:NO];
-        } completionHandler:
-                        ^(NSURLResponse * _Nonnull response, NSURL * _Nullable filePath, NSError * _Nullable error) {
-                            [self handleRequestResult:downloadTask responseObject:filePath error:error];
-                        }];
-    }
-    return downloadTask;
-}
-
-#pragma mark - Resumable Download
-
-- (NSString *)incompleteDownloadTempCacheFolder {
-    NSFileManager *fileManager = [NSFileManager new];
-    static NSString *cacheFolder;
-
-    if (!cacheFolder) {
-        NSString *cacheDir = NSTemporaryDirectory();
-        cacheFolder = [cacheDir stringByAppendingPathComponent:kYTKNetworkIncompleteDownloadFolderName];
-    }
-
-    NSError *error = nil;
-    if(![fileManager createDirectoryAtPath:cacheFolder withIntermediateDirectories:YES attributes:nil error:&error]) {
-        YTKLog(@"Failed to create cache directory at %@", cacheFolder);
-        cacheFolder = nil;
-    }
-    return cacheFolder;
-}
-
-- (NSURL *)incompleteDownloadTempPathForDownloadPath:(NSString *)downloadPath {
-    NSString *tempPath = nil;
-    NSString *md5URLString = [YTKNetworkUtils md5StringFromString:downloadPath];
-    tempPath = [[self incompleteDownloadTempCacheFolder] stringByAppendingPathComponent:md5URLString];
-    return [NSURL fileURLWithPath:tempPath];
-}
-
-#pragma mark - Testing
-
-- (AFHTTPSessionManager *)manager {
-    return _manager;
-}
-
-- (void)resetURLSessionManager {
-    _manager = [AFHTTPSessionManager manager];
-}
-
-- (void)resetURLSessionManagerWithConfiguration:(NSURLSessionConfiguration *)configuration {
-    _manager = [[AFHTTPSessionManager alloc] initWithSessionConfiguration:configuration];
+    return result;
 }
 
 @end

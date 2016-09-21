@@ -8,6 +8,8 @@
 
 #import "DesignerViewController.h"
 
+#import "DesignerServiceApi.h"
+
 @interface DesignerViewController()
 
 @property (nonatomic, strong) UIButton *returnButton;
@@ -25,8 +27,17 @@
     [super viewDidLoad];
     self.view.backgroundColor=[UIColor blueColor];
     [self layoutPageSubviews];
-    
+    self.navigationItem.title=@"设计师模块";
     NSLog(@"当前参数：%@",self.parameterDictionary);
+    
+    
+    //测试网络请求
+    DesignerServiceApi *serverApi=[[DesignerServiceApi alloc]init];
+    [serverApi startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request) {
+        NSLog(@"成功");
+    } failure:^(__kindof YTKBaseRequest * _Nonnull request) {
+        NSLog(@"失败");
+    }];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

@@ -1,0 +1,14 @@
+//
+//  AppPrefixHeader.pch
+//  jiaModuleDemo
+//
+//  Created by wujunyang on 16/9/21.
+//  Copyright © 2016年 wujunyang. All rights reserved.
+//
+
+#ifndef AppPrefixHeader_pch
+#define AppPrefixHeader_pch
+
+#import "JiaBaseRequest+App.h"
+
+#endif /* AppPrefixHeader_pch */

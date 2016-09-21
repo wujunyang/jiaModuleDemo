@@ -1,7 +1,7 @@
 //
 //  YTKChainRequest.m
 //
-//  Copyright (c) 2012-2016 YTKNetwork https://github.com/yuantiku
+//  Copyright (c) 2012-2014 YTKNetwork https://github.com/yuantiku
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -24,14 +24,13 @@
 #import "YTKChainRequest.h"
 #import "YTKChainRequestAgent.h"
 #import "YTKNetworkPrivate.h"
-#import "YTKBaseRequest.h"
 
 @interface YTKChainRequest()<YTKRequestDelegate>
 
 @property (strong, nonatomic) NSMutableArray<YTKBaseRequest *> *requestArray;
-@property (strong, nonatomic) NSMutableArray<YTKChainCallback> *requestCallbackArray;
+@property (strong, nonatomic) NSMutableArray<ChainCallback> *requestCallbackArray;
 @property (assign, nonatomic) NSUInteger nextRequestIndex;
-@property (strong, nonatomic) YTKChainCallback emptyCallback;
+@property (strong, nonatomic) ChainCallback emptyCallback;
 
 @end
 
@@ -59,7 +58,7 @@
     if ([_requestArray count] > 0) {
         [self toggleAccessoriesWillStartCallBack];
         [self startNextRequest];
-        [[YTKChainRequestAgent sharedAgent] addChainRequest:self];
+        [[YTKChainRequestAgent sharedInstance] addChainRequest:self];
     } else {
         YTKLog(@"Error! Chain request array is empty.");
     }
@@ -68,11 +67,11 @@
 - (void)stop {
     [self toggleAccessoriesWillStopCallBack];
     [self clearRequest];
-    [[YTKChainRequestAgent sharedAgent] removeChainRequest:self];
+    [[YTKChainRequestAgent sharedInstance] removeChainRequest:self];
     [self toggleAccessoriesDidStopCallBack];
 }
 
-- (void)addRequest:(YTKBaseRequest *)request callback:(YTKChainCallback)callback {
+- (void)addRequest:(YTKBaseRequest *)request callback:(ChainCallback)callback {
     [_requestArray addObject:request];
     if (callback != nil) {
         [_requestCallbackArray addObject:callback];
@@ -90,7 +89,6 @@
         YTKBaseRequest *request = _requestArray[_nextRequestIndex];
         _nextRequestIndex++;
         request.delegate = self;
-        [request clearCompletionBlock];
         [request start];
         return YES;
     } else {
@@ -102,13 +100,13 @@
 
 - (void)requestFinished:(YTKBaseRequest *)request {
     NSUInteger currentRequestIndex = _nextRequestIndex - 1;
-    YTKChainCallback callback = _requestCallbackArray[currentRequestIndex];
+    ChainCallback callback = _requestCallbackArray[currentRequestIndex];
     callback(self, request);
     if (![self startNextRequest]) {
         [self toggleAccessoriesWillStopCallBack];
         if ([_delegate respondsToSelector:@selector(chainRequestFinished:)]) {
             [_delegate chainRequestFinished:self];
-            [[YTKChainRequestAgent sharedAgent] removeChainRequest:self];
+            [[YTKChainRequestAgent sharedInstance] removeChainRequest:self];
         }
         [self toggleAccessoriesDidStopCallBack];
     }
@@ -118,7 +116,7 @@
     [self toggleAccessoriesWillStopCallBack];
     if ([_delegate respondsToSelector:@selector(chainRequestFailed:failedBaseRequest:)]) {
         [_delegate chainRequestFailed:self failedBaseRequest:request];
-        [[YTKChainRequestAgent sharedAgent] removeChainRequest:self];
+        [[YTKChainRequestAgent sharedInstance] removeChainRequest:self];
     }
     [self toggleAccessoriesDidStopCallBack];
 }
