@@ -95,3 +95,28 @@ static NSString * const kDesignerModuleActionsDictionaryKeyImage=@"image";
  NSDictionary *curParams=@{kDesignerModuleActionsDictionaryKeyName:@"wujunyang",kDesignerModuleActionsDictionaryKeyID:@"1001",kDesignerModuleActionsDictionaryKeyImage:@"designerImage"};
 
 ```
+6:对于网络请求模块则采用YTKNetwork，底层还是以AFNetworking进行网络通信交互，在基础全局模块JiaCore中，定义一个继承于YTKBaseRequest的JiaBaseRequest，针对JiaBaseRequest则是为了后期各个APP可以对它进行分类扩展，对于一些超时、请求头部等进行统一个性化设置，毕竟这些是每个APP都不相同；而针对模块中关于请求网络的前缀设置，则在每个模块中都有一个单例的配置类，此配置类是为了针对该模块对不同APP变化而定义；相应的配置内容开放给APP，由具体APP来定义，例如现在项目中的JiaBaseRequest+App.h类，里面有简单设置超时跟头部；当然记得把这个分类引入到APP中，比如AppPrefixHeader这个APP的全局头部；
+
+```obj-c
+#import "JiaBaseRequest+App.h"
+
+@implementation JiaBaseRequest (App)
+
+- (NSTimeInterval)requestTimeoutInterval {
+    return 15;
+}
+
+//公共头部设置
+- (NSDictionary *)requestHeaderFieldValueDictionary
+{
+    NSDictionary *headerDictionary=@{@"platform":@"ios"};
+    return headerDictionary;
+}
+
+@end
+```
+
+```obj-c
+网络交互说明如下：
+```
+<img src="https://github.com/wujunyang/jiaModuleDemo/blob/master/jiaModuleDemo/ProjectImage/4.png" width=500px height=400px></img>
