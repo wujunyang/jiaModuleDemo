@@ -10,10 +10,7 @@
 #import "GeTuiSdk.h"
 #import "XAspect.h"
 #import "jiaGTConfigManager.h"
-
-
-NSString * const jiaGeTuiNotification = @"jiaGeTuiNotification";
-NSString * const jiaReceiveRemoteNotification = @"jiaReceiveRemoteNotification";
+#import "jiaAppDelegate+myGt.h"
 
 
 #define AtAspect GeTuiAppDelegate
@@ -35,10 +32,6 @@ AspectPatch(-, BOOL, application:(UIApplication *)application didFinishLaunching
     [self initLoadGeTui:launchOptions];
     
     //注册个推通知事件
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(geTuiMessageHandling:) name:jiaGeTuiNotification object:nil];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveRemoteMessageHandling:) name:jiaReceiveRemoteNotification object:nil];
-    
     return XAMessageForward(application:application didFinishLaunchingWithOptions:launchOptions);
 }
 
@@ -89,10 +82,8 @@ AspectPatch(-, void,application:(UIApplication *)application didReceiveRemoteNot
         NSString *message=[[[userInfo objectForKey:@"aps"]objectForKey:@"alert"]objectForKey:@"body"];
         
         NSDictionary *dict =[[NSDictionary alloc] initWithObjectsAndKeys:payloadMsg,@"payload",message,@"message",nil];
-        //创建通知
-        NSNotification *notification =[NSNotification notificationWithName:jiaReceiveRemoteNotification object:nil userInfo:dict];
-        //通过通知中心发送通知
-        [[NSNotificationCenter defaultCenter] postNotification:notification];
+        
+        [self receiveRemoteMessageHandleing:dict];
     }
     // 处理APN
     //NSLog(@"\n>>>[Receive RemoteNotification - Background Fetch]:%@\n\n", userInfo);
@@ -102,8 +93,6 @@ AspectPatch(-, void,application:(UIApplication *)application didReceiveRemoteNot
 
 AspectPatch(-, void, dealloc)
 {
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:jiaGeTuiNotification object:nil];
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:jiaReceiveRemoteNotification object:nil];
     XAMessageForwardDirectly(dealloc);
 }
 
@@ -175,10 +164,8 @@ AspectPatch(-, void, dealloc)
     }
     
     NSDictionary *dict =[[NSDictionary alloc] initWithObjectsAndKeys:msgId,@"aMsgId", [NSNumber numberWithBool:offLine],@"offLine",appId,@"appId",payloadMsg,@"payload",nil];
-    //创建通知
-    NSNotification *notification =[NSNotification notificationWithName:jiaGeTuiNotification object:nil userInfo:dict];
-    //通过通知中心发送通知
-    [[NSNotificationCenter defaultCenter] postNotification:notification];
+    
+    [self geTuiMessageHandleing:dict];
 }
 
 
@@ -249,24 +236,44 @@ AspectPatch(-, void, dealloc)
 }
 
 
+#pragma mark 自定义代码
 
 //处理个推本地通知，判断是否存在gtNotification方法
-- (void)geTuiMessageHandling:(NSNotification *)text{
+- (void)geTuiMessageHandleing:(NSDictionary *)dic{
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
     SEL gtNotificationSelector=@selector(gtNotification:);
     if([self respondsToSelector:gtNotificationSelector])
     {
-        [self performSelector:gtNotificationSelector withObject:text];
+        [self performSelector:gtNotificationSelector withObject:dic];
     }
+#pragma clang diagnostic pop
 }
 
 
 //处理苹果远程通知，判断是否存在receiveRemoteNotification方法
-- (void)receiveRemoteMessageHandling:(NSNotification *)text{
+- (void)receiveRemoteMessageHandleing:(NSDictionary *)dic{
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
     SEL receiveRemoteNotificationSelector=@selector(receiveRemoteNotification:);
     if([self respondsToSelector:receiveRemoteNotificationSelector])
     {
-        [self performSelector:receiveRemoteNotificationSelector withObject:text];
+        [self performSelector:receiveRemoteNotificationSelector withObject:dic];
     }
+#pragma clang diagnostic pop
+}
+
+//获得deviceToken
+-(void)receiveDeviceTokenHandleing:(NSString *)deviceToken
+{
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+    SEL receiveDeviceTokenSelector=@selector(receiveDeviceToken:);
+    if([self respondsToSelector:receiveDeviceTokenSelector])
+    {
+        [self performSelector:receiveDeviceTokenSelector withObject:deviceToken];
+    }
+#pragma clang diagnostic pop
 }
 
 @end
