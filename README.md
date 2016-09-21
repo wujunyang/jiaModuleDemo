@@ -120,3 +120,59 @@ static NSString * const kDesignerModuleActionsDictionaryKeyImage=@"image";
 网络交互说明如下：
 ```
 <img src="https://github.com/wujunyang/jiaModuleDemo/blob/master/jiaModuleDemo/ProjectImage/4.png" width=500px height=400px></img>
+
+7：消息推送对于一个APP是相当重要性，一般是采用第三方的SDK进行集成，其实大部分的SDK处理代码都是差不多，在这实例中对差异化的内容进行提取，实例中将以个推进行模块化，因为消息推送的大部分代码都集中在AppDelegate中，造成的一大堆杂乱代码，当然也有一部分人对AppDelegate进行扩展分类进行移除代码，实例中将采用另外一种解决方案进行抽取，可以达到完全解耦，在具体的APP里面将不会再出现个推SDK相关内容，只要简单进行配置跟处理消息就可以，下面只是简单的列出部分代码，其它封装代码见源代码；
+```obj-c
+    //设置个推模块的配置
+    jiaGTConfigManager *gtConfig=[jiaGTConfigManager sharedInstance];
+    gtConfig.jiaGTAppId=@"0uuwznWonIANoK07JeRWgAs";
+    gtConfig.jiaGTAppKey=@"26LeO4stbrA7TeyMUJdXlx3";
+    gtConfig.jiaGTAppSecret=@"2282vl0IwZd9KL3ZpDyoUL7";
+```
+```obj-c
+#pragma mark 消息推送相关处理
+
+/**
+ *  @author wujunyang, 16-07-07 16:07:25
+ *
+ *  @brief  处理个推消息
+ *
+ *  @param NotificationMessage
+ */
+-(void)gtNotification:(NSDictionary *)NotificationMessage
+{
+    NSLog(@"%@",NotificationMessage[@"payload"]);
+    NSLog(@"－－－－－接收到个推通知------");
+}
+
+
+/**
+ *  @author wujunyang, 16-07-07 16:07:40
+ *
+ *  @brief  处理远程苹果通知
+ *
+ *  @param RemoteNotificationMessage
+ */
+-(void)receiveRemoteNotification:(NSDictionary *)RemoteNotificationMessage
+{
+    NSLog(@"%@",RemoteNotificationMessage[@"message"]);
+    NSLog(@"－－－－－接收到苹果通知------");
+}
+
+/**
+ *  @author wujunyang, 16-09-21 14:09:33
+ *
+ *  @brief 获得注册成功时的deviceToken 可以在里面做一些绑定操作
+ *
+ *  @param deviceToken <#deviceToken description#>
+ */
+-(void)receiveDeviceToken:(NSString *)deviceToken
+{
+    NSLog(@"－－－－－当前deviceToken：%@------",deviceToken);
+}
+```
+<img src="https://github.com/wujunyang/jiaModuleDemo/blob/master/jiaModuleDemo/ProjectImage/5.png" width=500px height=400px></img>
+```obj-c
+上面能够对个推进行完全的解耦不得不提一个第三方的插件XAspect，如果想对它进行了解可以在github进行查找；它的主要作用如下图，可以用它进行其它第三方SDK的抽离
+```
+<img src="https://github.com/wujunyang/jiaModuleDemo/blob/master/jiaModuleDemo/ProjectImage/6.png" width=500px height=400px></img>
