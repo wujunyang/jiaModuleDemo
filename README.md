@@ -172,7 +172,7 @@ static NSString * const kDesignerModuleActionsDictionaryKeyImage=@"image";
 }
 ```
 <img src="https://github.com/wujunyang/jiaModuleDemo/blob/master/jiaModuleDemo/ProjectImage/5.png" width=500px height=400px></img>
-```obj-c
+
 上面能够对个推进行完全的解耦不得不提一个第三方的插件XAspect，如果想对它进行了解可以在github进行查找；它的主要作用如下图，可以用它进行其它第三方SDK的抽离
-```
+
 <img src="https://github.com/wujunyang/jiaModuleDemo/blob/master/jiaModuleDemo/ProjectImage/6.png" width=500px height=400px></img>
