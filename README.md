@@ -17,7 +17,8 @@ jiaModuleDemo项目是为了解决关于项目中如何进行模块化开发而�
 
 当公司里面有多个项目同时进行，并且有可能是多个人分别不同项目时，就会存在如上图出现的情况，其实每个APP中都是有很多共同的模块，当然有可能你会把相同功能模块代码复制一份在新项目中，但这其实并不是最好的方式，在后期不断迭代过程中，不同的人会往里面增加很多带有个人色彩的代码；这样就像相同的模块项目后期对于多个项目统一管理也是灾难性，有可能会失控，哪怕项目转移别人接手也会无形中浪费很多时间，增加维护成本，所以实例中更注重对于一些相同模块进行提取，求同存异；而模块化结合私有Pods进行管理，对于常用功能的封装，只要开放出一些简单开关配置方式，就可以实现一个功能，比如日志记录、网络请求模块、网络状态变化提示等；
 
-#整体实现效果图
+####页面交互解耦
+
 <img src="https://github.com/wujunyang/jiaModuleDemo/blob/master/jiaModuleDemo/ProjectImage/1.png" width=500px height=400px></img>
 
 ```obj-c
@@ -111,8 +112,25 @@ static NSString * const kDesignerModuleActionsDictionaryKeyImage=@"image";
 
 ```
 
+####JiaCore(基础功能封装)
 
-##JiaNetWork(网络交互封装)
+JiaCore是整个APP最基础模块，所有的模块化都要依赖，主要包含一些全局的功能模块，比如JiaBaseViewController、JiaAppDelegate、JiaBaseRequest等；目前已经把一些默认的功能进行集成在里面，包含网络状态变化判断及提示、日志记录功能等；并把一些相关配置的内容用JiaCoreConfigManager这个管理类进行统一设置，比如是否打开日志记录功能；JiaCoreConfigManager类则是开放给具体APP设置全局的相关配置；下面就以其中一个日志记录功能进行讲解:
+
+```obj-c
+//JiaCore基础模块相关配置
+JiaCoreConfigManager *jiaCoreConfig=[JiaCoreConfigManager sharedInstance];
+jiaCoreConfig.recordlogger=YES;
+```
+然后具体APP的PrefixHeader.pch引入命名空间并进行设置记录日志的等级：
+```obj-c
+#import "JiaCocoaLumberjack.h"
+
+//DDLog等级
+static const int ddLogLevel = DDLogLevelVerbose;
+```
+这样就完成的一个APP对于日志记录模块的引入，JiaCore已经帮你完成的关于日志记录的相关配置，并且错误内容以一种可读性较好的格式记录到file文件中，而且这些file文件生成规则也都定义好了，当然如何时你要是在Xcode控制台显示不同等级色彩，只要安装XcodeColors插件并简单进行设置就可以了，对于不同等级不同色彩都已经在JiaCore配置完成；
+
+####JiaNetWork(网络交互封装)
 
 对于网络请求模块则采用YTKNetwork，底层还是以AFNetworking进行网络通信交互，在基础全局模块JiaCore中，定义一个继承于YTKBaseRequest的JiaBaseRequest，针对JiaBaseRequest则是为了后期各个APP可以对它进行分类扩展，对于一些超时、请求头部等进行统一个性化设置，毕竟这些是每个APP都不相同；而针对模块中关于请求网络的前缀设置，则在每个模块中都有一个单例的配置类，此配置类是为了针对该模块对不同APP变化而定义；相应的配置内容开放给APP，由具体APP来定义，例如现在项目中的JiaBaseRequest+App.h类，里面有简单设置超时跟头部；当然记得把这个分类引入到APP中，比如AppPrefixHeader这个APP的全局头部；
 
@@ -142,7 +160,7 @@ static NSString * const kDesignerModuleActionsDictionaryKeyImage=@"image";
 
 
 
-##JiaGT模块(个推封装)
+####JiaGT模块(个推封装)
 
 消息推送对于一个APP是相当重要性，一般是采用第三方的SDK进行集成，其实大部分的SDK处理代码都是差不多，在这实例中对差异化的内容进行提取，实例中将以个推进行模块化，因为消息推送的大部分代码都集中在AppDelegate中，造成的一大堆杂乱代码，当然也有一部分人对AppDelegate进行扩展分类进行移除代码，实例中将采用另外一种解决方案进行抽取，可以达到完全解耦，在具体的APP里面将不会再出现个推SDK相关内容，只要简单进行配置跟处理消息就可以，下面只是简单的列出部分代码，其它封装代码见源代码；
 ```obj-c
