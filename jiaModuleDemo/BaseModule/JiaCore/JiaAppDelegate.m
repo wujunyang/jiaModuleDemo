@@ -12,7 +12,15 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
+    //网络状态通知监听
     [GLobalRealReachability startNotifier];
+        
+    //是否开始日志记录功能
+    if([JiaCoreConfigManager sharedInstance].isRecordlogger)
+    {
+        NSLog(@"开启日志记录功能");
+        [JiaFileLogger sharedManager];
+    }
     
     return YES;
 }

@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "ViewController.h"
 
+#import "JiaCoreConfigManager.h"
 #import "jiaGTConfigManager.h"
 #import "jiaDesignerConfigManager.h"
 
@@ -20,6 +21,11 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    //JiaCore基础模块相关配置
+    JiaCoreConfigManager *jiaCoreConfig=[JiaCoreConfigManager sharedInstance];
+    jiaCoreConfig.recordlogger=YES;
+    
     
     //设置模块jiaDesigner相关配置
     jiaDesignerConfigManager *jiaDesignerConfig=[jiaDesignerConfigManager sharedInstance];

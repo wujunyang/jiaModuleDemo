@@ -10,4 +10,16 @@
 
 @implementation JiaCoreConfigManager
 
++ (JiaCoreConfigManager *)sharedInstance
+{
+    static JiaCoreConfigManager* instance = nil;
+    
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        instance = [JiaCoreConfigManager new];
+    });
+    
+    return instance;
+}
+
 @end

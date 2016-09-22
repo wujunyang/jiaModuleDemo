@@ -260,6 +260,19 @@
 		3468FFE61D90D2D900A69723 /* JiaMediator.m in Sources */ = {isa = PBXBuildFile; fileRef = 3468FFE51D90D2D900A69723 /* JiaMediator.m */; };
 		3468FFEE1D91541A00A69723 /* jiaDesignerConfigManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3468FFED1D91541A00A69723 /* jiaDesignerConfigManager.m */; };
 		34732A5D1D9368FB00EE0D14 /* JiaCoreConfigManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 34732A5C1D9368FB00EE0D14 /* JiaCoreConfigManager.m */; };
+		34732A9F1D93781500EE0D14 /* CLIColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 34732A851D93781500EE0D14 /* CLIColor.m */; };
+		34732AA11D93781500EE0D14 /* DDAbstractDatabaseLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 34732A891D93781500EE0D14 /* DDAbstractDatabaseLogger.m */; };
+		34732AA21D93781500EE0D14 /* DDASLLogCapture.m in Sources */ = {isa = PBXBuildFile; fileRef = 34732A8B1D93781500EE0D14 /* DDASLLogCapture.m */; };
+		34732AA31D93781500EE0D14 /* DDASLLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 34732A8D1D93781500EE0D14 /* DDASLLogger.m */; };
+		34732AA41D93781500EE0D14 /* DDFileLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 34732A901D93781500EE0D14 /* DDFileLogger.m */; };
+		34732AA51D93781500EE0D14 /* DDLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 34732A931D93781500EE0D14 /* DDLog.m */; };
+		34732AA61D93781500EE0D14 /* DDTTYLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 34732A971D93781500EE0D14 /* DDTTYLogger.m */; };
+		34732AA71D93781500EE0D14 /* DDContextFilterLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 34732A9A1D93781500EE0D14 /* DDContextFilterLogFormatter.m */; };
+		34732AA81D93781500EE0D14 /* DDDispatchQueueLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 34732A9C1D93781500EE0D14 /* DDDispatchQueueLogFormatter.m */; };
+		34732AA91D93781500EE0D14 /* DDMultiFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 34732A9E1D93781500EE0D14 /* DDMultiFormatter.m */; };
+		34732AAD1D93795700EE0D14 /* JiaFileLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 34732AAC1D93795700EE0D14 /* JiaFileLogger.m */; };
+		34732AB01D93796F00EE0D14 /* JiaLoggerFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 34732AAF1D93796F00EE0D14 /* JiaLoggerFormatter.m */; };
+		34732AB41D9383C300EE0D14 /* JiaCoreHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 34732AB31D9383C300EE0D14 /* JiaCoreHelper.m */; };
 		347BAFA21D87E30200D12F0B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 347BAFA11D87E30200D12F0B /* main.m */; };
 		347BAFAD1D87E30200D12F0B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 347BAFAC1D87E30200D12F0B /* Assets.xcassets */; };
 		347BAFB01D87E30200D12F0B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 347BAFAE1D87E30200D12F0B /* LaunchScreen.storyboard */; };
@@ -803,6 +816,37 @@
 		3471536C1D8F9E4700BDB632 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		34732A5B1D9368FB00EE0D14 /* JiaCoreConfigManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JiaCoreConfigManager.h; sourceTree = "<group>"; };
 		34732A5C1D9368FB00EE0D14 /* JiaCoreConfigManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JiaCoreConfigManager.m; sourceTree = "<group>"; };
+		34732A841D93781500EE0D14 /* CLIColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLIColor.h; sourceTree = "<group>"; };
+		34732A851D93781500EE0D14 /* CLIColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLIColor.m; sourceTree = "<group>"; };
+		34732A881D93781500EE0D14 /* DDAbstractDatabaseLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDAbstractDatabaseLogger.h; sourceTree = "<group>"; };
+		34732A891D93781500EE0D14 /* DDAbstractDatabaseLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDAbstractDatabaseLogger.m; sourceTree = "<group>"; };
+		34732A8A1D93781500EE0D14 /* DDASLLogCapture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDASLLogCapture.h; sourceTree = "<group>"; };
+		34732A8B1D93781500EE0D14 /* DDASLLogCapture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDASLLogCapture.m; sourceTree = "<group>"; };
+		34732A8C1D93781500EE0D14 /* DDASLLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDASLLogger.h; sourceTree = "<group>"; };
+		34732A8D1D93781500EE0D14 /* DDASLLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDASLLogger.m; sourceTree = "<group>"; };
+		34732A8E1D93781500EE0D14 /* DDAssertMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDAssertMacros.h; sourceTree = "<group>"; };
+		34732A8F1D93781500EE0D14 /* DDFileLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDFileLogger.h; sourceTree = "<group>"; };
+		34732A901D93781500EE0D14 /* DDFileLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDFileLogger.m; sourceTree = "<group>"; };
+		34732A911D93781500EE0D14 /* DDLegacyMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDLegacyMacros.h; sourceTree = "<group>"; };
+		34732A921D93781500EE0D14 /* DDLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDLog.h; sourceTree = "<group>"; };
+		34732A931D93781500EE0D14 /* DDLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDLog.m; sourceTree = "<group>"; };
+		34732A941D93781500EE0D14 /* DDLog+LOGV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DDLog+LOGV.h"; sourceTree = "<group>"; };
+		34732A951D93781500EE0D14 /* DDLogMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDLogMacros.h; sourceTree = "<group>"; };
+		34732A961D93781500EE0D14 /* DDTTYLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDTTYLogger.h; sourceTree = "<group>"; };
+		34732A971D93781500EE0D14 /* DDTTYLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDTTYLogger.m; sourceTree = "<group>"; };
+		34732A991D93781500EE0D14 /* DDContextFilterLogFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDContextFilterLogFormatter.h; sourceTree = "<group>"; };
+		34732A9A1D93781500EE0D14 /* DDContextFilterLogFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDContextFilterLogFormatter.m; sourceTree = "<group>"; };
+		34732A9B1D93781500EE0D14 /* DDDispatchQueueLogFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDDispatchQueueLogFormatter.h; sourceTree = "<group>"; };
+		34732A9C1D93781500EE0D14 /* DDDispatchQueueLogFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDDispatchQueueLogFormatter.m; sourceTree = "<group>"; };
+		34732A9D1D93781500EE0D14 /* DDMultiFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDMultiFormatter.h; sourceTree = "<group>"; };
+		34732A9E1D93781500EE0D14 /* DDMultiFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDMultiFormatter.m; sourceTree = "<group>"; };
+		34732AAB1D93795700EE0D14 /* JiaFileLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JiaFileLogger.h; sourceTree = "<group>"; };
+		34732AAC1D93795700EE0D14 /* JiaFileLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JiaFileLogger.m; sourceTree = "<group>"; };
+		34732AAE1D93796F00EE0D14 /* JiaLoggerFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JiaLoggerFormatter.h; sourceTree = "<group>"; };
+		34732AAF1D93796F00EE0D14 /* JiaLoggerFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JiaLoggerFormatter.m; sourceTree = "<group>"; };
+		34732AB11D937B9D00EE0D14 /* JiaCocoaLumberjack.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JiaCocoaLumberjack.h; sourceTree = "<group>"; };
+		34732AB21D9383C300EE0D14 /* JiaCoreHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JiaCoreHelper.h; sourceTree = "<group>"; };
+		34732AB31D9383C300EE0D14 /* JiaCoreHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JiaCoreHelper.m; sourceTree = "<group>"; };
 		347BAF9D1D87E30200D12F0B /* jiaModuleDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = jiaModuleDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		347BAFA11D87E30200D12F0B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		347BAFAC1D87E30200D12F0B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -1856,10 +1900,13 @@
 		3468FFAF1D90C5D700A69723 /* JiaCoreHelper */ = {
 			isa = PBXGroup;
 			children = (
+				34732AAA1D93790F00EE0D14 /* JiaLoggerHelper */,
 				343EB3A91D921E1200110CE5 /* JiaBaseRequest.h */,
 				343EB3AA1D921E1200110CE5 /* JiaBaseRequest.m */,
 				34732A5B1D9368FB00EE0D14 /* JiaCoreConfigManager.h */,
 				34732A5C1D9368FB00EE0D14 /* JiaCoreConfigManager.m */,
+				34732AB21D9383C300EE0D14 /* JiaCoreHelper.h */,
+				34732AB31D9383C300EE0D14 /* JiaCoreHelper.m */,
 			);
 			path = JiaCoreHelper;
 			sourceTree = "<group>";
@@ -1867,6 +1914,7 @@
 		3468FFB01D90C9DE00A69723 /* JiaCoreTool */ = {
 			isa = PBXGroup;
 			children = (
+				34732A5E1D93772C00EE0D14 /* CocoaLumberjack */,
 				3468FFB11D90CA1A00A69723 /* MBProgressHUD */,
 				3468FFB61D90CA1A00A69723 /* RealReachability */,
 			);
@@ -2009,6 +2057,65 @@
 				343EB39B1D92178C00110CE5 /* YTKRequest.m */,
 			);
 			path = YTKNetwork;
+			sourceTree = "<group>";
+		};
+		34732A5E1D93772C00EE0D14 /* CocoaLumberjack */ = {
+			isa = PBXGroup;
+			children = (
+				34732A831D93781500EE0D14 /* CLI */,
+				34732A881D93781500EE0D14 /* DDAbstractDatabaseLogger.h */,
+				34732A891D93781500EE0D14 /* DDAbstractDatabaseLogger.m */,
+				34732A8A1D93781500EE0D14 /* DDASLLogCapture.h */,
+				34732A8B1D93781500EE0D14 /* DDASLLogCapture.m */,
+				34732A8C1D93781500EE0D14 /* DDASLLogger.h */,
+				34732A8D1D93781500EE0D14 /* DDASLLogger.m */,
+				34732A8E1D93781500EE0D14 /* DDAssertMacros.h */,
+				34732A8F1D93781500EE0D14 /* DDFileLogger.h */,
+				34732A901D93781500EE0D14 /* DDFileLogger.m */,
+				34732A911D93781500EE0D14 /* DDLegacyMacros.h */,
+				34732A921D93781500EE0D14 /* DDLog.h */,
+				34732A931D93781500EE0D14 /* DDLog.m */,
+				34732A941D93781500EE0D14 /* DDLog+LOGV.h */,
+				34732A951D93781500EE0D14 /* DDLogMacros.h */,
+				34732A961D93781500EE0D14 /* DDTTYLogger.h */,
+				34732A971D93781500EE0D14 /* DDTTYLogger.m */,
+				34732A981D93781500EE0D14 /* Extensions */,
+			);
+			path = CocoaLumberjack;
+			sourceTree = "<group>";
+		};
+		34732A831D93781500EE0D14 /* CLI */ = {
+			isa = PBXGroup;
+			children = (
+				34732A841D93781500EE0D14 /* CLIColor.h */,
+				34732A851D93781500EE0D14 /* CLIColor.m */,
+			);
+			path = CLI;
+			sourceTree = "<group>";
+		};
+		34732A981D93781500EE0D14 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				34732A991D93781500EE0D14 /* DDContextFilterLogFormatter.h */,
+				34732A9A1D93781500EE0D14 /* DDContextFilterLogFormatter.m */,
+				34732A9B1D93781500EE0D14 /* DDDispatchQueueLogFormatter.h */,
+				34732A9C1D93781500EE0D14 /* DDDispatchQueueLogFormatter.m */,
+				34732A9D1D93781500EE0D14 /* DDMultiFormatter.h */,
+				34732A9E1D93781500EE0D14 /* DDMultiFormatter.m */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		34732AAA1D93790F00EE0D14 /* JiaLoggerHelper */ = {
+			isa = PBXGroup;
+			children = (
+				34732AAB1D93795700EE0D14 /* JiaFileLogger.h */,
+				34732AAC1D93795700EE0D14 /* JiaFileLogger.m */,
+				34732AAE1D93796F00EE0D14 /* JiaLoggerFormatter.h */,
+				34732AAF1D93796F00EE0D14 /* JiaLoggerFormatter.m */,
+				34732AB11D937B9D00EE0D14 /* JiaCocoaLumberjack.h */,
+			);
+			path = JiaLoggerHelper;
 			sourceTree = "<group>";
 		};
 		347BAF941D87E30200D12F0B = {
@@ -2588,6 +2695,7 @@
 				347BB00D1D87EBEF00D12F0B /* DesignerViewController.m in Sources */,
 				347BAFF51D87EAE100D12F0B /* JiaMediator+DesignerModuleActions.m in Sources */,
 				343EB64B1D922C2C00110CE5 /* UIImage+GIF.m in Sources */,
+				34732AA11D93781500EE0D14 /* DDAbstractDatabaseLogger.m in Sources */,
 				343EB6B71D92550300110CE5 /* NSData+SDDataCache.m in Sources */,
 				343EB6B61D92550300110CE5 /* NSData+Hash.m in Sources */,
 				343EB5EA1D922C2B00110CE5 /* NSIndexPath+Offset.m in Sources */,
@@ -2608,6 +2716,7 @@
 				343EB6981D922C2C00110CE5 /* UIViewController+Visible.m in Sources */,
 				343EB65B1D922C2C00110CE5 /* UILabel+ESAdjustableLabel.m in Sources */,
 				343EB63F1D922C2C00110CE5 /* UIDevice+PasscodeStatus.m in Sources */,
+				34732AAD1D93795700EE0D14 /* JiaFileLogger.m in Sources */,
 				343EB63D1D922C2C00110CE5 /* UIControl+Block.m in Sources */,
 				343EB5E41D922C2B00110CE5 /* NSDictionary+URL.m in Sources */,
 				343EB6771D922C2C00110CE5 /* UITableViewCell+TS_delaysContentTouches.m in Sources */,
@@ -2659,6 +2768,7 @@
 				343EB66B1D922C2C00110CE5 /* UIScrollView+Addition.m in Sources */,
 				34732A5D1D9368FB00EE0D14 /* JiaCoreConfigManager.m in Sources */,
 				343EB6C01D92568700110CE5 /* XAspect-GeTuiAppDelegate.m in Sources */,
+				34732AA81D93781500EE0D14 /* DDDispatchQueueLogFormatter.m in Sources */,
 				343EB5F31D922C2B00110CE5 /* NSObject+AddProperty.m in Sources */,
 				343EB6931D922C2C00110CE5 /* UIViewController+BlockSegue.m in Sources */,
 				343EB62F1D922C2C00110CE5 /* UIBezierPath+Symbol.m in Sources */,
@@ -2666,9 +2776,11 @@
 				343EB6861D922C2C00110CE5 /* UIView+Find.m in Sources */,
 				343EB5F01D922C2B00110CE5 /* NSNumber+CGFloat.m in Sources */,
 				343EB6A21D922C2C00110CE5 /* UIWindow+Hierarchy.m in Sources */,
+				34732AA21D93781500EE0D14 /* DDASLLogCapture.m in Sources */,
 				343EB6391D922C2C00110CE5 /* UIColor+Modify.m in Sources */,
 				343EB6561D922C2C00110CE5 /* UIImageView+GeometryConversion.m in Sources */,
 				343EB5EC1D922C2B00110CE5 /* NSInvocation+Block.m in Sources */,
+				34732AB01D93796F00EE0D14 /* JiaLoggerFormatter.m in Sources */,
 				343EB6241D922C2C00110CE5 /* CATransaction+AnimateWithDuration.m in Sources */,
 				343EB6541D922C2C00110CE5 /* UIImageView+BetterFace.m in Sources */,
 				343EB6691D922C2C00110CE5 /* UIResponder+UIAdapt.m in Sources */,
@@ -2679,6 +2791,7 @@
 				343EB5DD1D922C2B00110CE5 /* NSDate+Utilities.m in Sources */,
 				343EB68F1D922C2C00110CE5 /* UIView+Visuals.m in Sources */,
 				343EB65D1D922C2C00110CE5 /* UINavigationBar+Awesome.m in Sources */,
+				34732AA31D93781500EE0D14 /* DDASLLogger.m in Sources */,
 				3468FFE61D90D2D900A69723 /* JiaMediator.m in Sources */,
 				343EB6381D922C2C00110CE5 /* UIColor+HEX.m in Sources */,
 				343EB60F1D922C2B00110CE5 /* NSString+Trims.m in Sources */,
@@ -2699,6 +2812,7 @@
 				343EB6741D922C2C00110CE5 /* UITableView+FDTemplateLayoutCell.m in Sources */,
 				343EB60C1D922C2B00110CE5 /* NSString+Ruby.m in Sources */,
 				343EB5F61D922C2B00110CE5 /* NSObject+AutoCoding.m in Sources */,
+				34732AA91D93781500EE0D14 /* DDMultiFormatter.m in Sources */,
 				343EB6291D922C2C00110CE5 /* UIApplication+Permissions.m in Sources */,
 				343EB69B1D922C2C00110CE5 /* UIWebView+Canvas.m in Sources */,
 				343EB60A1D922C2B00110CE5 /* NSString+RegexCategory.m in Sources */,
@@ -2724,6 +2838,7 @@
 				343EB6341D922C2C00110CE5 /* UIButton+MiddleAligning.m in Sources */,
 				343EB66F1D922C2C00110CE5 /* UISearchBar+Blocks.m in Sources */,
 				343EB6971D922C2C00110CE5 /* UIViewController+TopBarMessage.m in Sources */,
+				34732AA51D93781500EE0D14 /* DDLog.m in Sources */,
 				343EB6221D922C2C00110CE5 /* CAMediaTimingFunction+AdditionalEquations.m in Sources */,
 				343EB6581D922C2C00110CE5 /* UIImageView+Reflect.m in Sources */,
 				343EB5FE1D922C2B00110CE5 /* NSRunLoop+PerformBlock.m in Sources */,
@@ -2750,6 +2865,7 @@
 				343EB6111D922C2B00110CE5 /* NSString+UUID.m in Sources */,
 				3468FFE01D90CA1A00A69723 /* PingHelper.m in Sources */,
 				343EB6781D922C2C00110CE5 /* UITextField+Blocks.m in Sources */,
+				34732AA61D93781500EE0D14 /* DDTTYLogger.m in Sources */,
 				343EB6661D922C2C00110CE5 /* UIPopoverController+iPhone.m in Sources */,
 				3468FFDC1D90CA1A00A69723 /* ReachStateUnReachable.m in Sources */,
 				343EB6801D922C2C00110CE5 /* UIView+BlockGesture.m in Sources */,
@@ -2788,6 +2904,7 @@
 				343EB62C1D922C2C00110CE5 /* UIBezierPath+Length.m in Sources */,
 				343EB6211D922C2C00110CE5 /* CALayer+UIColor.m in Sources */,
 				3468FFD61D90CA1A00A69723 /* LocalConnection.m in Sources */,
+				34732A9F1D93781500EE0D14 /* CLIColor.m in Sources */,
 				343EB67A1D922C2C00110CE5 /* UITextField+Select.m in Sources */,
 				343EB5EB1D922C2B00110CE5 /* NSInvocation+Bb.m in Sources */,
 				343EB5E61D922C2B00110CE5 /* NSException+Trace.m in Sources */,
@@ -2799,9 +2916,12 @@
 				347BAFA21D87E30200D12F0B /* main.m in Sources */,
 				343EB67C1D922C2C00110CE5 /* UITextView+PinchZoom.m in Sources */,
 				343EB3BC1D922BC900110CE5 /* ViewController.m in Sources */,
+				34732AB41D9383C300EE0D14 /* JiaCoreHelper.m in Sources */,
 				3468FFD81D90CA1A00A69723 /* FSMStateUtil.m in Sources */,
 				343EB5CF1D922C2B00110CE5 /* NSBundle+AppIcon.m in Sources */,
 				343EB6841D922C2C00110CE5 /* UIView+draggable.m in Sources */,
+				34732AA71D93781500EE0D14 /* DDContextFilterLogFormatter.m in Sources */,
+				34732AA41D93781500EE0D14 /* DDFileLogger.m in Sources */,
 				343EB60B1D922C2B00110CE5 /* NSString+RemoveEmoji.m in Sources */,
 				343EB6251D922C2C00110CE5 /* UIAlertView+Block.m in Sources */,
 				343EB6321D922C2C00110CE5 /* UIButton+CountDown.m in Sources */,
@@ -2949,6 +3069,7 @@
 			baseConfigurationReference = CB0B006C172C1CEDD518B1F6 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/jiaModuleDemo/App/AppPrefixHeader.pch";
 				INFOPLIST_FILE = jiaModuleDemo/Info.plist;
@@ -2957,6 +3078,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.sm.WirelessSanMing;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "dbce7694-4d21-492c-bb1b-be2874b98b58";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -2965,6 +3087,7 @@
 			baseConfigurationReference = 824044CE8FBFAABF378217B6 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/jiaModuleDemo/App/AppPrefixHeader.pch";
 				INFOPLIST_FILE = jiaModuleDemo/Info.plist;

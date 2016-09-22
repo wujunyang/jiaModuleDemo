@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "RealReachability.h"
+#import "JiaFileLogger.h"
+#import "JiaCoreConfigManager.h"
+#import "JiaCoreHelper.h"
 
 @interface JiaAppDelegate : UIResponder <UIApplicationDelegate>
 

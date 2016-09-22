@@ -22,7 +22,7 @@
     [super viewDidLoad];
     
     self.view.backgroundColor=[UIColor whiteColor];
-    
+    DDLogDebug(@"我是测试DDLOGDEBUG");
     [self layoutPageSubviews];
 }
 

@@ -10,5 +10,9 @@
 #define AppPrefixHeader_pch
 
 #import "JiaBaseRequest+App.h"
+#import "JiaCocoaLumberjack.h"
+
+//DDLog等级
+static const int ddLogLevel = DDLogLevelVerbose;
 
 #endif /* AppPrefixHeader_pch */
