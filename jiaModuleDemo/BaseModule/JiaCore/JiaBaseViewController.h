@@ -36,7 +36,7 @@
 
 
 
-@interface jiaBaseViewController : UIViewController<BBBaseViewControllerDelegate,BBBaseViewControllerDataSource>
+@interface JiaBaseViewController : UIViewController<BBBaseViewControllerDelegate,BBBaseViewControllerDataSource>
 //页面接收参数
 @property(nonatomic,strong)NSDictionary *parameterDictionary;
 //初始化参数

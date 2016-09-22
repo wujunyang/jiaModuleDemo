@@ -6,8 +6,8 @@
 //  Copyright © 2016年 wujunyang. All rights reserved.
 //
 
-#ifndef jiaMacros_h
-#define jiaMacros_h
+#ifndef JiaMacros_h
+#define JiaMacros_h
 
 //中文字体
 #define CHINESE_FONT_NAME  @"Heiti SC"

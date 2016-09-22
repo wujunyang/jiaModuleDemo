@@ -6,9 +6,9 @@
 //
 //
 
-#import "jiaAppDelegate.h"
+#import "JiaAppDelegate.h"
 #import "GeTuiSdk.h"
 
-@interface jiaAppDelegate (myGt)<GeTuiSdkDelegate>
+@interface JiaAppDelegate (myGt)<GeTuiSdkDelegate>
 
 @end

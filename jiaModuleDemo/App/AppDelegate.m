@@ -27,7 +27,7 @@
     
     
     //设置个推模块的配置
-    jiaGTConfigManager *gtConfig=[jiaGTConfigManager sharedInstance];
+    JiaGTConfigManager *gtConfig=[JiaGTConfigManager sharedInstance];
     gtConfig.jiaGTAppId=@"0uuwznWonIANoK07JeRWgAs";
     gtConfig.jiaGTAppKey=@"26LeO4stbrA7TeyMUJdXlx3";
     gtConfig.jiaGTAppSecret=@"2282vl0IwZd9KL3ZpDyoUL7";

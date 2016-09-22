@@ -9,7 +9,7 @@
 #ifndef designerModulePrefixHeader_h
 #define designerModulePrefixHeader_h
 
-#import "jiaMacros.h"
+#import "JiaMacros.h"
 #import "designerModuleMacros.h"
 #import <AFNetworking/AFNetworking.h>
 #import <Masonry/Masonry.h>

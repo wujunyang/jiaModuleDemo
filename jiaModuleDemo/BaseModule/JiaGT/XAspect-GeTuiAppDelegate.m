@@ -6,17 +6,17 @@
 //  Copyright © 2016年 wujunyang. All rights reserved.
 //
 
-#import "jiaAppDelegate.h"
+#import "JiaAppDelegate.h"
 #import "GeTuiSdk.h"
 #import "XAspect.h"
-#import "jiaGTConfigManager.h"
-#import "jiaAppDelegate+myGt.h"
+#import "JiaGTConfigManager.h"
+#import "JiaAppDelegate+myGt.h"
 
 
 #define AtAspect GeTuiAppDelegate
 
-#define AtAspectOfClass jiaAppDelegate
-@classPatchField(jiaAppDelegate)
+#define AtAspectOfClass JiaAppDelegate
+@classPatchField(JiaAppDelegate)
 
 @synthesizeNucleusPatch(Default, -, BOOL, application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions);
 @synthesizeNucleusPatch(Default, -, void, application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken);
@@ -174,7 +174,7 @@ AspectPatch(-, void, dealloc)
 -(void)initLoadGeTui:(NSDictionary *)launchOptions
 {
     // 通过 appId、 appKey 、appSecret 启动SDK，注：该方法需要在主线程中调用
-    [GeTuiSdk startSdkWithAppId:[jiaGTConfigManager sharedInstance].jiaGTAppId appKey:[jiaGTConfigManager sharedInstance].jiaGTAppKey appSecret:[jiaGTConfigManager sharedInstance].jiaGTAppSecret delegate:self];
+    [GeTuiSdk startSdkWithAppId:[JiaGTConfigManager sharedInstance].jiaGTAppId appKey:[JiaGTConfigManager sharedInstance].jiaGTAppKey appSecret:[JiaGTConfigManager sharedInstance].jiaGTAppSecret delegate:self];
     
     // 注册APNS
     [self registerUserNotification];

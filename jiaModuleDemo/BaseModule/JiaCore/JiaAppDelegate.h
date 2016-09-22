@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "RealReachability.h"
 
-@interface jiaAppDelegate : UIResponder <UIApplicationDelegate>
+@interface JiaAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 

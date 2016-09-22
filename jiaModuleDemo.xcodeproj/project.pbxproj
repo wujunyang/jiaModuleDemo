@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0DC796C047BBA513A78E857B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6109480D64D9F6F4E2BC07CB /* libPods.a */; };
-		340C3D781D8FDD8D00E3BACD /* jiaAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 340C3D771D8FDD8D00E3BACD /* jiaAppDelegate.m */; };
+		340C3D781D8FDD8D00E3BACD /* JiaAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 340C3D771D8FDD8D00E3BACD /* JiaAppDelegate.m */; };
 		343EB39C1D92178C00110CE5 /* YTKBaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 343EB38A1D92178C00110CE5 /* YTKBaseRequest.m */; };
 		343EB39D1D92178C00110CE5 /* YTKBatchRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 343EB38C1D92178C00110CE5 /* YTKBatchRequest.m */; };
 		343EB39E1D92178C00110CE5 /* YTKBatchRequestAgent.m in Sources */ = {isa = PBXBuildFile; fileRef = 343EB38E1D92178C00110CE5 /* YTKBatchRequestAgent.m */; };
@@ -239,8 +239,8 @@
 		343EB6B61D92550300110CE5 /* NSData+Hash.m in Sources */ = {isa = PBXBuildFile; fileRef = 343EB6AD1D92550300110CE5 /* NSData+Hash.m */; };
 		343EB6B71D92550300110CE5 /* NSData+SDDataCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 343EB6AF1D92550300110CE5 /* NSData+SDDataCache.m */; };
 		343EB6B81D92550300110CE5 /* NSData+zlib.m in Sources */ = {isa = PBXBuildFile; fileRef = 343EB6B11D92550300110CE5 /* NSData+zlib.m */; };
-		343EB6BE1D92568700110CE5 /* jiaAppDelegate+myGt.m in Sources */ = {isa = PBXBuildFile; fileRef = 343EB6BA1D92568700110CE5 /* jiaAppDelegate+myGt.m */; };
-		343EB6BF1D92568700110CE5 /* jiaGTConfigManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 343EB6BC1D92568700110CE5 /* jiaGTConfigManager.m */; };
+		343EB6BE1D92568700110CE5 /* JiaAppDelegate+myGt.m in Sources */ = {isa = PBXBuildFile; fileRef = 343EB6BA1D92568700110CE5 /* JiaAppDelegate+myGt.m */; };
+		343EB6BF1D92568700110CE5 /* JiaGTConfigManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 343EB6BC1D92568700110CE5 /* JiaGTConfigManager.m */; };
 		343EB6C01D92568700110CE5 /* XAspect-GeTuiAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 343EB6BD1D92568700110CE5 /* XAspect-GeTuiAppDelegate.m */; };
 		3468FFD41D90CA1A00A69723 /* MBProgressHUD+MP.m in Sources */ = {isa = PBXBuildFile; fileRef = 3468FFB31D90CA1A00A69723 /* MBProgressHUD+MP.m */; };
 		3468FFD51D90CA1A00A69723 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 3468FFB51D90CA1A00A69723 /* MBProgressHUD.m */; };
@@ -259,6 +259,7 @@
 		3468FFE21D90CA1A00A69723 /* RealReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 3468FFD31D90CA1A00A69723 /* RealReachability.m */; };
 		3468FFE61D90D2D900A69723 /* JiaMediator.m in Sources */ = {isa = PBXBuildFile; fileRef = 3468FFE51D90D2D900A69723 /* JiaMediator.m */; };
 		3468FFEE1D91541A00A69723 /* jiaDesignerConfigManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3468FFED1D91541A00A69723 /* jiaDesignerConfigManager.m */; };
+		34732A5D1D9368FB00EE0D14 /* JiaCoreConfigManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 34732A5C1D9368FB00EE0D14 /* JiaCoreConfigManager.m */; };
 		347BAFA21D87E30200D12F0B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 347BAFA11D87E30200D12F0B /* main.m */; };
 		347BAFAD1D87E30200D12F0B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 347BAFAC1D87E30200D12F0B /* Assets.xcassets */; };
 		347BAFB01D87E30200D12F0B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 347BAFAE1D87E30200D12F0B /* LaunchScreen.storyboard */; };
@@ -273,7 +274,7 @@
 		347BB0071D87EBB700D12F0B /* ProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 347BB0061D87EBB700D12F0B /* ProjectViewController.m */; };
 		347BB00A1D87EBD800D12F0B /* UserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 347BB0091D87EBD800D12F0B /* UserViewController.m */; };
 		347BB00D1D87EBEF00D12F0B /* DesignerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 347BB00C1D87EBEF00D12F0B /* DesignerViewController.m */; };
-		34F1A3841D88E9C400931645 /* jiaBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34F1A3831D88E9C400931645 /* jiaBaseViewController.m */; };
+		34F1A3841D88E9C400931645 /* JiaBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34F1A3831D88E9C400931645 /* JiaBaseViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -294,8 +295,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		340C3D761D8FDD8D00E3BACD /* jiaAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = jiaAppDelegate.h; sourceTree = "<group>"; };
-		340C3D771D8FDD8D00E3BACD /* jiaAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = jiaAppDelegate.m; sourceTree = "<group>"; };
+		340C3D761D8FDD8D00E3BACD /* JiaAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JiaAppDelegate.h; sourceTree = "<group>"; };
+		340C3D771D8FDD8D00E3BACD /* JiaAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JiaAppDelegate.m; sourceTree = "<group>"; };
 		343EB3891D92178C00110CE5 /* YTKBaseRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTKBaseRequest.h; sourceTree = "<group>"; };
 		343EB38A1D92178C00110CE5 /* YTKBaseRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTKBaseRequest.m; sourceTree = "<group>"; };
 		343EB38B1D92178C00110CE5 /* YTKBatchRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTKBatchRequest.h; sourceTree = "<group>"; };
@@ -757,14 +758,14 @@
 		343EB6AF1D92550300110CE5 /* NSData+SDDataCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+SDDataCache.m"; sourceTree = "<group>"; };
 		343EB6B01D92550300110CE5 /* NSData+zlib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+zlib.h"; sourceTree = "<group>"; };
 		343EB6B11D92550300110CE5 /* NSData+zlib.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+zlib.m"; sourceTree = "<group>"; };
-		343EB6B91D92568700110CE5 /* jiaAppDelegate+myGt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "jiaAppDelegate+myGt.h"; sourceTree = "<group>"; };
-		343EB6BA1D92568700110CE5 /* jiaAppDelegate+myGt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "jiaAppDelegate+myGt.m"; sourceTree = "<group>"; };
-		343EB6BB1D92568700110CE5 /* jiaGTConfigManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = jiaGTConfigManager.h; sourceTree = "<group>"; };
-		343EB6BC1D92568700110CE5 /* jiaGTConfigManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = jiaGTConfigManager.m; sourceTree = "<group>"; };
+		343EB6B91D92568700110CE5 /* JiaAppDelegate+myGt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "JiaAppDelegate+myGt.h"; sourceTree = "<group>"; };
+		343EB6BA1D92568700110CE5 /* JiaAppDelegate+myGt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "JiaAppDelegate+myGt.m"; sourceTree = "<group>"; };
+		343EB6BB1D92568700110CE5 /* JiaGTConfigManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JiaGTConfigManager.h; sourceTree = "<group>"; };
+		343EB6BC1D92568700110CE5 /* JiaGTConfigManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JiaGTConfigManager.m; sourceTree = "<group>"; };
 		343EB6BD1D92568700110CE5 /* XAspect-GeTuiAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "XAspect-GeTuiAppDelegate.m"; sourceTree = "<group>"; };
 		346800101D915AA500A69723 /* designerModulePrefixHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = designerModulePrefixHeader.h; sourceTree = "<group>"; };
 		346800111D915B8B00A69723 /* designerModuleMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = designerModuleMacros.h; sourceTree = "<group>"; };
-		346800121D915C4D00A69723 /* jiaMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = jiaMacros.h; sourceTree = "<group>"; };
+		346800121D915C4D00A69723 /* JiaMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JiaMacros.h; sourceTree = "<group>"; };
 		3468FFB21D90CA1A00A69723 /* MBProgressHUD+MP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+MP.h"; sourceTree = "<group>"; };
 		3468FFB31D90CA1A00A69723 /* MBProgressHUD+MP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+MP.m"; sourceTree = "<group>"; };
 		3468FFB41D90CA1A00A69723 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
@@ -800,6 +801,8 @@
 		3468FFEC1D91541A00A69723 /* jiaDesignerConfigManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = jiaDesignerConfigManager.h; sourceTree = "<group>"; };
 		3468FFED1D91541A00A69723 /* jiaDesignerConfigManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = jiaDesignerConfigManager.m; sourceTree = "<group>"; };
 		3471536C1D8F9E4700BDB632 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		34732A5B1D9368FB00EE0D14 /* JiaCoreConfigManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JiaCoreConfigManager.h; sourceTree = "<group>"; };
+		34732A5C1D9368FB00EE0D14 /* JiaCoreConfigManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JiaCoreConfigManager.m; sourceTree = "<group>"; };
 		347BAF9D1D87E30200D12F0B /* jiaModuleDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = jiaModuleDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		347BAFA11D87E30200D12F0B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		347BAFAC1D87E30200D12F0B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -830,8 +833,8 @@
 		347BB00B1D87EBEF00D12F0B /* DesignerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesignerViewController.h; sourceTree = "<group>"; };
 		347BB00C1D87EBEF00D12F0B /* DesignerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesignerViewController.m; sourceTree = "<group>"; };
 		34F1A3811D88E00100931645 /* headerDesignerConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = headerDesignerConfig.h; sourceTree = "<group>"; };
-		34F1A3821D88E9C400931645 /* jiaBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = jiaBaseViewController.h; sourceTree = "<group>"; };
-		34F1A3831D88E9C400931645 /* jiaBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = jiaBaseViewController.m; sourceTree = "<group>"; };
+		34F1A3821D88E9C400931645 /* JiaBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JiaBaseViewController.h; sourceTree = "<group>"; };
+		34F1A3831D88E9C400931645 /* JiaBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JiaBaseViewController.m; sourceTree = "<group>"; };
 		6109480D64D9F6F4E2BC07CB /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		824044CE8FBFAABF378217B6 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		CB0B006C172C1CEDD518B1F6 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -866,10 +869,10 @@
 		340C3D791D8FE48700E3BACD /* JiaGT */ = {
 			isa = PBXGroup;
 			children = (
-				343EB6B91D92568700110CE5 /* jiaAppDelegate+myGt.h */,
-				343EB6BA1D92568700110CE5 /* jiaAppDelegate+myGt.m */,
-				343EB6BB1D92568700110CE5 /* jiaGTConfigManager.h */,
-				343EB6BC1D92568700110CE5 /* jiaGTConfigManager.m */,
+				343EB6B91D92568700110CE5 /* JiaAppDelegate+myGt.h */,
+				343EB6BA1D92568700110CE5 /* JiaAppDelegate+myGt.m */,
+				343EB6BB1D92568700110CE5 /* JiaGTConfigManager.h */,
+				343EB6BC1D92568700110CE5 /* JiaGTConfigManager.m */,
 				343EB6BD1D92568700110CE5 /* XAspect-GeTuiAppDelegate.m */,
 			);
 			path = JiaGT;
@@ -1855,6 +1858,8 @@
 			children = (
 				343EB3A91D921E1200110CE5 /* JiaBaseRequest.h */,
 				343EB3AA1D921E1200110CE5 /* JiaBaseRequest.m */,
+				34732A5B1D9368FB00EE0D14 /* JiaCoreConfigManager.h */,
+				34732A5C1D9368FB00EE0D14 /* JiaCoreConfigManager.m */,
 			);
 			path = JiaCoreHelper;
 			sourceTree = "<group>";
@@ -2109,7 +2114,7 @@
 		347BAFD71D87E61200D12F0B /* JiaMacros */ = {
 			isa = PBXGroup;
 			children = (
-				346800121D915C4D00A69723 /* jiaMacros.h */,
+				346800121D915C4D00A69723 /* JiaMacros.h */,
 			);
 			path = JiaMacros;
 			sourceTree = "<group>";
@@ -2134,10 +2139,10 @@
 				3468FFE31D90D2D900A69723 /* JiaMediator */,
 				3468FFB01D90C9DE00A69723 /* JiaCoreTool */,
 				3468FFAF1D90C5D700A69723 /* JiaCoreHelper */,
-				34F1A3821D88E9C400931645 /* jiaBaseViewController.h */,
-				34F1A3831D88E9C400931645 /* jiaBaseViewController.m */,
-				340C3D761D8FDD8D00E3BACD /* jiaAppDelegate.h */,
-				340C3D771D8FDD8D00E3BACD /* jiaAppDelegate.m */,
+				34F1A3821D88E9C400931645 /* JiaBaseViewController.h */,
+				34F1A3831D88E9C400931645 /* JiaBaseViewController.m */,
+				340C3D761D8FDD8D00E3BACD /* JiaAppDelegate.h */,
+				340C3D771D8FDD8D00E3BACD /* JiaAppDelegate.m */,
 			);
 			path = JiaCore;
 			sourceTree = "<group>";
@@ -2596,7 +2601,7 @@
 				343EB39C1D92178C00110CE5 /* YTKBaseRequest.m in Sources */,
 				343EB6081D922C2B00110CE5 /* NSString+MIME.m in Sources */,
 				343EB6511D922C2C00110CE5 /* UIImage+RoundedCorner.m in Sources */,
-				343EB6BF1D92568700110CE5 /* jiaGTConfigManager.m in Sources */,
+				343EB6BF1D92568700110CE5 /* JiaGTConfigManager.m in Sources */,
 				343EB39E1D92178C00110CE5 /* YTKBatchRequestAgent.m in Sources */,
 				343EB6471D922C2C00110CE5 /* UIImage+Capture.m in Sources */,
 				343EB5E71D922C2B00110CE5 /* NSFileHandle+readLine.m in Sources */,
@@ -2633,7 +2638,7 @@
 				343EB6B31D92550300110CE5 /* NSData+Base64.m in Sources */,
 				343EB6681D922C2C00110CE5 /* UIResponder+FirstResponder.m in Sources */,
 				343EB5E91D922C2B00110CE5 /* NSHTTPCookieStorage+FreezeDry.m in Sources */,
-				340C3D781D8FDD8D00E3BACD /* jiaAppDelegate.m in Sources */,
+				340C3D781D8FDD8D00E3BACD /* JiaAppDelegate.m in Sources */,
 				343EB6751D922C2C00110CE5 /* UITableView+FDTemplateLayoutCellDebug.m in Sources */,
 				343EB5DA1D922C2B00110CE5 /* NSDate+InternetDateTime.m in Sources */,
 				343EB5E01D922C2B00110CE5 /* NSDictionary+Block.m in Sources */,
@@ -2652,6 +2657,7 @@
 				343EB6721D922C2C00110CE5 /* UITableView+FDIndexPathHeightCache.m in Sources */,
 				343EB6331D922C2C00110CE5 /* UIButton+Indicator.m in Sources */,
 				343EB66B1D922C2C00110CE5 /* UIScrollView+Addition.m in Sources */,
+				34732A5D1D9368FB00EE0D14 /* JiaCoreConfigManager.m in Sources */,
 				343EB6C01D92568700110CE5 /* XAspect-GeTuiAppDelegate.m in Sources */,
 				343EB5F31D922C2B00110CE5 /* NSObject+AddProperty.m in Sources */,
 				343EB6931D922C2C00110CE5 /* UIViewController+BlockSegue.m in Sources */,
@@ -2680,7 +2686,7 @@
 				343EB5F71D922C2B00110CE5 /* NSObject+Blocks.m in Sources */,
 				343EB6961D922C2C00110CE5 /* UIViewController+StoreKit.m in Sources */,
 				343EB64F1D922C2C00110CE5 /* UIImage+RemoteSize.m in Sources */,
-				34F1A3841D88E9C400931645 /* jiaBaseViewController.m in Sources */,
+				34F1A3841D88E9C400931645 /* JiaBaseViewController.m in Sources */,
 				343EB6501D922C2C00110CE5 /* UIImage+Resize.m in Sources */,
 				343EB6231D922C2C00110CE5 /* CAShapeLayer+UIBezierPath.m in Sources */,
 				343EB5D91D922C2B00110CE5 /* NSDate+Formatter.m in Sources */,
@@ -2757,7 +2763,7 @@
 				343EB6011D922C2B00110CE5 /* NSString+Base64.m in Sources */,
 				343EB3A01D92178C00110CE5 /* YTKChainRequestAgent.m in Sources */,
 				343EB6881D922C2C00110CE5 /* UIView+GestureCallback.m in Sources */,
-				343EB6BE1D92568700110CE5 /* jiaAppDelegate+myGt.m in Sources */,
+				343EB6BE1D92568700110CE5 /* JiaAppDelegate+myGt.m in Sources */,
 				343EB6191D922C2B00110CE5 /* NSURLRequest+ParamsFromDictionary.m in Sources */,
 				343EB5E51D922C2B00110CE5 /* NSDictionary+XML.m in Sources */,
 				3468FFDE1D90CA1A00A69723 /* ReachStateWWAN.m in Sources */,

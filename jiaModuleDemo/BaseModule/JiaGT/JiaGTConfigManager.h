@@ -8,9 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-@interface jiaGTConfigManager : NSObject
+@interface JiaGTConfigManager : NSObject
 
-+ (jiaGTConfigManager *)sharedInstance;
++ (JiaGTConfigManager *)sharedInstance;
 
 //个推配置
 @property (strong, nonatomic) NSString *jiaGTAppId;

@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "jiaBaseViewController.h"
+#import "JiaBaseViewController.h"
 #import "HeaderDesignerConfig.h"
 
-@interface DesignerViewController : jiaBaseViewController
+@interface DesignerViewController : JiaBaseViewController
 
 @end

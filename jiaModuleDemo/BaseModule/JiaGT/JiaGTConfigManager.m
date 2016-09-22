@@ -8,15 +8,15 @@
 
 #import "jiaGTConfigManager.h"
 
-@implementation jiaGTConfigManager
+@implementation JiaGTConfigManager
 
-+ (jiaGTConfigManager *)sharedInstance
++ (JiaGTConfigManager *)sharedInstance
 {
-    static jiaGTConfigManager* instance = nil;
+    static JiaGTConfigManager* instance = nil;
 
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        instance = [jiaGTConfigManager new];
+        instance = [JiaGTConfigManager new];
     });
 
     return instance;

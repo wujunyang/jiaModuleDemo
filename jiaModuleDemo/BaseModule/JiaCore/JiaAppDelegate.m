@@ -6,9 +6,9 @@
 //  Copyright © 2016年 wujunyang. All rights reserved.
 //
 
-#import "jiaAppDelegate.h"
+#import "JiaAppDelegate.h"
 
-@implementation jiaAppDelegate
+@implementation JiaAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     

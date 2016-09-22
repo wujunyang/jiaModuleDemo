@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "jiaAppDelegate.h"
+#import "JiaAppDelegate.h"
 
 
-@interface AppDelegate : jiaAppDelegate
+@interface AppDelegate : JiaAppDelegate
 
 @end
 

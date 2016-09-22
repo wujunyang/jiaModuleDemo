@@ -6,9 +6,9 @@
 //  Copyright © 2016年 wujunyang. All rights reserved.
 //
 
-#import "jiaBaseViewController.h"
+#import "JiaBaseViewController.h"
 
-@interface jiaBaseViewController()
+@interface JiaBaseViewController()
 {
     CGFloat navigationY;
     CGFloat navBarY;
@@ -18,7 +18,7 @@
 @property CGFloat original_height;
 @end
 
-@implementation jiaBaseViewController
+@implementation JiaBaseViewController
 
 - (id)initWithRouterParams:(NSDictionary *)params {
     self = [super init];

@@ -6,8 +6,8 @@
 //
 //
 
-#import "jiaAppDelegate+myGt.h"
+#import "JiaAppDelegate+myGt.h"
 
-@implementation jiaAppDelegate (myGt)
+@implementation JiaAppDelegate (myGt)
 
 @end
