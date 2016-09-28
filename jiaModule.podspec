@@ -13,6 +13,7 @@ s.version      = "0.0.3"
 s.summary      = "一些常见功能的封装"
 
 s.homepage     = "https://github.com/wujunyang/jiaModuleDemo"
+s.license      = { :type => "MIT", :file => "FILE_LICENSE" }
 s.author             = { "wujunyang" => "wujunyang@126.com" }
 
 s.platform     = :ios, "7.0"
