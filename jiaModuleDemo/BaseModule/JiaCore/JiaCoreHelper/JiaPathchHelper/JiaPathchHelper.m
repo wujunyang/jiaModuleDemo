@@ -12,7 +12,7 @@
 #import "JiaPathchModel.h"
 #import "GVUserDefaults+JiaCore.h"
 #import "JiaMacros.h"
-#import <AFNetworking.h>
+#import <AFNetworking/AFNetworking.h>
 #import "YYCache.h"
 
 @interface JiaPathchHelper()
