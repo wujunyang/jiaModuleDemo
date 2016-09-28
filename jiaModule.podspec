@@ -2,6 +2,11 @@
 #  Be sure to run `pod spec lint jiaCore.podspec' to ensure this is a
 #  valid spec and to remove all comments including this before submitting the spec.
 #
+#
+#  验证是否正确（后面还有一个git的私有地址)
+#  pod lib lint jiaModule.podspec --allow-warnings --sources=https://github.com/CocoaPods/Specs.git,https://github.com/wujunyang/WjySpecs.git
+#  提交到库  (WjySpecs就是你们的私有库名 后面还有一个git的私有地址)
+#  pod repo push WjySpecs jiaModule.podspec --allow-warnings --sources=https://github.com/CocoaPods/Specs.git,https://github.com/wujunyang/WjySpecs.git
 #  To learn more about Podspec attributes see http://docs.cocoapods.org/specification.html
 #  To see working Podspecs in the CocoaPods repo see https://github.com/CocoaPods/Specs/
 #
