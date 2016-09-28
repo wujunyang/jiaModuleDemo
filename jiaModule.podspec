@@ -14,7 +14,7 @@
 Pod::Spec.new do |s|
 
 s.name         = "jiaModule"
-s.version      = "0.0.5"
+s.version      = "0.0.6"
 s.summary      = "iOS模块化功能的引用"
 
 s.homepage     = "https://github.com/wujunyang/jiaModuleDemo"
@@ -23,7 +23,7 @@ s.author             = { "wujunyang" => "wujunyang@126.com" }
 
 s.platform     = :ios, "7.0"
 
-s.source       = { :git => "https://github.com/wujunyang/jiaModuleDemo.git", :tag => "0.0.5" }
+s.source       = { :git => "https://github.com/wujunyang/jiaModuleDemo.git", :tag => "0.0.6" }
 
 s.requires_arc = true
 
