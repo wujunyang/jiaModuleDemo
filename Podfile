@@ -12,3 +12,10 @@ pod 'CYLTabBarController'
 pod 'Aspects'
 pod 'GTSDK'
 pod 'UMengAnalytics-NO-IDFA'
+
+
+pod 'YYCache'
+pod 'JSPatch'
+pod 'RealReachability'
+pod 'FLEX', '~> 2.0'
+pod 'CocoaLumberjack', '~> 2.0.0-rc'
