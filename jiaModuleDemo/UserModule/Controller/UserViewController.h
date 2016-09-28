@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "userModulePrefixHeader.h"
 
-@interface UserViewController : UIViewController
+@interface UserViewController : JiaBaseViewController
 
 @end

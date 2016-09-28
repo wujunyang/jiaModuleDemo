@@ -16,10 +16,16 @@
     [GLobalRealReachability startNotifier];
         
     //是否开始日志记录功能
-    if([JiaCoreConfigManager sharedInstance].isRecordlogger)
+    if(JiaCoreConfigManagerInstance.isRecordlogger)
     {
         NSLog(@"开启日志记录功能");
         [JiaFileLogger sharedManager];
+    }
+    
+    if(JiaCoreConfigManagerInstance.isOpenDebug)
+    {
+        NSLog(@"开启调试插件功能");
+        [[FLEXManager sharedManager] showExplorer];
     }
     
     return YES;

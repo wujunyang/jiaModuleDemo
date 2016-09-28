@@ -7,6 +7,7 @@
 //
 
 #import "JiaCoreConfigManager.h"
+#import "JiaPathchHelper.h"
 
 @implementation JiaCoreConfigManager
 
@@ -20,6 +21,16 @@
     });
     
     return instance;
+}
+
+-(void)setJSPatchMutableArray:(NSMutableArray *)jSPatchMutableArray
+{
+    if (jSPatchMutableArray.count>0) {
+        NSLog(@"开启热更新功能");
+        
+        JiaPathchHelper *helper=[[JiaPathchHelper alloc]initWithPatchArray:jSPatchMutableArray];
+        [helper loadPathchFile];
+    }
 }
 
 @end

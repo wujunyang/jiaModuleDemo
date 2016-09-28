@@ -24,9 +24,6 @@ PODS:
   - CYLTabBarController (1.6.0)
   - GTSDK (1.5.0)
   - JSONModel (1.0.2)
-  - JSPatch (1.1):
-    - JSPatch/Core (= 1.1)
-  - JSPatch/Core (1.1)
   - Masonry (0.6.4)
   - ReactiveCocoa (2.5):
     - ReactiveCocoa/UI (= 2.5)
@@ -38,6 +35,7 @@ PODS:
   - SDWebImage (3.7.6):
     - SDWebImage/Core (= 3.7.6)
   - SDWebImage/Core (3.7.6)
+  - UMengAnalytics-NO-IDFA (4.1.1)
   - XAspect (1.0.5):
     - XAspect/Core (= 1.0.5)
     - XAspect/Macros (= 1.0.5)
@@ -51,10 +49,10 @@ DEPENDENCIES:
   - CYLTabBarController
   - GTSDK
   - JSONModel (~> 1.0.1)
-  - JSPatch
   - Masonry (~> 0.6.1)
   - ReactiveCocoa (~> 2.5)
   - SDWebImage (~> 3.7.5)
+  - UMengAnalytics-NO-IDFA
   - XAspect
 
 SPEC CHECKSUMS:
@@ -63,10 +61,10 @@ SPEC CHECKSUMS:
   CYLTabBarController: efbdd574772be17f17965acd7ee993f5972ff02f
   GTSDK: 4380de452178d8ba2a67189f10c6743d0f9536b9
   JSONModel: 6ffcb4ffa3659c9e9a2e5d45d6c7705bab187c03
-  JSPatch: ade285ad1d8f06146ed6054a39cef87509453299
   Masonry: 281802d04d787ea2973179ee8bcb50500579ede2
   ReactiveCocoa: e2db045570aa97c695e7aa97c2bcab222ae51f4a
   SDWebImage: c325cf02c30337336b95beff20a13df489ec0ec9
+  UMengAnalytics-NO-IDFA: 1064992c1b7aaa22823179c0b33a664813fd7a85
   XAspect: db50bf487f92dbb8557a7a5365556966c8493af8
 
 COCOAPODS: 0.39.0

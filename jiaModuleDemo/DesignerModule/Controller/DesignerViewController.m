@@ -30,6 +30,8 @@
     self.navigationItem.title=@"设计师模块";
     NSLog(@"当前参数：%@",self.parameterDictionary);
     
+    NSLog(@"%@",[self getMessage]);
+    NSLog(@"%@",[self getOtherMessage]);
     
     //测试网络请求
     DesignerServiceApi *serverApi=[[DesignerServiceApi alloc]init];
@@ -42,6 +44,9 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    
+    UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:[self getMessage] delegate:nil cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+    [alert show];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -116,6 +121,7 @@
         _myDesignIDLabel.textColor=[UIColor whiteColor];
         _myDesignIDLabel.text=self.parameterDictionary[kDesignerModuleActionsDictionaryKeyID];
     }
+    
     return _myDesignIDLabel;
 }
 
@@ -138,6 +144,17 @@
         [_returnButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     }
     return _returnButton;
+}
+
+
+-(NSString *)getMessage
+{
+    return @"我是原来的内容";
+}
+
+-(NSString *)getOtherMessage
+{
+    return @"我是getOtherMessage的内容";
 }
 
 @end

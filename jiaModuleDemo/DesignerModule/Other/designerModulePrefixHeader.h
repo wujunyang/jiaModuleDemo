@@ -18,5 +18,6 @@
 #import "MBProgressHUD.h"
 #import "MBProgressHUD+MP.h"
 #import "YTKNetwork.h"
+#import "JiaBaseViewController.h"
 
 #endif /* designerModulePrefixHeader_h */

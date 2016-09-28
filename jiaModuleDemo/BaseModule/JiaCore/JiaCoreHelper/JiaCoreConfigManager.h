@@ -8,17 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-//日志记录等级
-typedef NS_ENUM(NSInteger, JiaCoreLoggerLevel) {
-    JiaCoreLoggerLevelOff,
-    JiaCoreLoggerLevelErro,
-    JiaCoreLoggerLevelWarning,
-    JiaCoreLoggerLevelInfo,
-    JiaCoreLoggerLevelDebug,
-    JiaCoreLoggerLevelVerbose,
-    JiaCoreLoggerLevelAll
-};
-
+#define JiaCoreConfigManagerInstance [JiaCoreConfigManager sharedInstance]
 
 @interface JiaCoreConfigManager : NSObject
 
@@ -26,5 +16,9 @@ typedef NS_ENUM(NSInteger, JiaCoreLoggerLevel) {
 
 //是否开启日志记录
 @property(nonatomic, assign, getter = isRecordlogger) BOOL recordlogger;
+//是否开启调试插件
+@property(nonatomic, assign, getter = isOpenDebug) BOOL openDebug;
+//设置Patcth 传入JiaPathchModel类型的数组 有值则会启动JSPatch热更新功能
+@property(nonatomic,strong) NSMutableArray *jSPatchMutableArray;
 
 @end

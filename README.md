@@ -117,7 +117,7 @@ static NSString * const kDesignerModuleActionsDictionaryKeyImage=@"image";
 
 ###JiaCore(基础功能封装)
 
-JiaCore是整个APP最基础模块，所有的模块化都要依赖，主要包含一些全局的功能模块，比如JiaBaseViewController、JiaAppDelegate、JiaBaseRequest等；目前已经把一些默认的功能进行集成在里面，包含网络状态变化判断及提示、日志记录功能等；并把一些相关配置的内容用JiaCoreConfigManager这个管理类进行统一设置，比如是否打开日志记录功能；JiaCoreConfigManager类则是开放给具体APP设置全局的相关配置；下面就以其中一个日志记录功能进行讲解:
+JiaCore是整个APP最基础模块，所有的模块化都要依赖，主要包含一些全局的功能模块，比如JiaBaseViewController、JiaAppDelegate等；目前已经把一些默认的功能进行集成在里面，包含网络状态变化判断及提示、日志记录功能等；并把一些相关配置的内容用JiaCoreConfigManager这个管理类进行统一设置，比如是否打开日志记录功能；JiaCoreConfigManager类则是开放给具体APP设置全局的相关配置；下面就以其中一个日志记录功能进行讲解:
 
 ```obj-c
 //JiaCore基础模块相关配置
@@ -135,7 +135,7 @@ static const int ddLogLevel = DDLogLevelVerbose;
 
 ###JiaNetWork(网络交互封装)
 
-对于网络请求模块则采用YTKNetwork，底层还是以AFNetworking进行网络通信交互，在基础全局模块JiaCore中，定义一个继承于YTKBaseRequest的JiaBaseRequest，针对JiaBaseRequest则是为了后期各个APP可以对它进行分类扩展，对于一些超时、请求头部等进行统一个性化设置，毕竟这些是每个APP都不相同；而针对模块中关于请求网络的前缀设置，则在每个模块中都有一个单例的配置类，此配置类是为了针对该模块对不同APP变化而定义；相应的配置内容开放给APP，由具体APP来定义，例如现在项目中的JiaBaseRequest+App.h类，里面有简单设置超时跟头部；当然记得把这个分类引入到APP中，比如AppPrefixHeader这个APP的全局头部；
+对于网络请求模块则采用YTKNetwork，底层还是以AFNetworking进行网络通信交互，定义一个继承于YTKBaseRequest的JiaBaseRequest，针对JiaBaseRequest则是为了后期各个APP可以对它进行分类扩展，对于一些超时、请求头部等进行统一个性化设置，毕竟这些是每个APP都不相同；而针对模块中关于请求网络的前缀设置，则在每个模块中都有一个单例的配置类，此配置类是为了针对该模块对不同APP变化而定义；相应的配置内容开放给APP，由具体APP来定义，例如现在项目中的JiaBaseRequest+App.h类，里面有简单设置超时跟头部；当然记得把这个分类引入到APP中，比如AppPrefixHeader这个APP的全局头部；
 
 ```obj-c
 #import "JiaBaseRequest+App.h"
@@ -220,6 +220,36 @@ gtConfig.jiaGTAppSecret=@"2282vl0IwZd9KL3ZpDyoUL7";
 上面能够对个推进行完全的解耦不得不提一个第三方的插件XAspect，如果想对它进行了解可以在github进行查找；它的主要作用如下图，可以用它进行其它第三方SDK的抽离
 
 <img src="https://github.com/wujunyang/jiaModuleDemo/blob/master/jiaModuleDemo/ProjectImage/6.png" width=500px height=400px></img>
+
+
+###JiaAnalytics模块(友盟统计封装)
+
+JiaAnalytics模块是在友盟统计SDK跟Aspect相结合基础上完成，对于页面的进出统计采用Aop切面方式进行，把原本应该在每个页面生命周期的统计代码移除，App运用只要简单配置友盟相对应的信息，也可以设置要统计页面的过滤条件，目前已经有三种如要统计的开头页面的前缀字符串数组、要统计的页面名称字符串数组、不统计的页面名称字符串数组；可以结合使用，达到精确统计页面的目的；而且把统计的代码放在异步线程进行，不会影响主线程的响应；
+
+```obj-c
+__weak typeof(self) ws = self;
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        
+        [UIViewController aspect_hookSelector:@selector(viewWillAppear:) withOptions:AspectPositionAfter usingBlock:^(id<AspectInfo> info, BOOL animated){
+            UIViewController *controller = [info instance];
+            BOOL filterResult=[ws fileterWithControllerName:NSStringFromClass([controller class])];
+            if (filterResult) {
+                [ws beginLogPageView:[controller class]];
+            }
+        } error:NULL];
+        
+        [UIViewController aspect_hookSelector:@selector(viewWillDisappear:) withOptions:AspectPositionAfter usingBlock:^(id<AspectInfo> info, BOOL animated){
+            UIViewController *controller = [info instance];
+            BOOL filterResult=[ws fileterWithControllerName:NSStringFromClass([controller class])];
+            if (filterResult) {
+                [ws endLogPageView:[controller class]];
+            }
+        } error:NULL];
+    });
+
+```
+
+<img src="https://github.com/wujunyang/jiaModuleDemo/blob/master/jiaModuleDemo/ProjectImage/10.png" width=500px height=400px></img>
 
 #模块化结合私有Pods方案
 上面实例中只是把相关模块化的提取都在一个工程进行体现，最后还是要落实结合Pods进行管理，把每个模块分开管理，不同的APP可以简单通过Pods指令就可以达到引入模块的效果，对于一些相同模块可以在不同的APP重复引用，减小重复开发成本；

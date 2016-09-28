@@ -11,7 +11,7 @@
 @implementation DesignerServiceApi
 
 - (NSString *)requestUrl {
-    return [NSString stringWithFormat:@"%@%@",[jiaDesignerConfigManager sharedInstance].prefixNetWorkUrl,@"projects/1/replenishment-documents"];
+    return [NSString stringWithFormat:@"%@%@",JiaDesignerConfigManagerInstance.prefixNetWorkUrl,@"projects/1/replenishment-documents"];
 }
 
 - (YTKRequestMethod)requestMethod {

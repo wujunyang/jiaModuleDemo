@@ -13,6 +13,9 @@
 #import "jiaGTConfigManager.h"
 #import "jiaDesignerConfigManager.h"
 
+#import "JiaAnalyticsConfigManager.h"
+#import "JiaAnalyticsHelper.h"
+
 @interface AppDelegate ()
 
 @end
@@ -25,11 +28,27 @@
     //JiaCore基础模块相关配置
     JiaCoreConfigManager *jiaCoreConfig=[JiaCoreConfigManager sharedInstance];
     jiaCoreConfig.recordlogger=YES;
+    jiaCoreConfig.openDebug=NO;
     
+    //热更新内容
+    JiaPathchModel *sample=[[JiaPathchModel alloc]init];
+    sample.patchId = @"patchId_sample1";
+    sample.md5 = @"2cf1c6f6c5632dc21224bf42c698706b";
+    sample.url = @"http://test.qshmall.net:9090/demo1.js";
+    sample.ver = @"1";
+    
+    JiaPathchModel *sample1=[[JiaPathchModel alloc]init];
+    sample1.patchId = @"patchId_sample2";
+    sample1.md5 = @"e8a4eaeadce5a4598fb9a868e09c75fd";
+    sample1.url = @"http://test.qshmall.net:9090/demo2.js";
+    sample1.ver = @"1";
+    
+    jiaCoreConfig.jSPatchMutableArray=[@[sample,sample1] mutableCopy];
     
     //设置模块jiaDesigner相关配置
     jiaDesignerConfigManager *jiaDesignerConfig=[jiaDesignerConfigManager sharedInstance];
     jiaDesignerConfig.prefixNetWorkUrl=@"http://private.com/";
+    
     
     
     //设置个推模块的配置
@@ -38,12 +57,33 @@
     gtConfig.jiaGTAppKey=@"26LeO4stbrA7TeyMUJdXlx3";
     gtConfig.jiaGTAppSecret=@"2282vl0IwZd9KL3ZpDyoUL7";
     
+    
+    //友盟统计设置
+    JiaAnalyticsConfigManager *jiaAnalyticsConfig=[JiaAnalyticsConfigManager sharedInstance];
+    jiaAnalyticsConfig.analyticsAppKey=@"57e3f1cbe0f55a42080011ec";
+    jiaAnalyticsConfig.analyticsChannelID=@"App Store";
+    jiaAnalyticsConfig.analyticsLogEnabled=YES;
+    
+//    //要统计页面的前缀
+//    jiaAnalyticsConfig.prefixFilterArray=@[@"ZU",@"DB"];
+//    //不符合前缀 但也要被统计进来的页面
+//    jiaAnalyticsConfig.fileterNameArray=@[@"defaultViewController",@"nativeViewController"];
+//    //符合页面的前缀 但不要进行统计的页面
+//    jiaAnalyticsConfig.noFileterNameArray=@[@"ZUDeaultViewcontroller"];
+    
+    //开始AOP方式统计
+    [JiaAnalyticsHelper jiaAnalyticsViewController];
+    
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     ViewController *vc = [[ViewController alloc]init];
     UINavigationController *navc = [[UINavigationController alloc]initWithRootViewController:vc];
     self.window.rootViewController = navc;
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    
+
+    
     
     return [super application:application didFinishLaunchingWithOptions:launchOptions];
 }

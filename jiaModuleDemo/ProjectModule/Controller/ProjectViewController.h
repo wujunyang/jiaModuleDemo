@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "projectModulePrefixHeader.h"
 
-@interface ProjectViewController : UIViewController
+@interface ProjectViewController : JiaBaseViewController
 
 @end

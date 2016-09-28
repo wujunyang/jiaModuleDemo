@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+#define JiaDesignerConfigManagerInstance [jiaDesignerConfigManager sharedInstance]
+
 @interface jiaDesignerConfigManager : NSObject
 
 + (jiaDesignerConfigManager *)sharedInstance;

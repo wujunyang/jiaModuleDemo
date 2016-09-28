@@ -11,6 +11,7 @@
 #import "JiaFileLogger.h"
 #import "JiaCoreConfigManager.h"
 #import "JiaCoreHelper.h"
+#import "FLEXManager.h"
 
 @interface JiaAppDelegate : UIResponder <UIApplicationDelegate>
 

@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "JiaAppDelegate.h"
 
+#import "JiaPathchModel.h"
 
 @interface AppDelegate : JiaAppDelegate
 

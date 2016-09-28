@@ -28,6 +28,8 @@
 
 AspectPatch(-, BOOL, application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions)
 {
+    NSLog(@"成功加载个推模块");
+    
     //个推初始化
     [self initLoadGeTui:launchOptions];
     
