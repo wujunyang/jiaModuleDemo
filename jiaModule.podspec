@@ -38,12 +38,12 @@ jiaCore.dependency 'CocoaLumberjack', '~> 2.0.0-rc'
 jiaCore.dependency 'AFNetworking', '~>2.6.0'
 end
 
-#s.subspec 'JiaGT' do |jiaGT|
-#jiaGT.source_files = 'jiaModuleDemo/BaseModule/JiaGT/**/*'
-#jiaGT.dependency 'jiaModule/JiaCore'
-#jiaGT.dependency 'XAspect'
-#jiaGT.dependency 'GTSDK', '~> 1.5.0'
-#end
+s.subspec 'JiaGT' do |jiaGT|
+jiaGT.source_files = 'jiaModuleDemo/BaseModule/JiaGT/**/*'
+jiaGT.dependency 'jiaModule/JiaCore'
+jiaGT.dependency 'XAspect'
+jiaGT.dependency 'GTSDK', '~> 1.5.0'
+end
 
 #s.subspec 'JiaAnalytics' do |jiaAnalytics|
 #jiaAnalytics.source_files = 'jiaModuleDemo/BaseModule/JiaAnalytics/**/*'
