@@ -7,7 +7,12 @@
 //
 
 #import "JiaMediator.h"
+#import "HeaderUserConfig.h"
 
 @interface JiaMediator (UserModuleActions)
+
+- (UIViewController *)JiaMediator_User_viewControllerForDetail;
+
+- (UIViewController *)JiaMediator_User_viewControllerForDetail:(NSDictionary *)params;
 
 @end

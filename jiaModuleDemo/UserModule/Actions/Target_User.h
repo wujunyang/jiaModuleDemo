@@ -10,4 +10,6 @@
 
 @interface Target_User : NSObject
 
+- (UIViewController *)Action_nativeUserDetailViewController:(NSDictionary *)params;
+
 @end

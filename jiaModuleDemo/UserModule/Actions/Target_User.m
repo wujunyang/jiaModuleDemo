@@ -7,7 +7,14 @@
 //
 
 #import "Target_User.h"
+#import "UserViewController.h"
 
 @implementation Target_User
+
+- (UIViewController *)Action_nativeUserDetailViewController:(NSDictionary *)params
+{
+    UserViewController *viewController=[[UserViewController alloc]initWithRouterParams:params];
+    return viewController;
+}
 
 @end

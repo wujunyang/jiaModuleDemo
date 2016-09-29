@@ -24,6 +24,9 @@
     self.view.backgroundColor=[UIColor whiteColor];
     DDLogDebug(@"我是测试DDLOGDEBUG");
     [self layoutPageSubviews];
+    
+    //监听返回值通知
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userVCNotification:) name:kUserViewControllerNotificationWithName object:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -46,7 +49,22 @@
     [super didReceiveMemoryWarning];
 }
 
+-(void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 #pragma mark - Events
+
+- (void)userVCNotification:(NSNotification *)dic{
+    NSDictionary *infoDic=(NSDictionary *)dic.userInfo;
+    NSLog(@"－－－－－接收到通知返回------");
+    
+    NSLog(@"内容为：%@",infoDic);
+    UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"回调回来的参数" message:[NSString stringWithFormat:@"内容为：%@",infoDic] delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+    [alert show];
+}
+
 
 #pragma mark – Private Methods
 
@@ -113,6 +131,13 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
             [self.navigationController pushViewController:viewController animated:YES];
             break;
         }
+        case 3:
+        {
+            NSDictionary *userParaDictionary=@{kUserModuleActionsDictionaryKeyID:@"1"};
+            UIViewController *viewController=[[JiaMediator sharedInstance] JiaMediator_User_viewControllerForDetail:userParaDictionary];
+            [self.navigationController pushViewController:viewController animated:YES];
+            break;
+        }
         default:
             break;
     }
@@ -141,7 +166,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 -(NSArray *)myDataList
 {
     if (_myDataList==nil) {
-        _myDataList=@[@"模态方式弹出",@"导栏方式",@"路由方式"];
+        _myDataList=@[@"模态方式弹出设计模块",@"导栏方式跳转设计模块",@"路由方式跳转设计模块",@"跳转到用户模块并通知还回值"];
     }
     return _myDataList;
 }

@@ -133,6 +133,27 @@ static const int ddLogLevel = DDLogLevelVerbose;
 ```
 这样就完成的一个APP对于日志记录模块的引入，JiaCore已经帮你完成的关于日志记录的相关配置，并且错误内容以一种可读性较好的格式记录到file文件中，而且这些file文件生成规则也都定义好了，当然如何时你要是在Xcode控制台显示不同等级色彩，只要安装XcodeColors插件并简单进行设置就可以了，对于不同等级不同色彩都已经在JiaCore配置完成；
 
+在JiaCore里面也默认集成了热更新的功能，只要传入简单的对象数组就会启动热更新；其中JiaPathchModel已经是定义好的模型，在APP中把接口请求转化成模型数组，其中patchId是唯一值名称、md5则是JS文件的MD5值、url是JS的下载路径、ver则是对哪个版本起作用；因为一般我们在外面的APP都是多版本共存，热更新也要进行版本区分，只下载与本版本相对应的热更新JS文件加载；而MD5值则是为了增加安全性，避免JS文件被别人进行修改而影响APP的运行，在JiaCore会对下载后的JS文件进行MD5计算并比较；对于没有在jSPatchMutableArray以前的JS文件会被删除；
+
+```obj-c
+//热更新内容
+JiaPathchModel *sample=[[JiaPathchModel alloc]init];
+sample.patchId = @"patchId_sample1";
+sample.md5 = @"2cf1c6f6c5632dc21224bf42c698706b";
+sample.url = @"http://test.qshmall.net:9090/demo1.js";
+sample.ver = @"1";
+    
+JiaPathchModel *sample1=[[JiaPathchModel alloc]init];
+sample1.patchId = @"patchId_sample2";
+sample1.md5 = @"e8a4eaeadce5a4598fb9a868e09c75fd";
+sample1.url = @"http://test.qshmall.net:9090/demo2.js";
+sample1.ver = @"1";
+
+//JiaCore基础模块相关配置
+JiaCoreConfigManager *jiaCoreConfig=[JiaCoreConfigManager sharedInstance];
+jiaCoreConfig.jSPatchMutableArray=[@[sample,sample1] mutableCopy];
+```
+
 ###JiaNetWork(网络交互封装)
 
 对于网络请求模块则采用YTKNetwork，底层还是以AFNetworking进行网络通信交互，定义一个继承于YTKBaseRequest的JiaBaseRequest，针对JiaBaseRequest则是为了后期各个APP可以对它进行分类扩展，对于一些超时、请求头部等进行统一个性化设置，毕竟这些是每个APP都不相同；而针对模块中关于请求网络的前缀设置，则在每个模块中都有一个单例的配置类，此配置类是为了针对该模块对不同APP变化而定义；相应的配置内容开放给APP，由具体APP来定义，例如现在项目中的JiaBaseRequest+App.h类，里面有简单设置超时跟头部；当然记得把这个分类引入到APP中，比如AppPrefixHeader这个APP的全局头部；
@@ -255,3 +276,88 @@ __weak typeof(self) ws = self;
 上面实例中只是把相关模块化的提取都在一个工程进行体现，最后还是要落实结合Pods进行管理，把每个模块分开管理，不同的APP可以简单通过Pods指令就可以达到引入模块的效果，对于一些相同模块可以在不同的APP重复引用，减小重复开发成本；
 
 <img src="https://github.com/wujunyang/jiaModuleDemo/blob/master/jiaModuleDemo/ProjectImage/8.png" width=700px height=500px></img>
+
+在本项目中已经引入的Pod来管理目前开发的几个模块，并导入在我目前的Github的一个库里Spec进行统一管理，首先要引入Pod来管理则要增加jiaModule.podspec文件；
+
+```obj-c
+Pod::Spec.new do |s|
+
+s.name         = "jiaModule"
+s.version      = "0.0.6"
+s.summary      = "iOS模块化功能的引用"
+
+s.homepage     = "https://github.com/wujunyang/jiaModuleDemo"
+s.license      = { :type => "MIT", :file => "FILE_LICENSE" }
+s.author             = { "wujunyang" => "wujunyang@126.com" }
+
+s.platform     = :ios, "7.0"
+
+s.source       = { :git => "https://github.com/wujunyang/jiaModuleDemo.git", :tag => "0.0.6" }
+
+s.requires_arc = true
+
+s.subspec 'JiaCore' do |jiaCore|
+jiaCore.source_files = 'jiaModuleDemo/BaseModule/JiaCore/**/*.{h,m}'
+jiaCore.dependency 'XAspect'
+jiaCore.dependency 'YYCache'
+jiaCore.dependency 'JSPatch'
+jiaCore.dependency 'RealReachability'
+jiaCore.dependency 'FLEX', '~> 2.0'
+jiaCore.dependency 'CocoaLumberjack', '~> 2.0.0-rc'
+jiaCore.dependency 'AFNetworking', '~>2.6.0'
+end
+
+s.subspec 'JiaGT' do |jiaGT|
+jiaGT.source_files = 'jiaModuleDemo/BaseModule/JiaGT/**/*'
+jiaGT.dependency 'jiaModule/JiaCore'
+jiaGT.dependency 'XAspect'
+jiaGT.dependency 'GTSDK', '~> 1.5.0'
+end
+
+s.subspec 'JiaAnalytics' do |jiaAnalytics|
+jiaAnalytics.source_files = 'jiaModuleDemo/BaseModule/JiaAnalytics/**/*'
+jiaAnalytics.dependency 'jiaModule/JiaCore'
+jiaAnalytics.dependency 'XAspect'
+jiaAnalytics.dependency 'Aspects'
+jiaAnalytics.dependency 'UMengAnalytics-NO-IDFA', '~> 4.1.1'
+end
+
+
+
+s.frameworks = 'UIKit'
+
+# s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
+# s.dependency "JSONKit", "~> 1.4"
+end
+```
+
+上面的文件会把不同的模块进行分离，可以一起引入也可以单独引入某一个模块；pod会自动把相应的依赖都引入,下面是全部引入关于jiaModule模块
+
+```obj-c
+source 'https://github.com/CocoaPods/Specs.git'
+source 'https://github.com/wujunyang/WjySpecs.git'
+platform :ios, "7.0"
+
+pod 'jiaModule'
+```
+
+假如要引入只是其中一个模块：
+
+```obj-c
+source 'https://github.com/CocoaPods/Specs.git'
+source 'https://github.com/wujunyang/WjySpecs.git'
+platform :ios, "7.0"
+
+pod 'jiaModule/JiaCore’
+pod 'jiaModule/JiaGT’
+```
+
+下面简单介绍两条关于验证跟提交jiaModule.podspec的指令，都要打开终端进入项目根目录，也就是jiaModule.podspec所在的目录，然后进行执行；
+
+```obj-c
+#验证是否正确（后面还有一个git的私有地址)
+pod lib lint jiaModule.podspec --allow-warnings --use-libraries --sources=https://github.com/CocoaPods/Specs.git,https://github.com/wujunyang/WjySpecs.git
+
+#提交到库  (WjySpecs就是你们的私有库名 后面还有一个git的私有地址)
+pod repo push WjySpecs jiaModule.podspec --allow-warnings --use-libraries --sources=https://github.com/CocoaPods/Specs.git,https://github.com/wujunyang/WjySpecs.git
+```

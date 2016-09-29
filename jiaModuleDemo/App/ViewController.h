@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "JiaBaseViewController.h"
 #import "JiaMediator+DesignerModuleActions.h"
+#import "JiaMediator+UserModuleActions.h"
 
 @interface ViewController : JiaBaseViewController
 

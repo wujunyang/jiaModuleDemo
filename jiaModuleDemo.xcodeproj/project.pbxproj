@@ -300,6 +300,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3400083A1D9CA5040000CCFB /* HeaderUserConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HeaderUserConfig.h; sourceTree = "<group>"; };
 		340C3D761D8FDD8D00E3BACD /* JiaAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JiaAppDelegate.h; sourceTree = "<group>"; };
 		340C3D771D8FDD8D00E3BACD /* JiaAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JiaAppDelegate.m; sourceTree = "<group>"; };
 		3411DD3B1D93AE8D00077FAD /* JiaMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JiaMacros.h; sourceTree = "<group>"; };
@@ -1942,6 +1943,7 @@
 				341F2D3F1D9A368D00379D48 /* JiaUserConfigManager.m */,
 				341F2D411D9A36B800379D48 /* userModulePrefixHeader.h */,
 				341F2D421D9A36DD00379D48 /* userModuleMacros.h */,
+				3400083A1D9CA5040000CCFB /* HeaderUserConfig.h */,
 			);
 			path = Other;
 			sourceTree = "<group>";
