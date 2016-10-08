@@ -1,5 +1,5 @@
-source 'https://github.com/CocoaPods/Specs.git'
 
+target 'jiaModuleDemo’ do
 platform :ios, "7.0"
 
 pod 'AFNetworking', '~>2.6.0'
@@ -12,10 +12,11 @@ pod 'CYLTabBarController'
 pod 'Aspects'
 pod 'GTSDK'
 pod 'UMengAnalytics-NO-IDFA'
-
+pod 'UMengSocialCOM', '~> 5.2.1' 
 
 pod 'YYCache'
 pod 'JSPatch'
 pod 'RealReachability'
 pod 'FLEX', '~> 2.0'
 pod 'CocoaLumberjack', '~> 2.0.0-rc'
+end

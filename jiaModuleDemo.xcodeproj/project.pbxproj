@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0DC796C047BBA513A78E857B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6109480D64D9F6F4E2BC07CB /* libPods.a */; };
+		109E998F78E10AB155EA6BA2 /* libPods-jiaModuleDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 402187A3EF5B14E8FDC499B4 /* libPods-jiaModuleDemo.a */; };
 		340C3D781D8FDD8D00E3BACD /* JiaAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 340C3D771D8FDD8D00E3BACD /* JiaAppDelegate.m */; };
 		3411DD421D93DA4300077FAD /* XAspect-AnalyticsAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3411DD411D93DA4300077FAD /* XAspect-AnalyticsAppDelegate.m */; };
 		3411DD451D93DBCD00077FAD /* JiaAnalyticsConfigManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3411DD441D93DBCD00077FAD /* JiaAnalyticsConfigManager.m */; };
@@ -268,6 +268,8 @@
 		34919F901D990F1E004B7307 /* JiaPathchHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 34919F8F1D990F1E004B7307 /* JiaPathchHelper.m */; };
 		34919F931D990FFE004B7307 /* JiaPathchModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 34919F921D990FFE004B7307 /* JiaPathchModel.m */; };
 		34919F961D991241004B7307 /* GVUserDefaults+JiaCore.m in Sources */ = {isa = PBXBuildFile; fileRef = 34919F951D991241004B7307 /* GVUserDefaults+JiaCore.m */; };
+		34E1C3EA1DA8EC0A00E45B67 /* JiaShareConfigManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 34E1C3E81DA8EC0A00E45B67 /* JiaShareConfigManager.m */; };
+		34E1C3EB1DA8EC0A00E45B67 /* XAspect-ShareAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 34E1C3E91DA8EC0A00E45B67 /* XAspect-ShareAppDelegate.m */; };
 		34F1A3841D88E9C400931645 /* JiaBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34F1A3831D88E9C400931645 /* JiaBaseViewController.m */; };
 		34F83CB31D9B9EB60085A540 /* AFDownloadRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 34F83C9C1D9B9EB60085A540 /* AFDownloadRequestOperation.m */; };
 		34F83CB41D9B9EB60085A540 /* JiaBaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 34F83C9E1D9B9EB60085A540 /* JiaBaseRequest.m */; };
@@ -300,6 +302,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0F45313E55A23BCBCD944B1C /* Pods-jiaModuleDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-jiaModuleDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-jiaModuleDemo/Pods-jiaModuleDemo.release.xcconfig"; sourceTree = "<group>"; };
 		3400083A1D9CA5040000CCFB /* HeaderUserConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HeaderUserConfig.h; sourceTree = "<group>"; };
 		340C3D761D8FDD8D00E3BACD /* JiaAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JiaAppDelegate.h; sourceTree = "<group>"; };
 		340C3D771D8FDD8D00E3BACD /* JiaAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JiaAppDelegate.m; sourceTree = "<group>"; };
@@ -826,6 +829,9 @@
 		34919F921D990FFE004B7307 /* JiaPathchModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JiaPathchModel.m; sourceTree = "<group>"; };
 		34919F941D991241004B7307 /* GVUserDefaults+JiaCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GVUserDefaults+JiaCore.h"; sourceTree = "<group>"; };
 		34919F951D991241004B7307 /* GVUserDefaults+JiaCore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GVUserDefaults+JiaCore.m"; sourceTree = "<group>"; };
+		34E1C3E71DA8EC0A00E45B67 /* JiaShareConfigManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JiaShareConfigManager.h; sourceTree = "<group>"; };
+		34E1C3E81DA8EC0A00E45B67 /* JiaShareConfigManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JiaShareConfigManager.m; sourceTree = "<group>"; };
+		34E1C3E91DA8EC0A00E45B67 /* XAspect-ShareAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "XAspect-ShareAppDelegate.m"; sourceTree = "<group>"; };
 		34F1A3811D88E00100931645 /* headerDesignerConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = headerDesignerConfig.h; sourceTree = "<group>"; };
 		34F1A3821D88E9C400931645 /* JiaBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JiaBaseViewController.h; sourceTree = "<group>"; };
 		34F1A3831D88E9C400931645 /* JiaBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JiaBaseViewController.m; sourceTree = "<group>"; };
@@ -853,9 +859,8 @@
 		34F83CB11D9B9EB60085A540 /* YTKRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTKRequest.h; sourceTree = "<group>"; };
 		34F83CB21D9B9EB60085A540 /* YTKRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTKRequest.m; sourceTree = "<group>"; };
 		34F83CBE1D9B9F080085A540 /* JiaCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JiaCore.h; sourceTree = "<group>"; };
-		6109480D64D9F6F4E2BC07CB /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		824044CE8FBFAABF378217B6 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		CB0B006C172C1CEDD518B1F6 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		402187A3EF5B14E8FDC499B4 /* libPods-jiaModuleDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-jiaModuleDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		947E29699A126B10EB862AB4 /* Pods-jiaModuleDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-jiaModuleDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-jiaModuleDemo/Pods-jiaModuleDemo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -863,7 +868,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0DC796C047BBA513A78E857B /* libPods.a in Frameworks */,
+				109E998F78E10AB155EA6BA2 /* libPods-jiaModuleDemo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1994,8 +1999,8 @@
 				347BAFB91D87E30200D12F0B /* jiaModuleDemoTests */,
 				347BAFC41D87E30300D12F0B /* jiaModuleDemoUITests */,
 				347BAF9E1D87E30200D12F0B /* Products */,
-				60F98656C79E768F08EEFB6D /* Pods */,
 				B7203E403AEBDA14A5F197ED /* Frameworks */,
+				41D50DE1785353E3EFF53964 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -2054,6 +2059,7 @@
 		347BAFD31D87E55E00D12F0B /* BaseModule */ = {
 			isa = PBXGroup;
 			children = (
+				34E1C3E61DA8EC0A00E45B67 /* JiaShare */,
 				3411DD3C1D93D2DC00077FAD /* JiaAnalytics */,
 				340C3D791D8FE48700E3BACD /* JiaGT */,
 				347BAFDA1D87E6DB00D12F0B /* JiaCore */,
@@ -2321,6 +2327,16 @@
 			path = JiaPathchHelper;
 			sourceTree = "<group>";
 		};
+		34E1C3E61DA8EC0A00E45B67 /* JiaShare */ = {
+			isa = PBXGroup;
+			children = (
+				34E1C3E71DA8EC0A00E45B67 /* JiaShareConfigManager.h */,
+				34E1C3E81DA8EC0A00E45B67 /* JiaShareConfigManager.m */,
+				34E1C3E91DA8EC0A00E45B67 /* XAspect-ShareAppDelegate.m */,
+			);
+			path = JiaShare;
+			sourceTree = "<group>";
+		};
 		34F1A37F1D88DE9A00931645 /* Other */ = {
 			isa = PBXGroup;
 			children = (
@@ -2379,11 +2395,11 @@
 			path = YTKNetwork;
 			sourceTree = "<group>";
 		};
-		60F98656C79E768F08EEFB6D /* Pods */ = {
+		41D50DE1785353E3EFF53964 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				CB0B006C172C1CEDD518B1F6 /* Pods.debug.xcconfig */,
-				824044CE8FBFAABF378217B6 /* Pods.release.xcconfig */,
+				947E29699A126B10EB862AB4 /* Pods-jiaModuleDemo.debug.xcconfig */,
+				0F45313E55A23BCBCD944B1C /* Pods-jiaModuleDemo.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -2393,7 +2409,7 @@
 			children = (
 				34919F7B1D98EAB0004B7307 /* JavaScriptCore.framework */,
 				3471536C1D8F9E4700BDB632 /* CoreGraphics.framework */,
-				6109480D64D9F6F4E2BC07CB /* libPods.a */,
+				402187A3EF5B14E8FDC499B4 /* libPods-jiaModuleDemo.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -2405,12 +2421,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 347BAFCA1D87E30300D12F0B /* Build configuration list for PBXNativeTarget "jiaModuleDemo" */;
 			buildPhases = (
-				4E9B84130267089051A4FCA3 /* Check Pods Manifest.lock */,
+				D03518F106E82F6102967AC5 /* [CP] Check Pods Manifest.lock */,
 				347BAF991D87E30200D12F0B /* Sources */,
 				347BAF9A1D87E30200D12F0B /* Frameworks */,
 				347BAF9B1D87E30200D12F0B /* Resources */,
-				77F2088D61DBD6C229464FE4 /* Embed Pods Frameworks */,
-				3E9058366362413AA5A00F02 /* Copy Pods Resources */,
+				C09D534080338105D9437692 /* [CP] Embed Pods Frameworks */,
+				B8195D87253DBFB54A33EE7B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -2536,49 +2552,49 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		3E9058366362413AA5A00F02 /* Copy Pods Resources */ = {
+		B8195D87253DBFB54A33EE7B /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-jiaModuleDemo/Pods-jiaModuleDemo-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		4E9B84130267089051A4FCA3 /* Check Pods Manifest.lock */ = {
+		C09D534080338105D9437692 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-jiaModuleDemo/Pods-jiaModuleDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D03518F106E82F6102967AC5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		77F2088D61DBD6C229464FE4 /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -2612,6 +2628,7 @@
 				343EB6621D922C2C00110CE5 /* UINavigationController+StackManager.m in Sources */,
 				343EB66E1D922C2C00110CE5 /* UIScrollView+Pages.m in Sources */,
 				343EB6991D922C2C00110CE5 /* UIWebView+Alert.m in Sources */,
+				34E1C3EB1DA8EC0A00E45B67 /* XAspect-ShareAppDelegate.m in Sources */,
 				343EB5CD1D922C2B00110CE5 /* NSArray+Block.m in Sources */,
 				343EB62B1D922C2C00110CE5 /* UIBezierPath+BasicShapes.m in Sources */,
 				341F2D491D9A377200379D48 /* JiaProjectConfigManager.m in Sources */,
@@ -2838,6 +2855,7 @@
 				343EB5CF1D922C2B00110CE5 /* NSBundle+AppIcon.m in Sources */,
 				343EB6841D922C2C00110CE5 /* UIView+draggable.m in Sources */,
 				34F83CB51D9B9EB60085A540 /* YTKBaseRequest.m in Sources */,
+				34E1C3EA1DA8EC0A00E45B67 /* JiaShareConfigManager.m in Sources */,
 				343EB60B1D922C2B00110CE5 /* NSString+RemoveEmoji.m in Sources */,
 				34919F961D991241004B7307 /* GVUserDefaults+JiaCore.m in Sources */,
 				343EB6251D922C2C00110CE5 /* UIAlertView+Block.m in Sources */,
@@ -2981,7 +2999,7 @@
 		};
 		347BAFCB1D87E30300D12F0B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CB0B006C172C1CEDD518B1F6 /* Pods.debug.xcconfig */;
+			baseConfigurationReference = 947E29699A126B10EB862AB4 /* Pods-jiaModuleDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -2999,7 +3017,7 @@
 		};
 		347BAFCC1D87E30300D12F0B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 824044CE8FBFAABF378217B6 /* Pods.release.xcconfig */;
+			baseConfigurationReference = 0F45313E55A23BCBCD944B1C /* Pods-jiaModuleDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
