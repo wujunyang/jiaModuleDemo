@@ -77,20 +77,22 @@
                 return;
             }
             
-            [JiaPlatformHelper authWithPlatform:JiaSocialPlatformType_QQ withCompletion:^(NSString *uid, NSString *accessToken, NSError *error) {
+            [JiaPlatformHelper authWithPlatform:JiaSocialPlatformType_QQ withCompletion:^(NSString *uid, NSString *openid,NSString *accessToken, NSError *error) {
                 if (error) {
                     NSLog(@"出错了");
                     return;
                 }
                 
-                NSString *result=[NSString stringWithFormat:@"获得到的值为：uid:%@--token:%@",uid,accessToken];
+                NSString *result=[NSString stringWithFormat:@"获得到的值为：uid:%@--token:%@--openid:%@",uid,accessToken,openid];
                 [weakSelf showResult:result];
             }];
             break;
         }
         case 1:
         {
-            [JiaPlatformHelper authWithPlatform:JiaSocialPlatformType_Sina withCompletion:^(NSString *uid, NSString *accessToken, NSError *error) {
+            NSLog(@"新浪登录 要把程序的Bundle ID跟回调页面都对应上才可以，否则会出现弹出又马上消失的情况，可以用官网的Bundle ID测试");
+            
+            [JiaPlatformHelper authWithPlatform:JiaSocialPlatformType_Sina withCompletion:^(NSString *uid, NSString *openid, NSString *accessToken, NSError *error) {
                 if (error) {
                     NSLog(@"出错了,%@",error);
                     return;
@@ -103,13 +105,13 @@
         }
         case 2:
         {
-            [JiaPlatformHelper authWithPlatform:JiaSocialPlatformType_WechatSession withCompletion:^(NSString *uid, NSString *accessToken, NSError *error) {
+            [JiaPlatformHelper authWithPlatform:JiaSocialPlatformType_WechatSession withCompletion:^(NSString *uid, NSString *openid, NSString *accessToken, NSError *error) {
                 if (error) {
                     NSLog(@"出错了");
                     return;
                 }
                 
-                NSString *result=[NSString stringWithFormat:@"获得到的值为：uid:%@--token:%@",uid,accessToken];
+                NSString *result=[NSString stringWithFormat:@"获得到的值为：uid:%@--token:%@--openid:%@",uid,accessToken,openid];
                 [weakSelf showResult:result];
             }];
             break;

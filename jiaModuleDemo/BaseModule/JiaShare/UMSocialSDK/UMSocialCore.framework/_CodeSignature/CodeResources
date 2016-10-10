@@ -30,15 +30,15 @@
 		</data>
 		<key>Headers/UMSocialManager.h</key>
 		<data>
-		cQlvrC1xiRuDgSlfBQeRfuqz3SA=
+		QZGW3n7NGLPUkBnjrAFEOLfnV2A=
 		</data>
 		<key>Headers/UMSocialMessageObject.h</key>
 		<data>
-		yCxIFwtWuwBd/Fc6EOlN6m9YOxs=
+		uw04bg9lopdoGqrmu87BgM23aL0=
 		</data>
 		<key>Headers/UMSocialPlatformConfig.h</key>
 		<data>
-		Ggemj4GnnrMNNdP2oNe5UENrTMc=
+		kMKrJ8xK9U+ULL7MOzZJBhDd7+Q=
 		</data>
 		<key>Headers/UMSocialPlatformProvider.h</key>
 		<data>
@@ -46,7 +46,7 @@
 		</data>
 		<key>Headers/UMSocialResponse.h</key>
 		<data>
-		0bjh/67AKbOFLf/c/aiyUbYEoEE=
+		H406/dX3hqYOmYAi/UU9jHGSuPk=
 		</data>
 		<key>Headers/UMSocialSOAuthViewController.h</key>
 		<data>
@@ -141,33 +141,33 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			cQlvrC1xiRuDgSlfBQeRfuqz3SA=
+			QZGW3n7NGLPUkBnjrAFEOLfnV2A=
 			</data>
 			<key>hash2</key>
 			<data>
-			3dpqxstmeqjudhO7z4QB5rXt/dtxUoO59Ll2uyxsPXk=
+			xgMWxCS+Bif2GAhICbTZbmFcNI1sre31f7kw4/CK7BE=
 			</data>
 		</dict>
 		<key>Headers/UMSocialMessageObject.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			yCxIFwtWuwBd/Fc6EOlN6m9YOxs=
+			uw04bg9lopdoGqrmu87BgM23aL0=
 			</data>
 			<key>hash2</key>
 			<data>
-			bgwfOIKavOo5HnPRyetz6m5bIicm1Yog++j2Zz6D8qE=
+			bR8I1i58Xvxqtq7q30DFkRUADk2diaMJDYim14zAjRo=
 			</data>
 		</dict>
 		<key>Headers/UMSocialPlatformConfig.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			Ggemj4GnnrMNNdP2oNe5UENrTMc=
+			kMKrJ8xK9U+ULL7MOzZJBhDd7+Q=
 			</data>
 			<key>hash2</key>
 			<data>
-			PSxf+7wIzxkHtNNRG9dwqsDH4ZKwXT9teWkzYkzuWVI=
+			Ipx6xD8wS3kZWfSgcJIdeSgVAPnV7D7DfgFnwl17rAM=
 			</data>
 		</dict>
 		<key>Headers/UMSocialPlatformProvider.h</key>
@@ -185,11 +185,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			0bjh/67AKbOFLf/c/aiyUbYEoEE=
+			H406/dX3hqYOmYAi/UU9jHGSuPk=
 			</data>
 			<key>hash2</key>
 			<data>
-			j1LvgnGoUwC4lqn9m3EAix4Lz3aquWKXywu/3BiXnGg=
+			AKenp2I6Jw9BmYY5S5V5F4T24fkI2IhAlL82n+h1BBg=
 			</data>
 		</dict>
 		<key>Headers/UMSocialSOAuthViewController.h</key>

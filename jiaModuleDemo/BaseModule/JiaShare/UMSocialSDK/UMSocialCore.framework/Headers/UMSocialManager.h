@@ -109,12 +109,6 @@
 -(BOOL)addAddUserDefinePlatformProvider:(id<UMSocialPlatformProvider>)userDefinePlatformProvider
              withUserDefinePlatformType:(UMSocialPlatformType)platformType;
 
-/**
- *  动态的删除PlatformProvider，不管是预定义还是用户自定义的
- *
- *  @param platformType @see UMSocialPlatformType
- */
--(void) removePlatformProviderWithPlatformType:(UMSocialPlatformType)platformType;
 
 /**
  *  获得对应的平台类型platformType的PlatformProvider
@@ -124,6 +118,23 @@
  *  @return 返回继承UMSocialPlatformProvider的handle
  */
 -(id<UMSocialPlatformProvider>)platformProviderWithPlatformType:(UMSocialPlatformType)platformType;
+
+
+
+/**
+ *  动态的删除不想显示的平台，不管是预定义还是用户自定义的
+ *
+ *  @param platformTypeArray 平台类型数组
+ */
+-(void) removePlatformProviderWithPlatformTypes:(NSArray *)platformTypeArray;
+
+/**
+ *  动态的删除PlatformProvider，不管是预定义还是用户自定义的
+ *
+ *  @param platformType @see UMSocialPlatformType
+ */
+-(void) removePlatformProviderWithPlatformType:(UMSocialPlatformType)platformType;
+
 
 -(BOOL) isInstall:(UMSocialPlatformType)platformType;
 

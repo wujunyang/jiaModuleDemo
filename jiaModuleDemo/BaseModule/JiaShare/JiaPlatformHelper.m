@@ -16,6 +16,7 @@
 {
     BOOL result=NO;
     
+    result=[[UMSocialManager defaultManager] isInstall:[JiaShareTool getUMSocialPlatformJiaPlatformType:platformType]];
     
     return result;
 }
@@ -30,7 +31,7 @@
 {
     [[UMSocialManager defaultManager] authWithPlatform:[JiaShareTool getUMSocialPlatformJiaPlatformType:platformType] currentViewController:nil completion:^(id result, NSError *error) {
         UMSocialAuthResponse *authresponse=result;
-        completionHandler(authresponse.uid,authresponse.accessToken,error);
+        completionHandler(authresponse.uid,authresponse.openid,authresponse.accessToken,error);
     }];
 }
 

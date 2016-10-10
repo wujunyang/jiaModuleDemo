@@ -50,10 +50,6 @@
  */
 @property (nonatomic, strong) id thumbImage;
 
-///**
-// * 缩略图url（优先判断thumbImage， thumbImage为空才使用thumImageUrl）
-// */
-//@property (nonatomic, copy) NSString *thumImageUrl;
 
 /**
  * @param title 标题
@@ -64,21 +60,11 @@
 + (id)shareObjectWithTitle:(NSString *)title
                      descr:(NSString *)descr
                  thumImage:(id)thumImage;
-//- (NSData*)getImageData;
+
 + (void)um_imageDataWithImage:(id)image completion:(void (^)(NSData *image))completion;
-@end
-
-@interface UMShareTextObject : UMShareObject
-
-
-+ (UMShareTextObject *)shareObjectWithContent:(NSString *)shareText;
-
-/** 分享内容
- *@param shareText 分享的文本
- */
-@property (nonatomic, copy) NSString  *shareText;
 
 @end
+
 
 
 @interface UMShareImageObject : UMShareObject
@@ -159,7 +145,7 @@
 
 /**
  *  表情的类
- *  表请的缩略图数据请存放在LWApiImageObject中
+ *  表请的缩略图数据请存放在UMShareEmotionObject中
  *  注意：emotionData和emotionURL成员不能同时为空,若同时出现则取emotionURL
  */
 @interface UMShareEmotionObject : UMShareObject
@@ -170,26 +156,21 @@
  */
 @property (nonatomic, strong) NSData *emotionData;
 
-/**
- *  表情链接地址
- */
-@property (nonatomic, strong) NSString *emotionURL;
-
 @end
 
 
 #pragma mark - UMSAppExtendObject
 /*! @brief 多媒体消息中包含的App扩展数据对象
  *
- * 第三方程序向微信终端发送包含WXAppExtendObject的多媒体消息，
+ * 第三方程序向微信终端发送包含UMShareExtendObject的多媒体消息，
  * 微信需要处理该消息时，会调用该第三方程序来处理多媒体消息内容。
  * @note url，extInfo和fileData不能同时为空
- * @see WXMediaMessage
+ * @see UMShareObject
  */
 @interface UMShareExtendObject : UMShareObject
-/*! @brief 返回一个WXAppExtendObject对象
+/*! @brief 返回一个UMShareExtendObject对象
  *
- * @note 返回的WXAppExtendObject对象是自动释放的
+ * @note 返回的UMShareExtendObject对象是自动释放的
  */
 +(UMShareExtendObject *) object;
 
@@ -212,13 +193,13 @@
 #pragma mark - UMFileObject
 /*! @brief 多媒体消息中包含的文件数据对象
  *
- * @see WXMediaMessage
+ * @see UMShareObject
  */
 @interface UMShareFileObject : UMShareObject
 
-/*! @brief 返回一个WXFileObject对象
+/*! @brief 返回一个UMShareFileObject对象
  *
- * @note 返回的WXFileObject对象是自动释放的
+ * @note 返回的UMShareFileObject对象是自动释放的
  */
 +(UMShareFileObject *) object;
 
@@ -238,6 +219,7 @@
  *
  * @see UMSocialMessageObject
  */
+
 @interface UMShareEmailObject : UMShareObject
 
 /**

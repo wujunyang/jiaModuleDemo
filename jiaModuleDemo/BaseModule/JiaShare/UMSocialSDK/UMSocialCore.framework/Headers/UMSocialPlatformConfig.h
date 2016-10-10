@@ -144,34 +144,34 @@ extern NSString *const  UMSPlatformNameFlickr;
 /**
  *  授权，分享，UserProfile等操作的回调
  *
- *  @param result 代表回调的结果
- *  @param error  代表回调的错误码
+ *  @param result 表示回调的结果
+ *  @param error  表示回调的错误码
  */
 typedef void (^UMSocialRequestCompletionHandler)(id result,NSError *error);
 
 /**
  *  授权，分享，UserProfile等操作的回调
  *
- *  @param result 代表回调的结果
- *  @param error  代表回调的错误码
+ *  @param result 表示回调的结果
+ *  @param error  表示回调的错误码
  */
-typedef void (^UMSocialShareCompletionHandler)(id result,NSError *error);
+typedef void (^UMSocialShareCompletionHandler)(id shareResponse,NSError *error);
 
 /**
  *  授权，分享，UserProfile等操作的回调
  *
- *  @param result 代表回调的结果
- *  @param error  代表回调的错误码
+ *  @param authResponse 表示回调的结果
+ *  @param error  表示回调的错误码
  */
-typedef void (^UMSocialAuthCompletionHandler)(id result,NSError *error);
+typedef void (^UMSocialAuthCompletionHandler)(id authResponse,NSError *error);
 
 /**
  *  授权，分享，UserProfile等操作的回调
  *
- *  @param result 代表回调的结果
- *  @param error  代表回调的错误码
+ *  @param userInfoResponse 表示回调的结果
+ *  @param error  表示回调的错误码
  */
-typedef void (^UMSocialGetUserInfoCompletionHandler)(id result,NSError *error);
+typedef void (^UMSocialGetUserInfoCompletionHandler)(id userInfoResponse,NSError *error);
 
 
 /////////////////////////////////////////////////////////////////////////////
@@ -181,21 +181,20 @@ typedef void (^UMSocialGetUserInfoCompletionHandler)(id result,NSError *error);
  *  平台的失败类型
  */
 typedef NS_ENUM(NSInteger,UMSocialPlatformErrorType) {
-    UMSocialPlatformErrorType_Unknow = 2000,                       ///<未知错误
-    UMSocialPlatformErrorType_NotSupport,                   ///<不支持
-    UMSocialPlatformErrorType_AuthorizeFailed,              ///<授权失败
-    UMSocialPlatformErrorType_ShareFailed,                  ///<分享失败
-    UMSocialPlatformErrorType_RequestForUserProfileFailed,  ///<请求用户信息失败
-    UMSocialPlatformErrorType_ShareDataNil,///分享内容为空
-    UMSocialPlatformErrorType_ShareDataTypeIllegal,///分享内容不支持
-    UMSocialPlatformErrorType_CheckUrlSchemaFail,///schemaurl fail
-    UMSocialPlatformErrorType_NotInstall,///
-    UMSocialPlatformErrorType_WXCodeNull,///
-    UMSocialPlatformErrorType_Cancel,///
-    UMSocialPlatformErrorType_NotNetWork,//
-    UMSocialPlatformErrorType_SourceError,//第三方错误
+    UMSocialPlatformErrorType_Unknow            = 2000,            //知错误
+    UMSocialPlatformErrorType_NotSupport        = 2001,            //不支持（url scheme 没配置，或者没有配置-ObjC）
+    UMSocialPlatformErrorType_AuthorizeFailed   = 2002,            //授权失败
+    UMSocialPlatformErrorType_ShareFailed       = 2003,            //分享失败
+    UMSocialPlatformErrorType_RequestForUserProfileFailed = 2004,  //请求用户信息失败
+    UMSocialPlatformErrorType_ShareDataNil      = 2005,     //分享内容为空
+    UMSocialPlatformErrorType_ShareDataTypeIllegal = 2006,  //分享内容不支持
+    UMSocialPlatformErrorType_CheckUrlSchemaFail = 2007,    //schemaurl fail
+    UMSocialPlatformErrorType_NotInstall        = 2008,
+    UMSocialPlatformErrorType_Cancel            = 2009,
+    UMSocialPlatformErrorType_NotNetWork        = 2010,
+    UMSocialPlatformErrorType_SourceError       = 2011,     //第三方错误
     
-    UMSocialPlatformErrorType_ProtocolNotOverride,    //对应的UMSocialPlatformProvider的方法没有实现
+    UMSocialPlatformErrorType_ProtocolNotOverride = 2013,   //对应的	UMSocialPlatformProvider的方法没有实现
     
 };
 
@@ -225,15 +224,15 @@ typedef NS_OPTIONS(NSUInteger, UMSocialPlatformFeature)
     UMSocialPlatformFeature_IsAppApiSupport                     = 1 << 2,
     
     //Authorize
-    UMSocialPlatformFeature_IsCanAuthorize                      = 1 << 20,
-    UMSocialPlatformFeature_IsCanWebViewAuthorize               = 1 << 21,
+    UMSocialPlatformFeature_IsCanAuthorize                      = 1 << 10,
+    UMSocialPlatformFeature_IsCanWebViewAuthorize               = 1 << 11,
     
     //SSOShare
-    UMSocialPlatformFeature_IsCanShare_Text                     = 1 << 40,
-    UMSocialPlatformFeature_IsCanShare_Image                    = 1 << 41,
-    UMSocialPlatformFeature_IsCanShare_Media                    = 1 << 42,
-    UMSocialPlatformFeature_IsCanShare_TextAndImage             = 1 << 43,
-    UMSocialPlatformFeature_IsCanShare_TextAndMedia             = 1 << 44,
+    UMSocialPlatformFeature_IsCanShare_Text                     = 1 << 22,
+    UMSocialPlatformFeature_IsCanShare_Image                    = 1 << 23,
+    UMSocialPlatformFeature_IsCanShare_Media                    = 1 << 24,
+    UMSocialPlatformFeature_IsCanShare_TextAndImage             = 1 << 25,
+    UMSocialPlatformFeature_IsCanShare_TextAndMedia             = 1 << 26,
     
     //mask
     UMSocialPlatformFeature_Mask                                = 0xFFFFFFFF,
@@ -250,9 +249,9 @@ typedef NS_OPTIONS(NSUInteger, UMSocialPlatformFeature)
 /////////////////////////////////////////////////////////////////////////////
 typedef NS_ENUM(NSInteger,UMSocialPlatformType)
 {
-    UMSocialPlatformType_UnKnown        = -2,
+    UMSocialPlatformType_UnKnown            = -2,
     //预定义的平台
-    UMSocialPlatformType_Predefine_Begin = -1,
+    UMSocialPlatformType_Predefine_Begin    = -1,
     UMSocialPlatformType_Sina,          //新浪
     UMSocialPlatformType_WechatSession, //微信聊天
     UMSocialPlatformType_WechatTimeLine,//微信朋友圈
@@ -263,6 +262,7 @@ typedef NS_ENUM(NSInteger,UMSocialPlatformType)
     UMSocialPlatformType_AlipaySession, //支付宝聊天页面
     UMSocialPlatformType_YixinSession,  //易信聊天页面
     UMSocialPlatformType_YixinTimeLine, //易信朋友圈
+    UMSocialPlatformType_YixinFavorite, //易信收藏
     UMSocialPlatformType_LaiWangSession,//点点虫（原来往）聊天页面
     UMSocialPlatformType_LaiWangTimeLine,//点点虫动态
     UMSocialPlatformType_Sms,           //短信
@@ -310,16 +310,34 @@ typedef NS_ENUM(NSInteger,UMSocialPlatformType)
  */
 @interface UMSocialPlatformConfig : NSObject
 
-+ (NSString *)platformNameWithPlatformType:(UMSocialPlatformType)platformType;
-
-+ (id)platformHandlerWithPlatformType:(UMSocialPlatformType)platformType;
 
 @property(nonatomic,strong)NSString* appKey;
 @property(nonatomic,strong)NSString* appSecret;
 @property(nonatomic,strong)NSString* redirectURL;
 
+/**
+ *
+ *  @param platformType @see UMSocialPlatformType
+ *
+ *  @return 平台名称
+ */
++ (NSString *)platformNameWithPlatformType:(UMSocialPlatformType)platformType;
 
+/**
+ *
+ *  @param platformType @see UMSocialPlatformType
+ *
+ *  @return 平台handler
+ */
++ (id)platformHandlerWithPlatformType:(UMSocialPlatformType)platformType;
+
+/**
+ *
+ *  @param errorType @see UMSocialPlatformErrorType
+ *  @param userInfo  @see 错误信息
+ *
+ *  @return 如果平台有效就返回YES，否则返回NO
+ */
 + (NSError *)errorWithSocialErrorType:(UMSocialPlatformErrorType)errorType userInfo:(id)userInfo;
-
 
 @end

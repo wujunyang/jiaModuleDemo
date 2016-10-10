@@ -14,10 +14,11 @@
  授权
 
  @param uid         授权成功获得uid
+ @param uid         授权成功获得openid QQ，微信用户openid，其他平台没有
  @param accessToken 授权成功获得accessToken
  @param error       error
  */
-typedef void (^JiaSocialAuthCompletionHandler)(NSString *uid,NSString *accessToken,NSError *error);
+typedef void (^JiaSocialAuthCompletionHandler)(NSString *uid,NSString *openid,NSString *accessToken,NSError *error);
 
 
 /**
@@ -34,7 +35,7 @@ typedef void (^JiaCancelSocialAuthCompletionHandler)(id result,NSError *error);
 
  @param name    用户名称
  @param iconUrl 头像URL
- @param gender  性别
+ @param gender  性别 （m表示男，w表示女）
  @param error   error
  */
 typedef void (^JiaSocialGetUserInfoCompletionHandler)(NSString *name,NSString *iconUrl,NSString *gender,NSError *error);

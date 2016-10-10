@@ -15,7 +15,7 @@
  *  @param bodyParameters 加入到body的键值对
  *  @param headers        加入的http的header的键值对
  *
- *  @return <#return value description#>
+ *  @return @see NSMutableURLRequest
  */
 + (NSMutableURLRequest *)makeRequestWithMethod:(UMSocialHttpMethodType)method
                                           path:(NSString *)path
