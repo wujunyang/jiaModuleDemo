@@ -8,6 +8,8 @@
 
 #import "JiaShareHelper.h"
 #import <UMSocialCore/UMSocialCore.h>
+#import "JiaShareTool.h"
+
 
 @interface JiaShareHelper()
 
@@ -15,17 +17,9 @@
 
 @implementation JiaShareHelper
 
-+(BOOL)installPlatAppWithType:(JiaSocialPlatformType)platformType
-{
-    BOOL result=NO;
-    
-    
-    return result;
-}
-
 + (void)shareTextDataWithPlatform:(JiaSocialPlatformType)platformType withTextData:(NSString *)textData withCompletion:(JiaSocialShareCompletionHandler)completionHandler
 {
-    UMSocialPlatformType umPlatFormType=[self getUMSocialPlatformJiaPlatformType:platformType];
+    UMSocialPlatformType umPlatFormType=[JiaShareTool getUMSocialPlatformJiaPlatformType:platformType];
     
     //创建分享消息对象
     UMSocialMessageObject *messageObject = [UMSocialMessageObject messageObject];
@@ -39,7 +33,7 @@
 
 + (void)shareUrlDataWithPlatform:(JiaSocialPlatformType)platformType withShareUrl:(NSString *)shareUrl withTitle:(NSString *)title withDescr:(NSString *)descr withThumImage:(id)thumImage withCompletion:(JiaSocialShareCompletionHandler)completionHandler
 {
-    UMSocialPlatformType umPlatFormType=[self getUMSocialPlatformJiaPlatformType:platformType];
+    UMSocialPlatformType umPlatFormType=[JiaShareTool getUMSocialPlatformJiaPlatformType:platformType];
     
     //创建分享消息对象
     UMSocialMessageObject *messageObject = [UMSocialMessageObject messageObject];
@@ -56,7 +50,7 @@
 
 + (void)shareImageTextDataWithPlatform:(JiaSocialPlatformType)platformType withShareImage:(id)shareImage withTitle:(NSString *)title withDescr:(NSString *)descr withThumImage:(id)thumImage withCompletion:(JiaSocialShareCompletionHandler)completionHandler
 {
-    UMSocialPlatformType umPlatFormType=[self getUMSocialPlatformJiaPlatformType:platformType];
+    UMSocialPlatformType umPlatFormType=[JiaShareTool getUMSocialPlatformJiaPlatformType:platformType];
     
     //创建分享消息对象
     UMSocialMessageObject *messageObject = [UMSocialMessageObject messageObject];
@@ -73,7 +67,7 @@
 
 + (void)shareVideoDataWithPlatform:(JiaSocialPlatformType)platformType withShareVideoUrl:(NSString *)shareVideoUrl withTitle:(NSString *)title withDescr:(NSString *)descr withThumImage:(id)thumImage withCompletion:(JiaSocialShareCompletionHandler)completionHandler
 {
-    UMSocialPlatformType umPlatFormType=[self getUMSocialPlatformJiaPlatformType:platformType];
+    UMSocialPlatformType umPlatFormType=[JiaShareTool getUMSocialPlatformJiaPlatformType:platformType];
     
     //创建分享消息对象
     UMSocialMessageObject *messageObject = [UMSocialMessageObject messageObject];
@@ -89,7 +83,7 @@
 
 + (void)shareMusicDataWithPlatform:(JiaSocialPlatformType)platformType withShareMusicUrl:(NSString *)shareMusicUrl withTitle:(NSString *)title withDescr:(NSString *)descr withThumImage:(id)thumImage withCompletion:(JiaSocialShareCompletionHandler)completionHandler
 {
-    UMSocialPlatformType umPlatFormType=[self getUMSocialPlatformJiaPlatformType:platformType];
+    UMSocialPlatformType umPlatFormType=[JiaShareTool getUMSocialPlatformJiaPlatformType:platformType];
     
     //创建分享消息对象
     UMSocialMessageObject *messageObject = [UMSocialMessageObject messageObject];
@@ -101,43 +95,6 @@
     [[UMSocialManager defaultManager] shareToPlatform:umPlatFormType messageObject:messageObject currentViewController:nil completion:^(id result, NSError *error) {
         completionHandler(result,error);
     }];
-}
-
-/**
- 把Jia分享类型映射到友盟的类型
-
- @param jiaPlatformType <#jiaPlatformType description#>
-
- @return <#return value description#>
- */
-+(UMSocialPlatformType)getUMSocialPlatformJiaPlatformType:(JiaSocialPlatformType)jiaPlatformType
-{
-    UMSocialPlatformType platFormType=UMSocialPlatformType_UnKnown;
-    switch (jiaPlatformType) {
-        case JiaSocialPlatformType_QQ:
-            platFormType=UMSocialPlatformType_QQ;
-            break;
-        case JiaSocialPlatformType_Sina:
-            platFormType=UMSocialPlatformType_Sina;
-            break;
-        case JiaSocialPlatformType_Qzone:
-            platFormType=UMSocialPlatformType_Qzone;
-            break;
-        case JiaSocialPlatformType_TencentWb:
-            platFormType=UMSocialPlatformType_TencentWb;
-            break;
-        case JiaSocialPlatformType_WechatSession:
-            platFormType=UMSocialPlatformType_WechatSession;
-            break;
-        case JiaSocialPlatformType_WechatTimeLine:
-            platFormType=UMSocialPlatformType_WechatTimeLine;
-            break;
-        default:
-            platFormType=UMSocialPlatformType_UnKnown;
-            break;
-    }
-    
-    return platFormType;
 }
 
 @end

@@ -35,7 +35,7 @@
     self.jsContext = [webView valueForKeyPath:@"documentView.webView.mainFrame.javaScriptContext"];
     // 通过模型调用方法，这种方式更好些。
     JiaWebShareHelper *shareHelper  = [[JiaWebShareHelper alloc] init];
-    self.jsContext[@"jiaShare"] = shareHelper;
+    self.jsContext[@"jia"] = shareHelper;
     shareHelper.jsContext = self.jsContext;
     shareHelper.webView = self.webView;
     

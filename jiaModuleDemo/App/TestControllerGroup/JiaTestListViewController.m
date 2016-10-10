@@ -9,6 +9,7 @@
 #import "JiaTestListViewController.h"
 
 #import "JiaWebShareViewController.h"
+#import "JiaLoginViewController.h"
 
 @interface JiaTestListViewController()<UITableViewDataSource, UITableViewDelegate>
 @property (nonatomic,strong) NSArray             *dataArray;
@@ -23,7 +24,7 @@
     self.navigationItem.title=@"模块功能导航";
     
     if (!self.dataArray) {
-        self.dataArray=@[@"WEB分享实例"];
+        self.dataArray=@[@"WEB分享实例",@"第三方登录"];
     }
     
     //初始化表格
@@ -74,6 +75,12 @@
         case 0:
         {
             JiaWebShareViewController *vc=[[JiaWebShareViewController alloc]init];
+            [self.navigationController pushViewController:vc animated:YES];
+            break;
+        }
+            case 1:
+        {
+            JiaLoginViewController *vc=[[JiaLoginViewController alloc]init];
             [self.navigationController pushViewController:vc animated:YES];
             break;
         }

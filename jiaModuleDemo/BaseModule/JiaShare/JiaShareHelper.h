@@ -7,18 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "JiaShareConfigManager.h"
 
-
-typedef NS_ENUM(NSInteger,JiaSocialPlatformType)
-{
-    JiaSocialPlatformType__UnKnown,      //未指定
-    JiaSocialPlatformType_Sina,          //新浪
-    JiaSocialPlatformType_WechatSession, //微信聊天
-    JiaSocialPlatformType_WechatTimeLine,//微信朋友圈
-    JiaSocialPlatformType_QQ,            //QQ聊天页面
-    JiaSocialPlatformType_Qzone,         //qq空间
-    JiaSocialPlatformType_TencentWb,     //腾讯微博
-};
 
 /**
  *  授权，分享，UserProfile等操作的回调
@@ -34,15 +24,6 @@ typedef void (^JiaSocialShareCompletionHandler)(id result,NSError *error);
 
 @property (nonatomic, copy) JiaSocialShareCompletionHandler shareCompletionBlock;
 
-
-/**
- 判断当前手机是否有安装相应的APP
-
- @param platformType 平台类型
-
- @return YES 有安装 NO 未安装
- */
-+(BOOL)installPlatAppWithType:(JiaSocialPlatformType)platformType;
 
 /**
  纯文本分享

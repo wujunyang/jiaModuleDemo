@@ -300,6 +300,9 @@
 		34F8824C1DAB404700C14292 /* JiaTestListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34F8824B1DAB404700C14292 /* JiaTestListViewController.m */; };
 		34F8824F1DAB40A000C14292 /* JiaWebShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34F8824E1DAB40A000C14292 /* JiaWebShareViewController.m */; };
 		34F882521DAB42D300C14292 /* test.html in Resources */ = {isa = PBXBuildFile; fileRef = 34F882511DAB42D300C14292 /* test.html */; };
+		34F8825D1DAB726400C14292 /* JiaPlatformHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 34F8825C1DAB726400C14292 /* JiaPlatformHelper.m */; };
+		34F882601DAB74D900C14292 /* JiaShareTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 34F8825F1DAB74D900C14292 /* JiaShareTool.m */; };
+		34F882631DAB7EDD00C14292 /* JiaLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34F882621DAB7EDD00C14292 /* JiaLoginViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -921,6 +924,12 @@
 		34F882571DAB615A00C14292 /* JiaAnalytics.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JiaAnalytics.h; sourceTree = "<group>"; };
 		34F882581DAB617F00C14292 /* JiaGT.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JiaGT.h; sourceTree = "<group>"; };
 		34F882591DAB68A500C14292 /* jiaModuleDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = jiaModuleDemo.entitlements; sourceTree = "<group>"; };
+		34F8825B1DAB726400C14292 /* JiaPlatformHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JiaPlatformHelper.h; sourceTree = "<group>"; };
+		34F8825C1DAB726400C14292 /* JiaPlatformHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JiaPlatformHelper.m; sourceTree = "<group>"; };
+		34F8825E1DAB74D900C14292 /* JiaShareTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JiaShareTool.h; path = UMSocialSDK/JiaShareTool.h; sourceTree = "<group>"; };
+		34F8825F1DAB74D900C14292 /* JiaShareTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JiaShareTool.m; path = UMSocialSDK/JiaShareTool.m; sourceTree = "<group>"; };
+		34F882611DAB7EDD00C14292 /* JiaLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JiaLoginViewController.h; sourceTree = "<group>"; };
+		34F882621DAB7EDD00C14292 /* JiaLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JiaLoginViewController.m; sourceTree = "<group>"; };
 		402187A3EF5B14E8FDC499B4 /* libPods-jiaModuleDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-jiaModuleDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		947E29699A126B10EB862AB4 /* Pods-jiaModuleDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-jiaModuleDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-jiaModuleDemo/Pods-jiaModuleDemo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -2252,6 +2261,7 @@
 		347BAFDA1D87E6DB00D12F0B /* JiaCore */ = {
 			isa = PBXGroup;
 			children = (
+				34F8825A1DAB69E900C14292 /* JiaUI */,
 				3411DD3A1D93AE8D00077FAD /* JiaMacros */,
 				3468FFE31D90D2D900A69723 /* JiaMediator */,
 				3468FFB01D90C9DE00A69723 /* JiaCoreTool */,
@@ -2487,11 +2497,15 @@
 				3401B7A81DA9CE5D0087181F /* UMSocialSDK */,
 				34E1C3E71DA8EC0A00E45B67 /* JiaShareConfigManager.h */,
 				34E1C3E81DA8EC0A00E45B67 /* JiaShareConfigManager.m */,
+				34F8825E1DAB74D900C14292 /* JiaShareTool.h */,
+				34F8825F1DAB74D900C14292 /* JiaShareTool.m */,
 				34E1C3E91DA8EC0A00E45B67 /* XAspect-ShareAppDelegate.m */,
 				3401B7B81DAA20B50087181F /* JiaShareHelper.h */,
 				3401B7B91DAA20B50087181F /* JiaShareHelper.m */,
 				3401B7BB1DAA48E20087181F /* JiaWebShareHelper.h */,
 				3401B7BC1DAA48E20087181F /* JiaWebShareHelper.m */,
+				34F8825B1DAB726400C14292 /* JiaPlatformHelper.h */,
+				34F8825C1DAB726400C14292 /* JiaPlatformHelper.m */,
 				34F882561DAB610B00C14292 /* JiaShare.h */,
 			);
 			path = JiaShare;
@@ -2562,6 +2576,8 @@
 				34F8824B1DAB404700C14292 /* JiaTestListViewController.m */,
 				34F8824D1DAB40A000C14292 /* JiaWebShareViewController.h */,
 				34F8824E1DAB40A000C14292 /* JiaWebShareViewController.m */,
+				34F882611DAB7EDD00C14292 /* JiaLoginViewController.h */,
+				34F882621DAB7EDD00C14292 /* JiaLoginViewController.m */,
 			);
 			path = TestControllerGroup;
 			sourceTree = "<group>";
@@ -2572,6 +2588,13 @@
 				34F882511DAB42D300C14292 /* test.html */,
 			);
 			path = Resource;
+			sourceTree = "<group>";
+		};
+		34F8825A1DAB69E900C14292 /* JiaUI */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = JiaUI;
 			sourceTree = "<group>";
 		};
 		41D50DE1785353E3EFF53964 /* Pods */ = {
@@ -2806,6 +2829,7 @@
 				343EB6071D922C2B00110CE5 /* NSString+Matcher.m in Sources */,
 				347BB0041D87EB7700D12F0B /* Target_Project.m in Sources */,
 				343EB6531D922C2C00110CE5 /* UIImageView+Addition.m in Sources */,
+				34F8825D1DAB726400C14292 /* JiaPlatformHelper.m in Sources */,
 				343EB6401D922C2C00110CE5 /* UIFont+DynamicFontControl.m in Sources */,
 				343EB5F91D922C2B00110CE5 /* NSObject+GCD.m in Sources */,
 				343EB6651D922C2C00110CE5 /* UINavigationItem+Margin.m in Sources */,
@@ -2912,6 +2936,7 @@
 				343EB6691D922C2C00110CE5 /* UIResponder+UIAdapt.m in Sources */,
 				343EB61A1D922C2B00110CE5 /* NSUserDefaults+iCloudSync.m in Sources */,
 				343EB66D1D922C2C00110CE5 /* UIScrollView+EmptyDataSet.m in Sources */,
+				34F882601DAB74D900C14292 /* JiaShareTool.m in Sources */,
 				343EB6901D922C2C00110CE5 /* UIViewController+BackButtonHandler.m in Sources */,
 				343EB5DD1D922C2B00110CE5 /* NSDate+Utilities.m in Sources */,
 				341F2D531D9A42B400379D48 /* DesignerHeaderView.m in Sources */,
@@ -2996,6 +3021,7 @@
 				343EB6801D922C2C00110CE5 /* UIView+BlockGesture.m in Sources */,
 				343EB69E1D922C2C00110CE5 /* UIWebView+MetaParser.m in Sources */,
 				343EB5CB1D922C2B00110CE5 /* CLLocation+CH1903.m in Sources */,
+				34F882631DAB7EDD00C14292 /* JiaLoginViewController.m in Sources */,
 				34F83CBB1D9B9EB60085A540 /* YTKNetworkConfig.m in Sources */,
 				34F83CB31D9B9EB60085A540 /* AFDownloadRequestOperation.m in Sources */,
 				343EB6491D922C2C00110CE5 /* UIImage+FileName.m in Sources */,

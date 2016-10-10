@@ -65,11 +65,11 @@
     jiaAnalyticsConfig.analyticsLogEnabled=YES;
     
 //    //要统计页面的前缀
-//    jiaAnalyticsConfig.prefixFilterArray=@[@"ZU",@"DB"];
+    jiaAnalyticsConfig.prefixFilterArray=@[@"Jia"];
 //    //不符合前缀 但也要被统计进来的页面
 //    jiaAnalyticsConfig.fileterNameArray=@[@"defaultViewController",@"nativeViewController"];
 //    //符合页面的前缀 但不要进行统计的页面
-//    jiaAnalyticsConfig.noFileterNameArray=@[@"ZUDeaultViewcontroller"];
+    jiaAnalyticsConfig.noFileterNameArray=@[@"JiaLoginViewController"];
     
     //开始AOP方式统计
     [JiaAnalyticsHelper jiaAnalyticsViewController];
@@ -82,7 +82,7 @@
     //设置平台
     [jiaShareConfig setPlaform:JiaSocialPlatConfigType_Tencent appKey:@"100424468" appSecret:@"c7394704798a158208a74ab60104f0ba" redirectURL:@"http://www.umeng.com/social"];
     [jiaShareConfig setPlaform:JiaSocialPlatConfigType_Wechat appKey:@"wxdc1e388c3822c80b" appSecret:@"a393c1527aaccb95f3a4c88d6d1455f6" redirectURL:@"http://www.umeng.com/social"];
-    [jiaShareConfig setPlaform:JiaSocialPlatConfigType_Sina appKey:@"3921700954" appSecret:@"f0157b4c2ff95754bdda1b17333e1786" redirectURL:@"http://sns.whalecloud.com/sina2/callback"];
+    [jiaShareConfig setPlaform:JiaSocialPlatConfigType_Sina appKey:@"3921700954" appSecret:@"04b48b094faeb16683c32669824ebdad" redirectURL:@"http://sns.whalecloud.com/sina2/callback"];
     
     
     

@@ -12,5 +12,6 @@
 #import "JiaShareConfigManager.h"
 #import "JiaShareHelper.h"
 #import "JiaWebShareHelper.h"
+#import "JiaPlatformHelper.h"
 
 #endif /* JiaShare_h */

@@ -10,11 +10,25 @@
 
 #define JiaShareConfigManagerInstance [JiaShareConfigManager sharedInstance]
 
+//配置类型 目前只支持新浪、微信、腾讯
 typedef NS_ENUM(NSInteger,JiaSocialPlatConfigType)
 {
     JiaSocialPlatConfigType_Sina,        //新浪
     JiaSocialPlatConfigType_Wechat,      //微信
     JiaSocialPlatConfigType_Tencent,     //腾讯
+};
+
+
+//平台类型 目前只支持新浪、微信聊天、微信朋友圈、QQ聊天页面、qq空间、腾讯微博
+typedef NS_ENUM(NSInteger,JiaSocialPlatformType)
+{
+    JiaSocialPlatformType__UnKnown,      //未指定
+    JiaSocialPlatformType_Sina,          //新浪
+    JiaSocialPlatformType_WechatSession, //微信聊天
+    JiaSocialPlatformType_WechatTimeLine,//微信朋友圈
+    JiaSocialPlatformType_QQ,            //QQ聊天页面
+    JiaSocialPlatformType_Qzone,         //qq空间
+    JiaSocialPlatformType_TencentWb,     //腾讯微博
 };
 
 @interface JiaShareConfigManager : NSObject
