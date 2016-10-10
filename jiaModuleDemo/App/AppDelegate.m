@@ -10,11 +10,11 @@
 #import "ViewController.h"
 
 #import "JiaCoreConfigManager.h"
-#import "jiaGTConfigManager.h"
 #import "jiaDesignerConfigManager.h"
 
-#import "JiaAnalyticsConfigManager.h"
-#import "JiaAnalyticsHelper.h"
+#import "JiaGT.h"
+#import "JiaAnalytics.h"
+#import "JiaShare.h"
 
 @interface AppDelegate ()
 
@@ -73,6 +73,17 @@
     
     //开始AOP方式统计
     [JiaAnalyticsHelper jiaAnalyticsViewController];
+    
+    
+    //友盟分享
+    JiaShareConfigManager *jiaShareConfig=[JiaShareConfigManager sharedInstance];
+    jiaShareConfig.shareAppKey=@"57e3f1cbe0f55a42080011ec";
+    jiaShareConfig.shareLogEnabled=YES;
+    //设置平台
+    [jiaShareConfig setPlaform:JiaSocialPlatConfigType_Tencent appKey:@"100424468" appSecret:@"c7394704798a158208a74ab60104f0ba" redirectURL:@"http://www.umeng.com/social"];
+    [jiaShareConfig setPlaform:JiaSocialPlatConfigType_Wechat appKey:@"wxdc1e388c3822c80b" appSecret:@"a393c1527aaccb95f3a4c88d6d1455f6" redirectURL:@"http://www.umeng.com/social"];
+    [jiaShareConfig setPlaform:JiaSocialPlatConfigType_Sina appKey:@"3921700954" appSecret:@"f0157b4c2ff95754bdda1b17333e1786" redirectURL:@"http://sns.whalecloud.com/sina2/callback"];
+    
     
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];

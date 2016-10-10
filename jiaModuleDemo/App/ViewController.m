@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "JiaTestListViewController.h"
 
 @interface ViewController ()<UITableViewDataSource, UITableViewDelegate>
 
@@ -138,6 +139,12 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
             [self.navigationController pushViewController:viewController animated:YES];
             break;
         }
+            case 5:
+        {
+            JiaTestListViewController *vc=[[JiaTestListViewController alloc]init];
+            [self.navigationController pushViewController:vc animated:YES];
+            break;
+        }
         default:
             break;
     }
@@ -166,7 +173,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 -(NSArray *)myDataList
 {
     if (_myDataList==nil) {
-        _myDataList=@[@"模态方式弹出设计模块",@"导栏方式跳转设计模块",@"路由方式跳转设计模块",@"跳转到用户模块并通知还回值"];
+        _myDataList=@[@"模态方式弹出设计模块",@"导栏方式跳转设计模块",@"路由方式跳转设计模块",@"跳转到用户模块并通知还回值",@"",@"功能模块的测试"];
     }
     return _myDataList;
 }

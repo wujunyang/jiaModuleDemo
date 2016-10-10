@@ -12,7 +12,6 @@ pod 'CYLTabBarController'
 pod 'Aspects'
 pod 'GTSDK'
 pod 'UMengAnalytics-NO-IDFA'
-pod 'UMengSocialCOM', '~> 5.2.1' 
 
 pod 'YYCache'
 pod 'JSPatch'

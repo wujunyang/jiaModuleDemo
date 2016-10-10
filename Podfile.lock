@@ -53,7 +53,6 @@ PODS:
     - SDWebImage/Core (= 3.7.6)
   - SDWebImage/Core (3.7.6)
   - UMengAnalytics-NO-IDFA (4.1.1)
-  - UMengSocialCOM (5.2.1)
   - XAspect (1.0.5):
     - XAspect/Core (= 1.0.5)
     - XAspect/Macros (= 1.0.5)
@@ -76,7 +75,6 @@ DEPENDENCIES:
   - RealReachability
   - SDWebImage (~> 3.7.5)
   - UMengAnalytics-NO-IDFA
-  - UMengSocialCOM (~> 5.2.1)
   - XAspect
   - YYCache
 
@@ -94,10 +92,9 @@ SPEC CHECKSUMS:
   RealReachability: e6c8a2bbffa316006e8c282efc1ee2567d61a920
   SDWebImage: c325cf02c30337336b95beff20a13df489ec0ec9
   UMengAnalytics-NO-IDFA: 1064992c1b7aaa22823179c0b33a664813fd7a85
-  UMengSocialCOM: 074c135ce349aa4c8848d3fb8458757bcb6ffb67
   XAspect: db50bf487f92dbb8557a7a5365556966c8493af8
   YYCache: 8105b6638f5e849296c71f331ff83891a4942952
 
-PODFILE CHECKSUM: 1b55df87c56e2b9507c08b781e63417c928f90a8
+PODFILE CHECKSUM: a11a628a667847ff56340ff16425a161ffbe5b2f
 
 COCOAPODS: 1.0.1

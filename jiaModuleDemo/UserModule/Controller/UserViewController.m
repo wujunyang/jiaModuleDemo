@@ -8,9 +8,12 @@
 
 #import "UserViewController.h"
 
+#import "JiaShareHelper.h"
+
 @interface UserViewController()
 
-@property (nonatomic, strong) UIButton *returnButton;
+@property (nonatomic, strong) UIButton *returnButton,*shareButton;
+
 @end
 
 @implementation UserViewController
@@ -24,6 +27,9 @@
     
     [self.view addSubview:self.returnButton];
     self.returnButton.frame=CGRectMake(10, 250, 250, 100);
+    
+    [self.view addSubview:self.shareButton];
+    self.shareButton.frame=CGRectMake(10, 70, 200, 40);
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -60,6 +66,17 @@
     return _returnButton;
 }
 
+- (UIButton *)shareButton
+{
+    if (_shareButton == nil) {
+        _shareButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_shareButton addTarget:self action:@selector(shareAction:) forControlEvents:UIControlEventTouchUpInside];
+        [_shareButton setTitle:@"分享功能测试" forState:UIControlStateNormal];
+        [_shareButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    }
+    return _shareButton;
+}
+
 - (void)didTappedReturnButton:(UIButton *)button
 {
     NSDictionary *dict =@{@"backName":@"jiaModuleUser"};
@@ -74,5 +91,22 @@
     } else {
         [self.navigationController popViewControllerAnimated:YES];
     }
+}
+
+- (void)shareAction:(UIButton *)button
+{
+//    [JiaShareHelper shareTextDataWithPlatform:JiaSocialPlatformType_Sina withTextData:@"我是测试的内容" withCompletion:^(id result, NSError *error) {
+//       if(error)
+//       {
+//           NSLog(@"分享出错了");
+//       }
+//    }];
+    
+    [JiaShareHelper shareUrlDataWithPlatform:JiaSocialPlatformType_WechatSession withShareUrl:@"http://www.sina.com.cn" withTitle:@"新浪" withDescr:@"新浪网页" withThumImage:@"http://dev.umeng.com/images/tab2_1.png" withCompletion:^(id result, NSError *error) {
+        if(error)
+        {
+            NSLog(@"分享出错了");
+        }
+    }];
 }
 @end
