@@ -15,11 +15,13 @@
   
 <div style="margin-top: 100px">
 	<h1>H5页面调用分享</h1>
-	<input type="button" value="分享QQ纯文本" onclick="jiaShare.shareTextWithPlatform('qq','你好，我是测试')">
+	<input type="button" value="分享QQ纯文本" onclick="jiaShare.shareText('qq','你好，我是测试')">
         
-        <input type="button" value="分享微信URL" onclick="jiaShare.shareUrlWithPlatformType('wechatsession','http://www.sina.com','你好，我是测试','测试用','http://dev.umeng.com/images/tab2_1.png')">
+        <input type="button" value="分享微信URL" onclick="jiaShare.shareUrl('wechatsession','http://www.sina.com','你好，我是测试','测试用','http://dev.umeng.com/images/tab2_1.png')">
             
-                    <input type="button" value="分享微信朋友圈URL" onclick="jiaShare.shareUrlWithPlatformType('wechattimeline','http://www.sina.com','你好，我是测试','测试用','http://dev.umeng.com/images/tab2_1.png')">
+                    <input type="button" value="分享微信朋友圈URL" onclick="jiaShare.shareUrl('wechattimeline','http://www.sina.com','你好，我是测试','测试用','http://dev.umeng.com/images/tab2_1.png')">
+                        
+                                            <input type="button" value="分享QQ空间图文" onclick="jiaShare.shareImageText('qzone','http://dev.umeng.com/images/tab2_1.png','你好，我是测试','测试用','http://dev.umeng.com/images/tab2_1.png')">
 </div>
 
 </body>

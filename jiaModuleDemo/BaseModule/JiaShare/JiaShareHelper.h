@@ -36,6 +36,15 @@ typedef void (^JiaSocialShareCompletionHandler)(id result,NSError *error);
 
 
 /**
+ 判断当前手机是否有安装相应的APP
+
+ @param platformType 平台类型
+
+ @return YES 有安装 NO 未安装
+ */
++(BOOL)installPlatAppWithType:(JiaSocialPlatformType)platformType;
+
+/**
  纯文本分享
  @param platformType 平台类型
  @param textData     分享内容

@@ -920,6 +920,7 @@
 		34F882561DAB610B00C14292 /* JiaShare.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JiaShare.h; sourceTree = "<group>"; };
 		34F882571DAB615A00C14292 /* JiaAnalytics.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JiaAnalytics.h; sourceTree = "<group>"; };
 		34F882581DAB617F00C14292 /* JiaGT.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JiaGT.h; sourceTree = "<group>"; };
+		34F882591DAB68A500C14292 /* jiaModuleDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = jiaModuleDemo.entitlements; sourceTree = "<group>"; };
 		402187A3EF5B14E8FDC499B4 /* libPods-jiaModuleDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-jiaModuleDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		947E29699A126B10EB862AB4 /* Pods-jiaModuleDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-jiaModuleDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-jiaModuleDemo/Pods-jiaModuleDemo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -2168,6 +2169,7 @@
 		347BAF9F1D87E30200D12F0B /* jiaModuleDemo */ = {
 			isa = PBXGroup;
 			children = (
+				34F882591DAB68A500C14292 /* jiaModuleDemo.entitlements */,
 				343EB3B21D9221FB00110CE5 /* App */,
 				347BAFDD1D87E7CB00D12F0B /* DesignerModule */,
 				347BAFDC1D87E7B300D12F0B /* UserModule */,
@@ -2663,6 +2665,9 @@
 						CreatedOnToolsVersion = 7.3.1;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
 								enabled = 1;
 							};
 						};
@@ -3189,6 +3194,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = jiaModuleDemo/jiaModuleDemo.entitlements;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/jiaModuleDemo/BaseModule/JiaShare/SocialLibraries/QQ",
@@ -3219,6 +3225,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = jiaModuleDemo/jiaModuleDemo.entitlements;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/jiaModuleDemo/BaseModule/JiaShare/SocialLibraries/QQ",

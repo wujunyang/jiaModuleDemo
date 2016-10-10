@@ -15,6 +15,14 @@
 
 @implementation JiaShareHelper
 
++(BOOL)installPlatAppWithType:(JiaSocialPlatformType)platformType
+{
+    BOOL result=NO;
+    
+    
+    return result;
+}
+
 + (void)shareTextDataWithPlatform:(JiaSocialPlatformType)platformType withTextData:(NSString *)textData withCompletion:(JiaSocialShareCompletionHandler)completionHandler
 {
     UMSocialPlatformType umPlatFormType=[self getUMSocialPlatformJiaPlatformType:platformType];

@@ -12,7 +12,7 @@
 
 @implementation JiaWebShareHelper
 
--(void)shareTextWithPlatform:(NSString *)platformType withText:(NSString *)text
+-(void)shareText:(NSString *)platformType withText:(NSString *)text
 {
     //要在主线程进行
     dispatch_async(dispatch_get_main_queue(), ^{
@@ -22,7 +22,7 @@
     });
 }
 
--(void)shareUrlWithPlatformType:(NSString *)platformType withShareUrl:(NSString *)shareUrl withTitle:(NSString *)title withDescr:(NSString *)descr withThumImageUrl:(NSString *)thumImageUrl
+-(void)shareUrl:(NSString *)platformType withShareUrl:(NSString *)shareUrl withTitle:(NSString *)title withDescr:(NSString *)descr withThumImageUrl:(NSString *)thumImageUrl
 {
     //要在主线程进行
     dispatch_async(dispatch_get_main_queue(), ^{
@@ -32,7 +32,7 @@
     });
 }
 
-- (void)shareImageTextWithPlatform:(NSString *)platformType withShareImageUrl:(NSString *)shareImageUrl withTitle:(NSString *)title withDescr:(NSString *)descr withThumImageUrl:(NSString *)thumImageUrl
+- (void)shareImageText:(NSString *)platformType withShareImageUrl:(NSString *)shareImageUrl withTitle:(NSString *)title withDescr:(NSString *)descr withThumImageUrl:(NSString *)thumImageUrl
 {
     //要在主线程进行
     dispatch_async(dispatch_get_main_queue(), ^{

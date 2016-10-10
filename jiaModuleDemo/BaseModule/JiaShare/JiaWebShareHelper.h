@@ -17,33 +17,33 @@
  纯文本分享
 
  @param platformType sina（新浪微博）wechatsession（微信好友）wechattimeline（微信朋友圈）tencentwb（腾讯微博）qzone(QQ空间) qq（QQ）
- @param text         <#text description#>
+ @param text         文本内容
  */
-JSExportAs(shareTextWithPlatform,-(void)shareTextWithPlatform:(NSString *)platformType withText:(NSString *)text);
+JSExportAs(shareText,-(void)shareText:(NSString *)platformType withText:(NSString *)text);
 
 
 /**
  URL分享
 
  @param platformType sina（新浪微博）wechatsession（微信好友）wechattimeline（微信朋友圈）tencentwb（腾讯微博）qzone(QQ空间) qq（QQ）
- @param shareUrl     <#shareUrl description#>
- @param title        <#title description#>
- @param descr        <#descr description#>
- @param thumImageUrl <#thumImageUrl description#>
+ @param shareUrl     分享地址URL
+ @param title        标题
+ @param descr        简介
+ @param thumImageUrl 缩略图URL
  */
-JSExportAs(shareUrlWithPlatformType,-(void)shareUrlWithPlatformType:(NSString *)platformType withShareUrl:(NSString *)shareUrl withTitle:(NSString *)title withDescr:(NSString *)descr withThumImageUrl:(NSString *)thumImageUrl);
+JSExportAs(shareUrl,-(void)shareUrl:(NSString *)platformType withShareUrl:(NSString *)shareUrl withTitle:(NSString *)title withDescr:(NSString *)descr withThumImageUrl:(NSString *)thumImageUrl);
 
 
 /**
  图文分享
 
  @param platformType  sina（新浪微博）wechatsession（微信好友）wechattimeline（微信朋友圈）tencentwb（腾讯微博）qzone(QQ空间) qq（QQ）
- @param shareImageUrl <#shareImageUrl description#>
- @param title         <#title description#>
- @param descr         <#descr description#>
- @param thumImageUrl  <#thumImageUrl description#>
+ @param shareImageUrl 分享图片的URL
+ @param title         标题
+ @param descr         简介
+ @param thumImageUrl  缩略图URL
  */
-JSExportAs(shareImageTextWithPlatform,- (void)shareImageTextWithPlatform:(NSString *)platformType withShareImageUrl:(NSString *)shareImageUrl withTitle:(NSString *)title withDescr:(NSString *)descr withThumImageUrl:(NSString *)thumImageUrl);
+JSExportAs(shareImageText,- (void)shareImageText:(NSString *)platformType withShareImageUrl:(NSString *)shareImageUrl withTitle:(NSString *)title withDescr:(NSString *)descr withThumImageUrl:(NSString *)thumImageUrl);
 
 @end
 
