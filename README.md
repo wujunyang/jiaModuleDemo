@@ -272,6 +272,113 @@ __weak typeof(self) ws = self;
 
 <img src="https://github.com/wujunyang/jiaModuleDemo/blob/master/jiaModuleDemo/ProjectImage/10.png" width=500px height=400px></img>
 
+
+###JiaShare模块(友盟分享及第三方登录封装)
+
+JiaShare模块运用友盟分享最新版的SDK进行封装，并把一些其它不是很常用的去除，目前只支持新浪、微信聊天、微信朋友圈、QQ聊天页面、qq空间、腾讯微博；分享包括纯文本、图文、URL、视频地址、音乐地址，并在里面已经运用JavaScriptCore.framework封装好关于H5页面调用分享并传参的功能；可以直接在UIWebView里面进行调用；本模块只是对功能进行封装，对于友盟在info.plist的配置还是要自行手动，如不明白可以直接到友盟分享官网查看，项目到也有配置好一份可以直接参考；JiaPlatformHelper类里面有一个判断当前手机是否有安装相应平台软件的方法，可以用它进行隐藏相应的操作功能，避免上架时审核不过；下面的代码是在项目的AppDelegate里面进行配置
+
+```obj-c
+//友盟分享
+JiaShareConfigManager *jiaShareConfig=[JiaShareConfigManager sharedInstance];
+jiaShareConfig.shareAppKey=@"57e3f1cbe0f55a42080011ec";
+jiaShareConfig.shareLogEnabled=YES;
+//设置平台
+[jiaShareConfig setPlaform:JiaSocialPlatConfigType_Tencent appKey:@"100424468" appSecret:@"c7394704798a158208a74ab60104f0ba" redirectURL:@"http://www.umeng.com/social"];
+[jiaShareConfig setPlaform:JiaSocialPlatConfigType_Wechat appKey:@"wxdc1e388c3822c80b" appSecret:@"3baf1193c85774b3fd9d18447d76cab0" redirectURL:@"http://www.umeng.com/social"];
+[jiaShareConfig setPlaform:JiaSocialPlatConfigType_Sina appKey:@"3921700954" appSecret:@"04b48b094faeb16683c32669824ebdad" redirectURL:@"http://sns.whalecloud.com/sina2/callback"];
+```
+
+然后就可以进行分享，在ViewController里面进行调用，JiaSocialPlatformType是分享平台的枚举，shareUrlDataWithPlatform为URL分享方式，其它可以直接见源代码JiaShareHelper类
+
+```obj-c
+    [JiaShareHelper shareUrlDataWithPlatform:JiaSocialPlatformType_WechatSession withShareUrl:@"http://www.sina.com.cn" withTitle:@"新浪" withDescr:@"新浪网页" withThumImage:@"http://dev.umeng.com/images/tab2_1.png" withCompletion:^(id result, NSError *error) {
+        if(error)
+        {
+            NSLog(@"分享出错了");
+        }
+    }];
+```
+
+如果有加载H5页面，而且也要进行分享的功能就可以使用JiaWebShareHelper,因为使用到的是JavaScriptCore，所以只能用在UIWebView中，如果你要是使用WKWebView可以自个再进行封闭，下面是加载H5页面中的webViewDidFinishLoad代码；
+
+```obj-c
+- (void)webViewDidFinishLoad:(UIWebView *)webView {
+    self.jsContext = [webView valueForKeyPath:@"documentView.webView.mainFrame.javaScriptContext"];
+    // 通过模型调用方法，这种方式更好些。
+    JiaWebShareHelper *shareHelper  = [[JiaWebShareHelper alloc] init];
+    self.jsContext[@"jia"] = shareHelper;
+    shareHelper.jsContext = self.jsContext;
+    shareHelper.webView = self.webView;
+    
+    self.jsContext.exceptionHandler = ^(JSContext *context, JSValue *exceptionValue) {
+        context.exception = exceptionValue;
+        NSLog(@"异常信息：%@", exceptionValue);
+    };
+}
+```
+
+H5中就可以很方便直接进行：
+
+```obj-c
+<input type="button" value="分享QQ纯文本" onclick="jia.shareText('qq','你好，我是测试')">
+        
+<input type="button" value="分享微信URL" onclick="jia.shareUrl('wechatsession','http://www.sina.com','你好，我是测试','测试用','http://dev.umeng.com/images/tab2_1.png')">
+            
+<input type="button" value="分享微信朋友圈URL" onclick="jia.shareUrl('wechattimeline','http://www.sina.com','你好，我是测试','测试用','http://dev.umeng.com/images/tab2_1.png')">
+                        
+<input type="button" value="分享QQ空间图文" onclick="jia.shareImageText('qzone','http://dev.umeng.com/images/tab2_1.png','你好，我是测试','测试用','http://dev.umeng.com/images/tab2_1.png')">
+```
+
+下面简单介绍关于第三方登录跟获取用户信息的功能，其功能代码放在JiaPlatformHelper里面，已经对授权成功及获取用户信息都有回去调相应的参数回来：
+
+```obj-c
+if(![JiaPlatformHelper installPlatAppWithType:JiaSocialPlatformType_QQ])
+{
+    [weakSelf showResult:@"没有安装QQ软件,将此功能隐藏"];
+    return;
+}
+            
+[JiaPlatformHelper authWithPlatform:JiaSocialPlatformType_QQ withCompletion:^(NSString *uid, NSString *openid,NSString *accessToken, NSError *error) {
+    if (error) {
+        NSLog(@"出错了");
+        return;
+          }
+                
+    NSString *result=[NSString stringWithFormat:@"获得到的值为：uid:%@--token:%@--openid:%@",uid,accessToken,openid];
+    [weakSelf showResult:result];
+}];
+```
+
+获取用户信息的代码如下：
+
+```obj-c
+[JiaPlatformHelper getUserInfoWithPlatform:JiaSocialPlatformType_QQ withCompletion:^(NSString *name, NSString *iconUrl, NSString *gender, NSError *error) {
+   if (error) {
+      NSLog(@"出错了");
+      return;
+    }
+                
+   NSString *result=[NSString stringWithFormat:@"获得到的值为：name:%@--性别:%@",name,gender];
+   [weakSelf showResult:result];
+}];
+```
+
+关于取消授权也有相应的方法：
+
+```obj-c
+[JiaPlatformHelper cancelAuthWithPlatform:JiaSocialPlatformType_QQ withCompletion:^(id result, NSError *error) {
+   if (error) {
+      NSLog(@"出错了");
+      return;
+     }
+                
+   NSString *ressult=@"取消成功";
+   [weakSelf showResult:ressult];
+}];
+```
+
+<img src="https://github.com/wujunyang/jiaModuleDemo/blob/master/jiaModuleDemo/ProjectImage/11.png" width=500px height=400px></img>
+
 #模块化结合私有Pods方案
 上面实例中只是把相关模块化的提取都在一个工程进行体现，最后还是要落实结合Pods进行管理，把每个模块分开管理，不同的APP可以简单通过Pods指令就可以达到引入模块的效果，对于一些相同模块可以在不同的APP重复引用，减小重复开发成本；
 
