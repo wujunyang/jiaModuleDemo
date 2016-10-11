@@ -280,6 +280,9 @@
 		347BB0071D87EBB700D12F0B /* ProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 347BB0061D87EBB700D12F0B /* ProjectViewController.m */; };
 		347BB00A1D87EBD800D12F0B /* UserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 347BB0091D87EBD800D12F0B /* UserViewController.m */; };
 		347BB00D1D87EBEF00D12F0B /* DesignerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 347BB00C1D87EBEF00D12F0B /* DesignerViewController.m */; };
+		3481C0741DACDBCC00943B14 /* JiaSearchBar_ICON@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3481C0731DACDBCC00943B14 /* JiaSearchBar_ICON@2x.png */; };
+		3481C0771DACDBEA00943B14 /* JiaSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 3481C0761DACDBEA00943B14 /* JiaSearchBar.m */; };
+		3481C07A1DACDD4800943B14 /* JiaSearchBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3481C0791DACDD4800943B14 /* JiaSearchBarViewController.m */; };
 		34919F741D98E7AB004B7307 /* GVUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 34919F731D98E7AB004B7307 /* GVUserDefaults.m */; };
 		34919F901D990F1E004B7307 /* JiaPathchHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 34919F8F1D990F1E004B7307 /* JiaPathchHelper.m */; };
 		34919F931D990FFE004B7307 /* JiaPathchModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 34919F921D990FFE004B7307 /* JiaPathchModel.m */; };
@@ -878,6 +881,11 @@
 		347BB0091D87EBD800D12F0B /* UserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserViewController.m; sourceTree = "<group>"; };
 		347BB00B1D87EBEF00D12F0B /* DesignerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesignerViewController.h; sourceTree = "<group>"; };
 		347BB00C1D87EBEF00D12F0B /* DesignerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesignerViewController.m; sourceTree = "<group>"; };
+		3481C0731DACDBCC00943B14 /* JiaSearchBar_ICON@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "JiaSearchBar_ICON@2x.png"; sourceTree = "<group>"; };
+		3481C0751DACDBEA00943B14 /* JiaSearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JiaSearchBar.h; sourceTree = "<group>"; };
+		3481C0761DACDBEA00943B14 /* JiaSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JiaSearchBar.m; sourceTree = "<group>"; };
+		3481C0781DACDD4800943B14 /* JiaSearchBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JiaSearchBarViewController.h; sourceTree = "<group>"; };
+		3481C0791DACDD4800943B14 /* JiaSearchBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JiaSearchBarViewController.m; sourceTree = "<group>"; };
 		34919F721D98E7AB004B7307 /* GVUserDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GVUserDefaults.h; sourceTree = "<group>"; };
 		34919F731D98E7AB004B7307 /* GVUserDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GVUserDefaults.m; sourceTree = "<group>"; };
 		34919F7B1D98EAB0004B7307 /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
@@ -2470,6 +2478,16 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		3481C0721DACDB7200943B14 /* JiaSearchBar */ = {
+			isa = PBXGroup;
+			children = (
+				3481C0731DACDBCC00943B14 /* JiaSearchBar_ICON@2x.png */,
+				3481C0751DACDBEA00943B14 /* JiaSearchBar.h */,
+				3481C0761DACDBEA00943B14 /* JiaSearchBar.m */,
+			);
+			path = JiaSearchBar;
+			sourceTree = "<group>";
+		};
 		34919F711D98E7AB004B7307 /* GVUserDefaults */ = {
 			isa = PBXGroup;
 			children = (
@@ -2578,6 +2596,8 @@
 				34F8824E1DAB40A000C14292 /* JiaWebShareViewController.m */,
 				34F882611DAB7EDD00C14292 /* JiaLoginViewController.h */,
 				34F882621DAB7EDD00C14292 /* JiaLoginViewController.m */,
+				3481C0781DACDD4800943B14 /* JiaSearchBarViewController.h */,
+				3481C0791DACDD4800943B14 /* JiaSearchBarViewController.m */,
 			);
 			path = TestControllerGroup;
 			sourceTree = "<group>";
@@ -2593,6 +2613,7 @@
 		34F8825A1DAB69E900C14292 /* JiaUI */ = {
 			isa = PBXGroup;
 			children = (
+				3481C0721DACDB7200943B14 /* JiaSearchBar */,
 			);
 			path = JiaUI;
 			sourceTree = "<group>";
@@ -2735,6 +2756,7 @@
 				343EB5DE1D922C2B00110CE5 /* NSDateTimeAgo.bundle in Resources */,
 				341F2D461D9A374C00379D48 /* userImages.xcassets in Resources */,
 				34F882521DAB42D300C14292 /* test.html in Resources */,
+				3481C0741DACDBCC00943B14 /* JiaSearchBar_ICON@2x.png in Resources */,
 				347BAFB01D87E30200D12F0B /* LaunchScreen.storyboard in Resources */,
 				340618321DABCE5B00AFC766 /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
 				340618351DABCE5B00AFC766 /* WeiboSDK.bundle in Resources */,
@@ -2890,6 +2912,7 @@
 				343EB64E1D922C2C00110CE5 /* UIImage+PDF.m in Sources */,
 				343EB5F11D922C2B00110CE5 /* NSNumber+RomanNumerals.m in Sources */,
 				343EB5EE1D922C2B00110CE5 /* NSDecimalNumber+CalculatingByString.m in Sources */,
+				3481C0771DACDBEA00943B14 /* JiaSearchBar.m in Sources */,
 				3468FFD51D90CA1A00A69723 /* MBProgressHUD.m in Sources */,
 				343EB63E1D922C2C00110CE5 /* UIDevice+Hardware.m in Sources */,
 				34F83CBA1D9B9EB60085A540 /* YTKNetworkAgent.m in Sources */,
@@ -2908,6 +2931,7 @@
 				343EB6091D922C2B00110CE5 /* NSString+Pinyin.m in Sources */,
 				343EB6711D922C2C00110CE5 /* UITableView+iOS7Style.m in Sources */,
 				343EB6461D922C2C00110CE5 /* UIImage+Blur.m in Sources */,
+				3481C07A1DACDD4800943B14 /* JiaSearchBarViewController.m in Sources */,
 				343EB6361D922C2C00110CE5 /* UIButton+TouchAreaInsets.m in Sources */,
 				343EB6301D922C2C00110CE5 /* UIButton+BackgroundColor.m in Sources */,
 				343EB6201D922C2C00110CE5 /* CAAnimation+EasingEquations.m in Sources */,

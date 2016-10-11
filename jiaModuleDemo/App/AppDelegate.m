@@ -78,7 +78,7 @@
     //友盟分享
     JiaShareConfigManager *jiaShareConfig=[JiaShareConfigManager sharedInstance];
     jiaShareConfig.shareAppKey=@"57e3f1cbe0f55a42080011ec";
-    jiaShareConfig.shareLogEnabled=YES;
+    jiaShareConfig.shareLogEnabled=NO;
     //设置平台
     [jiaShareConfig setPlaform:JiaSocialPlatConfigType_Tencent appKey:@"100424468" appSecret:@"c7394704798a158208a74ab60104f0ba" redirectURL:@"http://www.umeng.com/social"];
     [jiaShareConfig setPlaform:JiaSocialPlatConfigType_Wechat appKey:@"wxdc1e388c3822c80b" appSecret:@"3baf1193c85774b3fd9d18447d76cab0" redirectURL:@"http://www.umeng.com/social"];
