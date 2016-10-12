@@ -13,5 +13,6 @@
 #import "JiaShareHelper.h"
 #import "JiaWebShareHelper.h"
 #import "JiaPlatformHelper.h"
+#import "JiaShareMenuView.h"
 
 #endif /* JiaShare_h */

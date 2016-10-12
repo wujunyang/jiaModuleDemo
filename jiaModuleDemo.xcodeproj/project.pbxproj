@@ -283,6 +283,7 @@
 		3481C0741DACDBCC00943B14 /* JiaSearchBar_ICON@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3481C0731DACDBCC00943B14 /* JiaSearchBar_ICON@2x.png */; };
 		3481C0771DACDBEA00943B14 /* JiaSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 3481C0761DACDBEA00943B14 /* JiaSearchBar.m */; };
 		3481C07A1DACDD4800943B14 /* JiaSearchBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3481C0791DACDD4800943B14 /* JiaSearchBarViewController.m */; };
+		3481C07D1DACEDFF00943B14 /* JiaShareMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3481C07C1DACEDFF00943B14 /* JiaShareMenuView.m */; };
 		34919F741D98E7AB004B7307 /* GVUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 34919F731D98E7AB004B7307 /* GVUserDefaults.m */; };
 		34919F901D990F1E004B7307 /* JiaPathchHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 34919F8F1D990F1E004B7307 /* JiaPathchHelper.m */; };
 		34919F931D990FFE004B7307 /* JiaPathchModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 34919F921D990FFE004B7307 /* JiaPathchModel.m */; };
@@ -886,6 +887,8 @@
 		3481C0761DACDBEA00943B14 /* JiaSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JiaSearchBar.m; sourceTree = "<group>"; };
 		3481C0781DACDD4800943B14 /* JiaSearchBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JiaSearchBarViewController.h; sourceTree = "<group>"; };
 		3481C0791DACDD4800943B14 /* JiaSearchBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JiaSearchBarViewController.m; sourceTree = "<group>"; };
+		3481C07B1DACEDFF00943B14 /* JiaShareMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JiaShareMenuView.h; sourceTree = "<group>"; };
+		3481C07C1DACEDFF00943B14 /* JiaShareMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JiaShareMenuView.m; sourceTree = "<group>"; };
 		34919F721D98E7AB004B7307 /* GVUserDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GVUserDefaults.h; sourceTree = "<group>"; };
 		34919F731D98E7AB004B7307 /* GVUserDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GVUserDefaults.m; sourceTree = "<group>"; };
 		34919F7B1D98EAB0004B7307 /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
@@ -2524,6 +2527,8 @@
 				34F8825C1DAB726400C14292 /* JiaPlatformHelper.m */,
 				3406183D1DABDCD900AFC766 /* JiaShareTool.h */,
 				3406183E1DABDCD900AFC766 /* JiaShareTool.m */,
+				3481C07B1DACEDFF00943B14 /* JiaShareMenuView.h */,
+				3481C07C1DACEDFF00943B14 /* JiaShareMenuView.m */,
 				34F882561DAB610B00C14292 /* JiaShare.h */,
 			);
 			path = JiaShare;
@@ -2913,6 +2918,7 @@
 				343EB5F11D922C2B00110CE5 /* NSNumber+RomanNumerals.m in Sources */,
 				343EB5EE1D922C2B00110CE5 /* NSDecimalNumber+CalculatingByString.m in Sources */,
 				3481C0771DACDBEA00943B14 /* JiaSearchBar.m in Sources */,
+				3481C07D1DACEDFF00943B14 /* JiaShareMenuView.m in Sources */,
 				3468FFD51D90CA1A00A69723 /* MBProgressHUD.m in Sources */,
 				343EB63E1D922C2C00110CE5 /* UIDevice+Hardware.m in Sources */,
 				34F83CBA1D9B9EB60085A540 /* YTKNetworkAgent.m in Sources */,
