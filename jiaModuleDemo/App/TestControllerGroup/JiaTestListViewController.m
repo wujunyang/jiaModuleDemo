@@ -12,7 +12,7 @@
 #import "JiaLoginViewController.h"
 #import "JiaSearchBarViewController.h"
 
-#import "JiaShareMenuView.h"
+#import "JiaShare.h"
 
 @interface JiaTestListViewController()<UITableViewDataSource, UITableViewDelegate>
 @property (nonatomic,strong) NSArray             *dataArray;
@@ -27,7 +27,7 @@
     self.navigationItem.title=@"模块功能导航";
     
     if (!self.dataArray) {
-        self.dataArray=@[@"WEB分享实例",@"第三方登录",@"弹出分享菜单",@"自定义SearchBar"];
+        self.dataArray=@[@"WEB分享实例",@"第三方登录",@"弹出分享菜单",@"自定义SearchBar",@"自定义弹出窗"];
     }
     
     //初始化表格
@@ -107,6 +107,16 @@
         {
             JiaSearchBarViewController *vc=[[JiaSearchBarViewController alloc]init];
             [self.navigationController pushViewController:vc animated:YES];
+            break;
+        }
+        case 4:
+        {
+            [JiaAlertView showTwoButtonsWithTitle:@"提示信息" Message:@"这里为提示的信息内容，里面会根据内容的高度进行计算，当大于弹出窗默认的高度时会自行适应高度(并自动转成UITextView来加载内容)" ButtonType:JiaAlertViewButtonTypeNone ButtonTitle:@"取消" Click:^{
+                NSLog(@"您点取消事件");
+            } ButtonType:JiaAlertViewButtonTypeNone ButtonTitle:@"确定" Click:^{
+                NSLog(@"你点确定事件");
+            }];
+
             break;
         }
         default:

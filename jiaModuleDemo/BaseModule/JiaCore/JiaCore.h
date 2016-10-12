@@ -10,7 +10,7 @@
 #define JiaCore_h
 
 
-#import "MBProgressHUD+MP.h"
+
 #import "JiaCocoaLumberjack.h"
 
 #import "JiaBaseViewController.h"
@@ -20,5 +20,11 @@
 #import "JiaBaseRequest.h"
 
 #import "JiaPathchModel.h"
+
+
+//JiaUI
+#import "MBProgressHUD+MP.h"
+#import "JiaAlertView.h"
+#import "JiaSearchBar.h"
 
 #endif /* JiaCore_h */

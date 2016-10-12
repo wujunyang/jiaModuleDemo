@@ -284,6 +284,7 @@
 		3481C0771DACDBEA00943B14 /* JiaSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 3481C0761DACDBEA00943B14 /* JiaSearchBar.m */; };
 		3481C07A1DACDD4800943B14 /* JiaSearchBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3481C0791DACDD4800943B14 /* JiaSearchBarViewController.m */; };
 		3481C07D1DACEDFF00943B14 /* JiaShareMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3481C07C1DACEDFF00943B14 /* JiaShareMenuView.m */; };
+		348AD9931DADDBBA0088FBE1 /* JiaAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 348AD9921DADDBBA0088FBE1 /* JiaAlertView.m */; };
 		34919F741D98E7AB004B7307 /* GVUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 34919F731D98E7AB004B7307 /* GVUserDefaults.m */; };
 		34919F901D990F1E004B7307 /* JiaPathchHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 34919F8F1D990F1E004B7307 /* JiaPathchHelper.m */; };
 		34919F931D990FFE004B7307 /* JiaPathchModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 34919F921D990FFE004B7307 /* JiaPathchModel.m */; };
@@ -889,6 +890,8 @@
 		3481C0791DACDD4800943B14 /* JiaSearchBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JiaSearchBarViewController.m; sourceTree = "<group>"; };
 		3481C07B1DACEDFF00943B14 /* JiaShareMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JiaShareMenuView.h; sourceTree = "<group>"; };
 		3481C07C1DACEDFF00943B14 /* JiaShareMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JiaShareMenuView.m; sourceTree = "<group>"; };
+		348AD9911DADDBB90088FBE1 /* JiaAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JiaAlertView.h; sourceTree = "<group>"; };
+		348AD9921DADDBBA0088FBE1 /* JiaAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JiaAlertView.m; sourceTree = "<group>"; };
 		34919F721D98E7AB004B7307 /* GVUserDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GVUserDefaults.h; sourceTree = "<group>"; };
 		34919F731D98E7AB004B7307 /* GVUserDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GVUserDefaults.m; sourceTree = "<group>"; };
 		34919F7B1D98EAB0004B7307 /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
@@ -2491,6 +2494,15 @@
 			path = JiaSearchBar;
 			sourceTree = "<group>";
 		};
+		348AD9901DADDB870088FBE1 /* JiaAlertView */ = {
+			isa = PBXGroup;
+			children = (
+				348AD9911DADDBB90088FBE1 /* JiaAlertView.h */,
+				348AD9921DADDBBA0088FBE1 /* JiaAlertView.m */,
+			);
+			path = JiaAlertView;
+			sourceTree = "<group>";
+		};
 		34919F711D98E7AB004B7307 /* GVUserDefaults */ = {
 			isa = PBXGroup;
 			children = (
@@ -2618,6 +2630,7 @@
 		34F8825A1DAB69E900C14292 /* JiaUI */ = {
 			isa = PBXGroup;
 			children = (
+				348AD9901DADDB870088FBE1 /* JiaAlertView */,
 				3481C0721DACDB7200943B14 /* JiaSearchBar */,
 			);
 			path = JiaUI;
@@ -3085,6 +3098,7 @@
 				343EB6121D922C2B00110CE5 /* NSString+XML.m in Sources */,
 				343EB67B1D922C2C00110CE5 /* UITextField+Shake.m in Sources */,
 				343EB62C1D922C2C00110CE5 /* UIBezierPath+Length.m in Sources */,
+				348AD9931DADDBBA0088FBE1 /* JiaAlertView.m in Sources */,
 				343EB6211D922C2C00110CE5 /* CALayer+UIColor.m in Sources */,
 				343EB67A1D922C2C00110CE5 /* UITextField+Select.m in Sources */,
 				343EB5EB1D922C2B00110CE5 /* NSInvocation+Bb.m in Sources */,

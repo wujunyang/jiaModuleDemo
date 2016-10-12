@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <Masonry/Masonry.h>
+#import "JiaCore.h"
 #import "JiaMacros.h"
 
 @interface JiaTestListViewController : UIViewController
