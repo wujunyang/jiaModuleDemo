@@ -11,9 +11,6 @@
 @implementation JiaAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    
-    //网络状态通知监听
-    [GLobalRealReachability startNotifier];
         
     //是否开始日志记录功能
     if(JiaCoreConfigManagerInstance.isRecordlogger)

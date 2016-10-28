@@ -66,10 +66,13 @@
         [self configRightBaritemWithImage];
     }
     
+    //添加一个通知监听网络状态切换
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(networkChanged:)
                                                  name:kRealReachabilityChangedNotification
                                                object:nil];
+    [GLobalRealReachability startNotifier];
+    
     ReachabilityStatus status = [GLobalRealReachability currentReachabilityStatus];
     //当无网络时 每进一个页面都进行提示
     if (status == RealStatusNotReachable)
@@ -110,6 +113,7 @@
 
 -(void)dealloc
 {
+    [GLobalRealReachability stopNotifier];
     //移除通知
     [[NSNotificationCenter defaultCenter]removeObserver:self];
 }
@@ -270,8 +274,7 @@
 {
     RealReachability *reachability = (RealReachability *)notification.object;
     ReachabilityStatus status = [reachability currentReachabilityStatus];
-    ReachabilityStatus previousStatus = [reachability previousReachabilityStatus];
-    NSLog(@"networkChanged, currentStatus:%@, previousStatus:%@", @(status), @(previousStatus));
+
     
     if (status == RealStatusNotReachable)
     {
