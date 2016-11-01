@@ -14,7 +14,7 @@
 Pod::Spec.new do |s|
 
 s.name         = "jiaModule"
-s.version      = "0.0.6"
+s.version      = "0.0.7"
 s.summary      = "iOS模块化功能的引用"
 
 s.homepage     = "https://github.com/wujunyang/jiaModuleDemo"
@@ -23,7 +23,7 @@ s.author             = { "wujunyang" => "wujunyang@126.com" }
 
 s.platform     = :ios, "7.0"
 
-s.source       = { :git => "https://github.com/wujunyang/jiaModuleDemo.git", :tag => "0.0.6" }
+s.source       = { :git => "https://github.com/wujunyang/jiaModuleDemo.git", :tag => "#{s.version}" }
 
 s.requires_arc = true
 
@@ -51,6 +51,17 @@ jiaAnalytics.dependency 'jiaModule/JiaCore'
 jiaAnalytics.dependency 'XAspect'
 jiaAnalytics.dependency 'Aspects'
 jiaAnalytics.dependency 'UMengAnalytics-NO-IDFA', '~> 4.1.1'
+end
+
+s.subspec 'JiaShare' do |jiaShare|
+jiaShare.source_files = 'jiaModuleDemo/BaseModule/JiaShare/**/*'
+jiaShare.dependency 'jiaModule/JiaCore'
+jiaShare.dependency 'XAspect'
+jiaShare.dependency 'UMengUShare/UI'
+jiaShare.dependency 'UMengUShare/Social/Sina'
+jiaShare.dependency 'UMengUShare/Social/WeChat'
+jiaShare.dependency 'UMengUShare/Social/QQ'
+jiaShare.dependency 'UMengUShare/Social/TencentWeibo'
 end
 
 
