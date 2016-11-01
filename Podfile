@@ -18,4 +18,17 @@ pod 'JSPatch'
 pod 'RealReachability'
 pod 'FLEX', '~> 2.0'
 pod 'CocoaLumberjack', '~> 2.0.0-rc'
+
+# 友盟分享UI
+pod 'UMengUShare/UI'
+# 集成新浪微博
+pod 'UMengUShare/Social/Sina'
+# 集成微信
+pod 'UMengUShare/Social/WeChat'
+# 集成QQ
+pod 'UMengUShare/Social/QQ'
+# 集成腾讯微博
+pod 'UMengUShare/Social/TencentWeibo'
+
+
 end
