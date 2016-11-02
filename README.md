@@ -465,6 +465,29 @@ pod 'jiaModule/JiaGT’
 #验证是否正确（后面还有一个git的私有地址)
 pod lib lint jiaModule.podspec --allow-warnings --use-libraries --sources=https://github.com/CocoaPods/Specs.git,https://github.com/wujunyang/WjySpecs.git
 
-#提交到库  (WjySpecs就是你们的私有库名 后面还有一个git的私有地址)
-pod repo push WjySpecs jiaModule.podspec --allow-warnings --use-libraries --sources=https://github.com/CocoaPods/Specs.git,https://github.com/wujunyang/WjySpecs.git
+#提交到库  (specs就是你们的私有库名，见下面repo add指令时的名字，后面还有一个git的私有地址)
+pod repo push specs jiaModule.podspec --allow-warnings --use-libraries --sources=https://github.com/CocoaPods/Specs.git,https://github.com/wujunyang/WjySpecs.git
+```
+
+注意：如果提交到库时报下面的问题，说明还没有把私有仓库集下载到本地：
+
+```obj-c
+[!] Unable to find the `specs` repo. If it has not yet been cloned, add it via `pod repo add`.
+```
+
+可以直接执行指令（specs名字可以自行定义，跟上面提交时对应该上就行）：
+
+```obj-c
+pod repo add specs https://github.com/wujunyang/WjySpecs.git
+```
+
+会在路径：/Users/自个电脑用户名/.cocoapods/repos（被隐藏，要用指令进行显示出来） 下有一个文件夹specs 另外还有一个是Pod官网的文件夹；
+
+最后还要登录Git账号跟密码，就可以成功提交了
+
+```obj-c
+Username for 'https://github.com': wujunyang@126.com
+Password for 'https://wujunyang@126.com@github.com': 
+To https://github.com/wujunyang/WjySpecs.git
+   80ca876..d4f7446  master -> master
 ```
