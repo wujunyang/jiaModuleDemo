@@ -53,16 +53,17 @@ jiaAnalytics.dependency 'Aspects'
 jiaAnalytics.dependency 'UMengAnalytics-NO-IDFA', '~> 4.1.1'
 end
 
-s.subspec 'JiaShare' do |jiaShare|
-jiaShare.source_files = 'jiaModuleDemo/BaseModule/JiaShare/**/*'
-jiaShare.dependency 'jiaModule/JiaCore'
-jiaShare.dependency 'XAspect'
-jiaShare.dependency 'UMengUShare/UI'
-jiaShare.dependency 'UMengUShare/Social/Sina'
-jiaShare.dependency 'UMengUShare/Social/WeChat'
-jiaShare.dependency 'UMengUShare/Social/QQ'
-jiaShare.dependency 'UMengUShare/Social/TencentWeibo'
-end
+# https://github.com/CocoaPods/CocoaPods/issues/5738 因QQ不支持I386，目前无法用Pod进行管理（symbol(s) not found for architecture i386）
+#s.subspec 'JiaShare' do |jiaShare|
+#jiaShare.source_files = 'jiaModuleDemo/BaseModule/JiaShare/**/*'
+#jiaShare.dependency 'jiaModule/JiaCore'
+#jiaShare.dependency 'XAspect'
+#jiaShare.dependency 'UMengUShare/UI'
+#jiaShare.dependency 'UMengUShare/Social/Sina'
+#jiaShare.dependency 'UMengUShare/Social/WeChat'
+#jiaShare.dependency 'UMengUShare/Social/QQ'
+#jiaShare.dependency 'UMengUShare/Social/TencentWeibo'
+#end
 
 
 

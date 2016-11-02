@@ -17,10 +17,7 @@
 		3411DD481D93DCD700077FAD /* JiaAnalyticsHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3411DD471D93DCD700077FAD /* JiaAnalyticsHelper.m */; };
 		341F2D3D1D9A35E800379D48 /* JiaApp.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 341F2D3C1D9A35E800379D48 /* JiaApp.xcassets */; };
 		341F2D401D9A368D00379D48 /* JiaUserConfigManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 341F2D3F1D9A368D00379D48 /* JiaUserConfigManager.m */; };
-		341F2D441D9A373B00379D48 /* designerImages.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 341F2D431D9A373B00379D48 /* designerImages.xcassets */; };
-		341F2D461D9A374C00379D48 /* userImages.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 341F2D451D9A374C00379D48 /* userImages.xcassets */; };
 		341F2D491D9A377200379D48 /* JiaProjectConfigManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 341F2D481D9A377200379D48 /* JiaProjectConfigManager.m */; };
-		341F2D4D1D9A37BD00379D48 /* projectImages.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 341F2D4C1D9A37BD00379D48 /* projectImages.xcassets */; };
 		341F2D501D9A429C00379D48 /* DesignerDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 341F2D4F1D9A429C00379D48 /* DesignerDetailModel.m */; };
 		341F2D531D9A42B400379D48 /* DesignerHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 341F2D521D9A42B400379D48 /* DesignerHeaderView.m */; };
 		343EB3B11D9220B300110CE5 /* DesignerServiceApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 343EB3B01D9220B300110CE5 /* DesignerServiceApi.m */; };
@@ -336,13 +333,10 @@
 		341F2D3F1D9A368D00379D48 /* JiaUserConfigManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JiaUserConfigManager.m; sourceTree = "<group>"; };
 		341F2D411D9A36B800379D48 /* userModulePrefixHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = userModulePrefixHeader.h; sourceTree = "<group>"; };
 		341F2D421D9A36DD00379D48 /* userModuleMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = userModuleMacros.h; sourceTree = "<group>"; };
-		341F2D431D9A373B00379D48 /* designerImages.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = designerImages.xcassets; sourceTree = "<group>"; };
-		341F2D451D9A374C00379D48 /* userImages.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = userImages.xcassets; sourceTree = "<group>"; };
 		341F2D471D9A377200379D48 /* JiaProjectConfigManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JiaProjectConfigManager.h; sourceTree = "<group>"; };
 		341F2D481D9A377200379D48 /* JiaProjectConfigManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JiaProjectConfigManager.m; sourceTree = "<group>"; };
 		341F2D4A1D9A378A00379D48 /* projectModuleMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = projectModuleMacros.h; sourceTree = "<group>"; };
 		341F2D4B1D9A37A700379D48 /* projectModulePrefixHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = projectModulePrefixHeader.h; sourceTree = "<group>"; };
-		341F2D4C1D9A37BD00379D48 /* projectImages.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = projectImages.xcassets; sourceTree = "<group>"; };
 		341F2D4E1D9A429C00379D48 /* DesignerDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesignerDetailModel.h; sourceTree = "<group>"; };
 		341F2D4F1D9A429C00379D48 /* DesignerDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesignerDetailModel.m; sourceTree = "<group>"; };
 		341F2D511D9A42B400379D48 /* DesignerHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesignerHeaderView.h; sourceTree = "<group>"; };
@@ -1981,7 +1975,6 @@
 		3468FFE71D90EE7500A69723 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				341F2D431D9A373B00379D48 /* designerImages.xcassets */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -2001,7 +1994,6 @@
 		3468FFE91D90EF1400A69723 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				341F2D451D9A374C00379D48 /* userImages.xcassets */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -2020,7 +2012,6 @@
 		3468FFEB1D90EF3800A69723 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				341F2D4C1D9A37BD00379D48 /* projectImages.xcassets */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -2639,13 +2630,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				341F2D3D1D9A35E800379D48 /* JiaApp.xcassets in Resources */,
-				341F2D441D9A373B00379D48 /* designerImages.xcassets in Resources */,
 				343EB5DE1D922C2B00110CE5 /* NSDateTimeAgo.bundle in Resources */,
-				341F2D461D9A374C00379D48 /* userImages.xcassets in Resources */,
 				34F882521DAB42D300C14292 /* test.html in Resources */,
 				3481C0741DACDBCC00943B14 /* JiaSearchBar_ICON@2x.png in Resources */,
 				347BAFB01D87E30200D12F0B /* LaunchScreen.storyboard in Resources */,
-				341F2D4D1D9A37BD00379D48 /* projectImages.xcassets in Resources */,
 				347BAFAD1D87E30200D12F0B /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
