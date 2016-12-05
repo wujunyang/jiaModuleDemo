@@ -1,5 +1,5 @@
 # getui-sdk-ios-cocoapods
-个推iOS SDK Cocoa Pods集成库
+个推iOS SDK CocoaPods集成库
 
 ## podfile 配置
 ``` java
