@@ -696,6 +696,7 @@
 		0E34845222492F06605F259FFA1E3E3F /* FSMEngine.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FSMEngine.m; path = RealReachability/FSM/FSMEngine.m; sourceTree = "<group>"; };
 		0E4F4E66F8CCB316186BD900F7B1FD34 /* DDASLLogCapture.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DDASLLogCapture.h; path = Classes/DDASLLogCapture.h; sourceTree = "<group>"; };
 		0F23152FC6666515C814608DB68A89C3 /* RACCommand.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RACCommand.h; path = ReactiveCocoa/RACCommand.h; sourceTree = "<group>"; };
+		0F3F1CF0A95FADA8BC9E3AE4B5CC4D9D /* UMMobClick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UMMobClick.framework; path = "umsdk_IOS_analyics_no-idfa_v4.1.9/UMMobClick.framework"; sourceTree = "<group>"; };
 		1019968B3DBE5C1C4DCCFEC7FB9796EC /* NSSet+RACSequenceAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSSet+RACSequenceAdditions.m"; path = "ReactiveCocoa/NSSet+RACSequenceAdditions.m"; sourceTree = "<group>"; };
 		1090967D923DD25A2F1B2A54FC5EB9DA /* FLEXSystemLogMessage.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FLEXSystemLogMessage.m; path = Classes/GlobalStateExplorers/SystemLog/FLEXSystemLogMessage.m; sourceTree = "<group>"; };
 		109C6E5898A569017E578696A39D043A /* UIButton+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIButton+AFNetworking.h"; path = "UIKit+AFNetworking/UIButton+AFNetworking.h"; sourceTree = "<group>"; };
@@ -1255,7 +1256,6 @@
 		F422F18247B97F69DAD6637EF25FC1B9 /* UITextView+RACSignalSupport.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UITextView+RACSignalSupport.m"; path = "ReactiveCocoa/UITextView+RACSignalSupport.m"; sourceTree = "<group>"; };
 		F47A949D72E03D6AFF352A617C3F616C /* UIViewController+CYLTabBarControllerExtention.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+CYLTabBarControllerExtention.m"; path = "CYLTabBarController/UIViewController+CYLTabBarControllerExtention.m"; sourceTree = "<group>"; };
 		F49DC35012B443B921461D0FDB506017 /* FLEXToolbarItem.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FLEXToolbarItem.h; path = Classes/ExplorerToolbar/FLEXToolbarItem.h; sourceTree = "<group>"; };
-		F4B5B684E02EC0D88DB3E0C69780AA1A /* UMMobClick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UMMobClick.framework; path = "umsdk_IOS_analyics_no-idfa_v4.1.5/UMMobClick.framework"; sourceTree = "<group>"; };
 		F53AA90845A210EF7B8F6F7643DE1559 /* RACSignal.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RACSignal.m; path = ReactiveCocoa/RACSignal.m; sourceTree = "<group>"; };
 		F7164E61CA88EE278019C9D6400EFA6D /* SDWebImagePrefetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImagePrefetcher.h; path = SDWebImage/SDWebImagePrefetcher.h; sourceTree = "<group>"; };
 		F73C40E13E71E09FB31554A0CA10BBDE /* Aspects-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Aspects-prefix.pch"; sourceTree = "<group>"; };
@@ -1899,6 +1899,14 @@
 			path = ReactiveCocoa;
 			sourceTree = "<group>";
 		};
+		6778ADB70E85535A3D53BA2DBE3358BC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0F3F1CF0A95FADA8BC9E3AE4B5CC4D9D /* UMMobClick.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		69A85DFE74769CBE70BBD71BE99BEE26 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -2441,14 +2449,6 @@
 			name = Social;
 			sourceTree = "<group>";
 		};
-		D99802EEC2F9B4001371C02E62534373 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				F4B5B684E02EC0D88DB3E0C69780AA1A /* UMMobClick.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		DB430D5EA97B9D924B66CDB1114A5B21 /* no-arc */ = {
 			isa = PBXGroup;
 			children = (
@@ -2636,7 +2636,7 @@
 		F1DD20A443A330C670C31ABCAC5D1658 /* UMengAnalytics-NO-IDFA */ = {
 			isa = PBXGroup;
 			children = (
-				D99802EEC2F9B4001371C02E62534373 /* Frameworks */,
+				6778ADB70E85535A3D53BA2DBE3358BC /* Frameworks */,
 			);
 			name = "UMengAnalytics-NO-IDFA";
 			path = "UMengAnalytics-NO-IDFA";

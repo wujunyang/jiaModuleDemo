@@ -33,9 +33,9 @@ PODS:
   - FLEX (2.1.1)
   - GTSDK (1.5.3)
   - JSONModel (1.0.2)
-  - JSPatch (1.1):
-    - JSPatch/Core (= 1.1)
-  - JSPatch/Core (1.1)
+  - JSPatch (1.1.2):
+    - JSPatch/Core (= 1.1.2)
+  - JSPatch/Core (1.1.2)
   - Masonry (0.6.4)
   - ReactiveCocoa (2.5):
     - ReactiveCocoa/UI (= 2.5)
@@ -52,19 +52,19 @@ PODS:
   - SDWebImage (3.7.6):
     - SDWebImage/Core (= 3.7.6)
   - SDWebImage/Core (3.7.6)
-  - UMengAnalytics-NO-IDFA (4.1.5)
-  - UMengUShare/Core (6.1):
+  - UMengAnalytics-NO-IDFA (4.1.9)
+  - UMengUShare/Core (6.1.1):
     - UMengUShare/Network
-  - UMengUShare/Network (6.1)
-  - UMengUShare/Social/QQ (6.1):
+  - UMengUShare/Network (6.1.1)
+  - UMengUShare/Social/QQ (6.1.1):
     - UMengUShare/Core
-  - UMengUShare/Social/Sina (6.1):
+  - UMengUShare/Social/Sina (6.1.1):
     - UMengUShare/Core
-  - UMengUShare/Social/TencentWeibo (6.1):
+  - UMengUShare/Social/TencentWeibo (6.1.1):
     - UMengUShare/Core
-  - UMengUShare/Social/WeChat (6.1):
+  - UMengUShare/Social/WeChat (6.1.1):
     - UMengUShare/Core
-  - UMengUShare/UI (6.1):
+  - UMengUShare/UI (6.1.1):
     - UMengUShare/Core
   - XAspect (1.0.5):
     - XAspect/Core (= 1.0.5)
@@ -104,13 +104,13 @@ SPEC CHECKSUMS:
   FLEX: 27b768fcae23a313a1eb115076d429180ca9b472
   GTSDK: 1b55fc5b0f29c7ea9061946f07aeee49ef70c90e
   JSONModel: 6ffcb4ffa3659c9e9a2e5d45d6c7705bab187c03
-  JSPatch: ade285ad1d8f06146ed6054a39cef87509453299
+  JSPatch: 741205ebb2e2238c223a436e4c8cf75cf40a345f
   Masonry: 281802d04d787ea2973179ee8bcb50500579ede2
   ReactiveCocoa: e2db045570aa97c695e7aa97c2bcab222ae51f4a
   RealReachability: e6c8a2bbffa316006e8c282efc1ee2567d61a920
   SDWebImage: c325cf02c30337336b95beff20a13df489ec0ec9
-  UMengAnalytics-NO-IDFA: f1b08b540eba6ebad044a574cae6d988cf40cfda
-  UMengUShare: 6c3902a68a06d01031bed6f426e97b89d4fc504f
+  UMengAnalytics-NO-IDFA: 985292af177111685325c90c321094172b95d2cb
+  UMengUShare: 0a80f54ee06f71f3de7c57764c36339e8bf9b7e7
   XAspect: db50bf487f92dbb8557a7a5365556966c8493af8
   YYCache: 8105b6638f5e849296c71f331ff83891a4942952
 
