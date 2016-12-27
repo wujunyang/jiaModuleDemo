@@ -53,7 +53,7 @@ jiaAnalytics.dependency 'Aspects'
 jiaAnalytics.dependency 'UMengAnalytics-NO-IDFA', '~> 4.1.1'
 end
 
-# https://github.com/CocoaPods/CocoaPods/issues/5738 因QQ不支持I386，目前无法用Pod进行管理（symbol(s) not found for architecture i386）
+
 s.subspec 'JiaShare' do |jiaShare|
 jiaShare.source_files = 'jiaModuleDemo/BaseModule/JiaShare/**/*'
 jiaShare.dependency 'jiaModule/JiaCore'
