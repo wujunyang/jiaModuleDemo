@@ -390,7 +390,7 @@ if(![JiaPlatformHelper installPlatAppWithType:JiaSocialPlatformType_QQ])
 Pod::Spec.new do |s|
 
 s.name         = "jiaModule"
-s.version      = "0.0.8"
+s.version      = "0.0.9"
 s.summary      = "iOS模块化功能的引用"
 
 s.homepage     = "https://github.com/wujunyang/jiaModuleDemo"
@@ -411,7 +411,7 @@ jiaCore.dependency 'JSPatch'
 jiaCore.dependency 'RealReachability'
 jiaCore.dependency 'FLEX', '~> 2.0'
 jiaCore.dependency 'CocoaLumberjack', '~> 2.0.0-rc'
-jiaCore.dependency 'AFNetworking', '~>2.6.0'
+jiaCore.dependency 'AFNetworking', '~> 3.0'
 end
 
 s.subspec 'JiaGT' do |jiaGT|
@@ -448,6 +448,7 @@ s.frameworks = 'UIKit'
 # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
 # s.dependency "JSONKit", "~> 1.4"
 end
+
 
 ```
 
