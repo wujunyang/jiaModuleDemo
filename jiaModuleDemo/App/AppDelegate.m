@@ -47,7 +47,7 @@
     
     //设置模块jiaDesigner相关配置
     jiaDesignerConfigManager *jiaDesignerConfig=[jiaDesignerConfigManager sharedInstance];
-    jiaDesignerConfig.prefixNetWorkUrl=@"http://private-eda65-blossom.apiary-mock.com/";
+    jiaDesignerConfig.prefixNetWorkUrl=@"http://private-iary-mock.com/";
     
     
     
