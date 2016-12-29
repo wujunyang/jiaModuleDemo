@@ -390,7 +390,7 @@ if(![JiaPlatformHelper installPlatAppWithType:JiaSocialPlatformType_QQ])
 Pod::Spec.new do |s|
 
 s.name         = "jiaModule"
-s.version      = "0.0.6"
+s.version      = "0.0.8"
 s.summary      = "iOS模块化功能的引用"
 
 s.homepage     = "https://github.com/wujunyang/jiaModuleDemo"
@@ -399,7 +399,7 @@ s.author             = { "wujunyang" => "wujunyang@126.com" }
 
 s.platform     = :ios, "7.0"
 
-s.source       = { :git => "https://github.com/wujunyang/jiaModuleDemo.git", :tag => "0.0.6" }
+s.source       = { :git => "https://github.com/wujunyang/jiaModuleDemo.git", :tag => "#{s.version}" }
 
 s.requires_arc = true
 
@@ -418,7 +418,7 @@ s.subspec 'JiaGT' do |jiaGT|
 jiaGT.source_files = 'jiaModuleDemo/BaseModule/JiaGT/**/*'
 jiaGT.dependency 'jiaModule/JiaCore'
 jiaGT.dependency 'XAspect'
-jiaGT.dependency 'GTSDK', '~> 1.5.0'
+jiaGT.dependency 'GTSDK'
 end
 
 s.subspec 'JiaAnalytics' do |jiaAnalytics|
@@ -430,12 +430,25 @@ jiaAnalytics.dependency 'UMengAnalytics-NO-IDFA', '~> 4.1.1'
 end
 
 
+s.subspec 'JiaShare' do |jiaShare|
+jiaShare.source_files = 'jiaModuleDemo/BaseModule/JiaShare/**/*'
+jiaShare.dependency 'jiaModule/JiaCore'
+jiaShare.dependency 'XAspect'
+jiaShare.dependency 'UMengUShare/UI'
+jiaShare.dependency 'UMengUShare/Social/Sina'
+jiaShare.dependency 'UMengUShare/Social/WeChat'
+jiaShare.dependency 'UMengUShare/Social/QQ'
+jiaShare.dependency 'UMengUShare/Social/TencentWeibo'
+end
+
+
 
 s.frameworks = 'UIKit'
 
 # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
 # s.dependency "JSONKit", "~> 1.4"
 end
+
 ```
 
 上面的文件会把不同的模块进行分离，可以一起引入也可以单独引入某一个模块；pod会自动把相应的依赖都引入,下面是全部引入关于jiaModule模块

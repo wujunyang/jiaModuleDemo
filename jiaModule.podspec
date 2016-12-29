@@ -42,7 +42,7 @@ s.subspec 'JiaGT' do |jiaGT|
 jiaGT.source_files = 'jiaModuleDemo/BaseModule/JiaGT/**/*'
 jiaGT.dependency 'jiaModule/JiaCore'
 jiaGT.dependency 'XAspect'
-jiaGT.dependency 'GTSDK', '~> 1.5.0'
+jiaGT.dependency 'GTSDK'
 end
 
 s.subspec 'JiaAnalytics' do |jiaAnalytics|
