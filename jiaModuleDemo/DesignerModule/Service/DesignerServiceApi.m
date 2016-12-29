@@ -11,11 +11,11 @@
 @implementation DesignerServiceApi
 
 - (NSString *)requestUrl {
-    return [NSString stringWithFormat:@"%@%@",JiaDesignerConfigManagerInstance.prefixNetWorkUrl,@"projects/1/replenishment-documents"];
+    return [NSString stringWithFormat:@"%@%@",JiaDesignerConfigManagerInstance.prefixNetWorkUrl,@"message/notice/list/task_type"];
 }
 
 - (YTKRequestMethod)requestMethod {
-    return YTKRequestMethodGet;
+    return YTKRequestMethodGET;
 }
 
 @end
