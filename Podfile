@@ -10,7 +10,7 @@ pod 'Masonry','~>0.6.1'
 pod 'XAspect'
 pod 'CYLTabBarController'
 pod 'Aspects'
-pod 'GTSDK'
+pod 'GTSDK','1.5.3'
 pod 'UMengAnalytics-NO-IDFA'
 
 pod 'YYCache'

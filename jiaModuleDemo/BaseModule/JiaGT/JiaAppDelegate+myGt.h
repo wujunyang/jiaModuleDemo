@@ -7,7 +7,7 @@
 //
 
 #import "JiaAppDelegate.h"
-#import "GeTuiSdk.h"
+#import <GTSDK/GeTuiSdk.h>
 
 @interface JiaAppDelegate (myGt)<GeTuiSdkDelegate>
 

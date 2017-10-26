@@ -23,13 +23,13 @@ PODS:
     - CocoaLumberjack/Core
   - CocoaLumberjack/Extensions (2.0.3):
     - CocoaLumberjack/Default
-  - CYLTabBarController (1.8.0)
+  - CYLTabBarController (1.14.1)
   - FLEX (2.1.1)
-  - GTSDK (1.5.3)
+  - GTSDK (2.0.0.0)
   - JSONModel (1.0.2)
-  - JSPatch (1.1.2):
-    - JSPatch/Core (= 1.1.2)
-  - JSPatch/Core (1.1.2)
+  - JSPatch (1.1.3):
+    - JSPatch/Core (= 1.1.3)
+  - JSPatch/Core (1.1.3)
   - Masonry (0.6.4)
   - ReactiveCocoa (2.5):
     - ReactiveCocoa/UI (= 2.5)
@@ -38,27 +38,36 @@ PODS:
   - ReactiveCocoa/no-arc (2.5)
   - ReactiveCocoa/UI (2.5):
     - ReactiveCocoa/Core
-  - RealReachability (1.1.8):
-    - RealReachability/Connection (= 1.1.8)
-    - RealReachability/Ping (= 1.1.8)
-  - RealReachability/Connection (1.1.8)
-  - RealReachability/Ping (1.1.8)
+  - RealReachability (1.1.9):
+    - RealReachability/Connection (= 1.1.9)
+    - RealReachability/Ping (= 1.1.9)
+  - RealReachability/Connection (1.1.9)
+  - RealReachability/Ping (1.1.9)
   - SDWebImage (3.7.6):
     - SDWebImage/Core (= 3.7.6)
   - SDWebImage/Core (3.7.6)
-  - UMengAnalytics-NO-IDFA (4.1.9)
-  - UMengUShare/Core (6.1.2):
+  - UMengAnalytics-NO-IDFA (4.2.5)
+  - UMengUShare/Core (6.4.6):
     - UMengUShare/Network
-  - UMengUShare/Network (6.1.2)
-  - UMengUShare/Social/QQ (6.1.2):
+  - UMengUShare/Network (6.4.6)
+  - UMengUShare/Social/QQ (6.4.6):
     - UMengUShare/Core
-  - UMengUShare/Social/Sina (6.1.2):
+    - UMengUShare/Social/ReducedQQ
+  - UMengUShare/Social/ReducedQQ (6.4.6):
     - UMengUShare/Core
-  - UMengUShare/Social/TencentWeibo (6.1.2):
+  - UMengUShare/Social/ReducedSina (6.4.6):
     - UMengUShare/Core
-  - UMengUShare/Social/WeChat (6.1.2):
+  - UMengUShare/Social/ReducedWeChat (6.4.6):
     - UMengUShare/Core
-  - UMengUShare/UI (6.1.2):
+  - UMengUShare/Social/Sina (6.4.6):
+    - UMengUShare/Core
+    - UMengUShare/Social/ReducedSina
+  - UMengUShare/Social/TencentWeibo (6.4.6):
+    - UMengUShare/Core
+  - UMengUShare/Social/WeChat (6.4.6):
+    - UMengUShare/Core
+    - UMengUShare/Social/ReducedWeChat
+  - UMengUShare/UI (6.4.6):
     - UMengUShare/Core
   - XAspect (1.0.5):
     - XAspect/Core (= 1.0.5)
@@ -94,20 +103,20 @@ SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   Aspects: 7595ba96a6727a58ebcbfc954497fc5d2fdde546
   CocoaLumberjack: f58d8a19629f4d8379ae14bb3534def24161430e
-  CYLTabBarController: 3b6befc12bccc2fd29a4d69e3ad7f9c4aaaf4506
+  CYLTabBarController: ec44b6e44166d9869fa649ce22bc728d107ecafc
   FLEX: 27b768fcae23a313a1eb115076d429180ca9b472
-  GTSDK: 1b55fc5b0f29c7ea9061946f07aeee49ef70c90e
+  GTSDK: 10882452fbd63e738334ea9463a7d59cbb172622
   JSONModel: 6ffcb4ffa3659c9e9a2e5d45d6c7705bab187c03
-  JSPatch: 741205ebb2e2238c223a436e4c8cf75cf40a345f
+  JSPatch: 02cfed591cb907bbfe80a346666e5a35fc2d349d
   Masonry: 281802d04d787ea2973179ee8bcb50500579ede2
   ReactiveCocoa: e2db045570aa97c695e7aa97c2bcab222ae51f4a
-  RealReachability: e6c8a2bbffa316006e8c282efc1ee2567d61a920
+  RealReachability: a8c483900986a0f3305733961effbfbb00637a02
   SDWebImage: c325cf02c30337336b95beff20a13df489ec0ec9
-  UMengAnalytics-NO-IDFA: 985292af177111685325c90c321094172b95d2cb
-  UMengUShare: b8c38579f8a4f2ce8dfb0c944cf868022a441bd3
+  UMengAnalytics-NO-IDFA: 16666e32edce5be44ae5b14aaaa7f3582e09d6ab
+  UMengUShare: fdbbf86353976727af26a66e9a84314ecb59c816
   XAspect: db50bf487f92dbb8557a7a5365556966c8493af8
   YYCache: 8105b6638f5e849296c71f331ff83891a4942952
 
-PODFILE CHECKSUM: 1a1214d7af614423c5c11d294058b79ae6cb3f45
+PODFILE CHECKSUM: 5090e76a96c3749b7f99a5c82f93f8ea9f2693d5
 
 COCOAPODS: 1.2.0.beta.1

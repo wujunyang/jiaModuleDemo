@@ -2,7 +2,7 @@
 //  CYLPlusButton.m
 //  CYLTabBarController
 //
-//  v1.8.0 Created by 微博@iOS程序犭袁 ( http://weibo.com/luohanchenyilong/ ) on 10/20/15.
+//  v1.14.0 Created by 微博@iOS程序犭袁 ( http://weibo.com/luohanchenyilong/ ) on 10/20/15.
 //  Copyright © 2015 https://github.com/ChenYilong . All rights reserved.
 //
 
@@ -72,5 +72,11 @@ UIViewController *CYLPlusChildViewController = nil;
     }];
     [plusButton addTarget:plusButton action:@selector(plusChildViewControllerButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
 }
+
+/**
+ *  按钮选中状态下点击先显示normal状态的颜色，松开时再回到selected状态下颜色。
+ *  重写此方法即不会出现上述情况，与 UITabBarButton 相似
+ */
+- (void)setHighlighted:(BOOL)highlighted {}
 
 @end

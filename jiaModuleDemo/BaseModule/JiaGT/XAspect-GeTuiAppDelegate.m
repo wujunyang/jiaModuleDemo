@@ -7,7 +7,7 @@
 //
 
 #import "JiaAppDelegate.h"
-#import "GeTuiSdk.h"
+#import <GTSDK/GeTuiSdk.h>
 #import "XAspect.h"
 #import "JiaGTConfigManager.h"
 #import "JiaAppDelegate+myGt.h"
